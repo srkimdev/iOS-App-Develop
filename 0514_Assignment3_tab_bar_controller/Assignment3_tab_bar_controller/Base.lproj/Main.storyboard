@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3CW-7Y-7PD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3CW-7Y-7PD">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -81,6 +81,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                        <color key="barTintColor" systemColor="labelColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="2AN-eU-Bba" kind="relationship" relationship="viewControllers" id="e3f-1i-EZe"/>
@@ -93,11 +95,11 @@
             </objects>
             <point key="canvasLocation" x="-776" y="1011"/>
         </scene>
-        <!--Item 1-->
+        <!--1번-->
         <scene sceneID="UDP-SM-Cbp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2AN-eU-Bba" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Grz-GJ-EBl"/>
+                    <tabBarItem key="tabBarItem" title="1번" image="arrow.down.doc" catalog="system" id="Grz-GJ-EBl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yz-05-2tP">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -112,11 +114,11 @@
             </objects>
             <point key="canvasLocation" x="121" y="353"/>
         </scene>
-        <!--Item 2-->
+        <!--2번-->
         <scene sceneID="xZL-zf-OYX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kK0-z7-vf2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="UXQ-Sr-8oI"/>
+                    <tabBarItem key="tabBarItem" title="2번" image="paperplane" catalog="system" id="UXQ-Sr-8oI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mac-ha-5ya">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -131,11 +133,11 @@
             </objects>
             <point key="canvasLocation" x="120" y="1480"/>
         </scene>
-        <!--Item-->
+        <!--3번-->
         <scene sceneID="9dH-E1-K5q">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l2z-ao-fkn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="lSl-Gq-Aiq"/>
+                    <tabBarItem key="tabBarItem" title="3번" image="folder" catalog="system" id="lSl-Gq-Aiq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aAV-cc-QQP">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -150,11 +152,11 @@
             </objects>
             <point key="canvasLocation" x="2085" y="353"/>
         </scene>
-        <!--Item-->
+        <!--4번-->
         <scene sceneID="pbW-eK-WED">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ilv-Ih-JDa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ACG-OP-1xe"/>
+                    <tabBarItem key="tabBarItem" title="4번" image="trash" catalog="system" id="ACG-OP-1xe"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gJK-cX-p39">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -171,7 +173,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="folder" catalog="system" width="128" height="96"/>
+        <image name="paperplane" catalog="system" width="128" height="119"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

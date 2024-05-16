@@ -13,6 +13,10 @@
 		DC35EF632BF34C3800128ADB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC35EF612BF34C3800128ADB /* Main.storyboard */; };
 		DC35EF652BF34C3A00128ADB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC35EF642BF34C3A00128ADB /* Assets.xcassets */; };
 		DC35EF682BF34C3A00128ADB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC35EF662BF34C3A00128ADB /* LaunchScreen.storyboard */; };
+		DCA077C12BF605F400510D0E /* StorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA077C02BF605F400510D0E /* StorageViewController.swift */; };
+		DCA077C32BF6392400510D0E /* NetflixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA077C22BF6392400510D0E /* NetflixViewController.swift */; };
+		DCA3FCC12BF5DC1C00FCC18B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3FCC02BF5DC1C00FCC18B /* MainViewController.swift */; };
+		DCA3FCC52BF5FB2600FCC18B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3FCC42BF5FB2600FCC18B /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		DC35EF642BF34C3A00128ADB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC35EF672BF34C3A00128ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC35EF692BF34C3A00128ADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCA077C02BF605F400510D0E /* StorageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewController.swift; sourceTree = "<group>"; };
+		DCA077C22BF6392400510D0E /* NetflixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixViewController.swift; sourceTree = "<group>"; };
+		DCA3FCC02BF5DC1C00FCC18B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DCA3FCC42BF5FB2600FCC18B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +68,13 @@
 				DC35EF5D2BF34C3800128ADB /* SceneDelegate.swift */,
 				DC35EF5F2BF34C3800128ADB /* ViewController.swift */,
 				DC35EF612BF34C3800128ADB /* Main.storyboard */,
+				DCA077C22BF6392400510D0E /* NetflixViewController.swift */,
+				DCA077C02BF605F400510D0E /* StorageViewController.swift */,
+				DCA3FCC42BF5FB2600FCC18B /* SearchViewController.swift */,
 				DC35EF642BF34C3A00128ADB /* Assets.xcassets */,
 				DC35EF662BF34C3A00128ADB /* LaunchScreen.storyboard */,
 				DC35EF692BF34C3A00128ADB /* Info.plist */,
+				DCA3FCC02BF5DC1C00FCC18B /* MainViewController.swift */,
 			);
 			path = Netflix;
 			sourceTree = "<group>";
@@ -138,9 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA3FCC52BF5FB2600FCC18B /* SearchViewController.swift in Sources */,
 				DC35EF602BF34C3800128ADB /* ViewController.swift in Sources */,
+				DCA077C12BF605F400510D0E /* StorageViewController.swift in Sources */,
 				DC35EF5C2BF34C3800128ADB /* AppDelegate.swift in Sources */,
 				DC35EF5E2BF34C3800128ADB /* SceneDelegate.swift in Sources */,
+				DCA3FCC12BF5DC1C00FCC18B /* MainViewController.swift in Sources */,
+				DCA077C32BF6392400510D0E /* NetflixViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
