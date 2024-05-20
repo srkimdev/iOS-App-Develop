@@ -23,6 +23,8 @@ class StorageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .black
+        
         first_label.text = "'나만의 자동 저장' 기능"
         first_label.textColor = .white
         first_label.font = .systemFont(ofSize: 20)
@@ -34,8 +36,7 @@ class StorageViewController: UIViewController {
         second_label.font = .systemFont(ofSize: 10)
         second_label.textAlignment = .center
         second_label.numberOfLines = 2
-        
-        
+    
         third_label.text = "설정하기"
         third_label.textColor = .white
         third_label.font = .systemFont(ofSize: 15, weight: .heavy)
@@ -53,7 +54,5 @@ class StorageViewController: UIViewController {
         iimage.contentMode = .scaleAspectFit
         
     }
-    
-    
 
 }

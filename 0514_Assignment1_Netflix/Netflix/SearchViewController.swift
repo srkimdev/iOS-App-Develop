@@ -9,142 +9,117 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    @IBOutlet var information: UILabel!
-    @IBOutlet var information2: UILabel!
+    @IBOutlet var textField: UITextField!
+    @IBOutlet var image: UIImageView!
+    @IBOutlet var textFieldUI: UIImageView!
     
-    @IBOutlet var engine: UITextField!
+    @IBOutlet var button1: UIButton!
+    @IBOutlet var button2: UIButton!
+    @IBOutlet var button3: UIButton!
     
-    @IBOutlet var first_image: UIImageView!
-    @IBOutlet var second_image: UIImageView!
-    @IBOutlet var thirt_image: UIImageView!
-    
-    @IBOutlet var first_label: UILabel!
-    @IBOutlet var second_label: UILabel!
-    @IBOutlet var third_label: UILabel!
-    
-    @IBOutlet var circle_image1: UIImageView!
-    @IBOutlet var circle_image2: UIImageView!
-    @IBOutlet var circle_image3: UIImageView!
+    @IBOutlet var label1: UILabel!
+    @IBOutlet var label2: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        view.backgroundColor = .black
+        textFieldUI.layer.masksToBounds = true
+        textFieldUI.layer.cornerRadius = 3
+        textFieldUI.backgroundColor = .darkGray
         
-        information.text = "이런! 찾으시는 작품이 없습니다."
+        // ---- button ----
         
-        information.textColor = .white
-        information.font = .systemFont(ofSize: 25, weight: .heavy)
-        information.textAlignment = .center
+        designButton(button: button1, title: "공개 예정", background: .white, textColor: .black)
         
+        designButton(button: button2, title: "모두의 인기 콘텐츠", background: .black, textColor: .white)
         
-        information2.text = "다른 영화, 시리즈, 배우, 감독 또는 장르를 검색해 보세요."
-        information2.font = .systemFont(ofSize: 15)
-        information2.textColor = .gray
-        information2.textAlignment = .center
+        designButton(button: button3, title: "TOP 10 시리즈", background: .black, textColor: .white)
+        
+        // ---- textField ----
+        
+        textField.placeholder = "게임, 시리즈, 영화를 검색하세요..."
     
-        first_image.image = UIImage(named: "blue")
-        second_image.image = UIImage(named: "turquoise")
-        thirt_image.image = UIImage(named: "pink")
+        textField.attributedPlaceholder = NSAttributedString(string: "게임, 시리즈, 영화를 검색하세요...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         
-        first_label.text = "공개 예정"
-        first_label.textColor = .black
-        first_label.font = .systemFont(ofSize: 10)
+        textField.backgroundColor = .darkGray
         
-        second_label.text = "모두의 인기 콘텐츠"
-        second_label.textColor = .white
-        second_label.font = .systemFont(ofSize: 10)
+        // ---- label ----
         
-        third_label.text = "TOP 10 시리즈"
-        third_label.textColor = .white
-        third_label.font = .systemFont(ofSize: 10)
+        designLabel1(label: label1, text1: "이런! 찾으시는 작품이 없습니다.")
         
-        engine.placeholder = "게임, 시리즈, 영화를 검색하세요..."
-        circle_image1.layer.cornerRadius = 20
-        circle_image1.backgroundColor = .white
-        
-        circle_image2.layer.cornerRadius = 20
-        circle_image2.backgroundColor = .black
-        
-        circle_image3.layer.cornerRadius = 20
-        circle_image3.backgroundColor = .black
-        
-        engine.attributedPlaceholder = NSAttributedString(string: "게임, 시리즈, 영화를 검색하세요...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        
+        designLabel2(label: label2, text2: "다른 영화, 시리즈, 배우, 감독 또는 장르를 검색해 보세요.")
         
     }
     
-    @IBAction func first_bt(_ sender: UIButton) {
+    func designButton(button: UIButton, title: String, background: UIColor, textColor: UIColor) {
         
-        first_label.textColor = .black
-        second_label.textColor = .white
-        third_label.textColor = .white
-        
-        information.text = "이런! 찾으시는 작품이 없습니다."
-        
-        information.textColor = .white
-        information.font = .systemFont(ofSize: 25, weight: .heavy)
-        information.textAlignment = .center
-        
-        
-        information2.text = "다른 영화, 시리즈, 배우, 감독 또는 장르를 검색해 보세요."
-        information2.font = .systemFont(ofSize: 15)
-        information2.textColor = .gray
-        information2.textAlignment = .center
-        
-        circle_image1.backgroundColor = .white
-        circle_image2.backgroundColor = .black
-        circle_image3.backgroundColor = .black
-        
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(textColor, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        button.backgroundColor = background
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 15
+        button.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 8)
         
     }
     
+    func designLabel1(label: UILabel, text1: String) {
+        
+        label.text = text1
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 25, weight: .heavy)
+        label.textAlignment = .center
+    }
     
-    @IBAction func second_bt(_ sender: UIButton) {
+    func designLabel2(label: UILabel, text2: String) {
         
-        first_label.textColor = .white
-        second_label.textColor = .black
-        third_label.textColor = .white
+        label.text = text2
+        label.textColor = .gray
+        label.font = .systemFont(ofSize: 15)
+        label.textAlignment = .center
+    }
+    
+    
+    @IBAction func button1(_ sender: UIButton) {
         
-        information.text = "두번째"
+        designButton(button: button1, title: "공개 예정", background: .white, textColor: .black)
         
-        information.textColor = .white
-        information.font = .systemFont(ofSize: 25, weight: .heavy)
-        information.textAlignment = .center
+        designButton(button: button2, title: "모두의 인기 콘텐츠", background: .black, textColor: .white)
         
+        designButton(button: button3, title: "TOP 10 시리즈", background: .black, textColor: .white)
         
-        information2.text = "22"
-        information2.font = .systemFont(ofSize: 15)
-        information2.textColor = .gray
-        information2.textAlignment = .center
+        designLabel1(label: label1, text1: "이런! 찾으시는 작품이 없습니다.")
         
-        circle_image1.backgroundColor = .black
-        circle_image2.backgroundColor = .white
-        circle_image3.backgroundColor = .black
-        
+        designLabel2(label: label2, text2: "다른 영화, 시리즈, 배우, 감독 또는 장르를 검색해 보세요.")
         
     }
     
-    @IBAction func third_bt(_ sender: UIButton) {
+    @IBAction func button2(_ sender: UIButton) {
         
-        first_label.textColor = .white
-        second_label.textColor = .white
-        third_label.textColor = .black
+        designButton(button: button1, title: "공개 예정", background: .black, textColor: .white)
         
+        designButton(button: button2, title: "모두의 인기 콘텐츠", background: .white, textColor: .black)
         
-        information.text = "세번째"
+        designButton(button: button3, title: "TOP 10 시리즈", background: .black, textColor: .white)
         
-        information.textColor = .white
-        information.font = .systemFont(ofSize: 25, weight: .heavy)
-        information.textAlignment = .center
+        designLabel1(label: label1, text1: "두번째")
         
+        designLabel2(label: label2, text2: "22")
         
-        information2.text = "33"
-        information2.font = .systemFont(ofSize: 15)
-        information2.textColor = .gray
-        information2.textAlignment = .center
+    }
+    
+    @IBAction func button3(_ sender: UIButton) {
         
-        circle_image1.backgroundColor = .black
-        circle_image2.backgroundColor = .black
-        circle_image3.backgroundColor = .white
+        designButton(button: button1, title: "공개 예정", background: .black, textColor: .white)
+        
+        designButton(button: button2, title: "모두의 인기 콘텐츠", background: .black, textColor: .white)
+        
+        designButton(button: button3, title: "TOP 10 시리즈", background: .white, textColor: .black)
+        
+        designLabel1(label: label1, text1: "세번째")
+        
+        designLabel2(label: label2, text2: "33")
         
     }
     
