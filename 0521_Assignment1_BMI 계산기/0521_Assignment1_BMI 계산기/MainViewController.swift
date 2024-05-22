@@ -14,17 +14,34 @@ class MainViewController: UIViewController {
     
     @IBOutlet var question1: UILabel!
     @IBOutlet var question2: UILabel!
+    @IBOutlet var question3: UILabel!
     
     @IBOutlet var textField1: UITextField!
     @IBOutlet var textField2: UITextField!
+    @IBOutlet var textField3: UITextField!
     
     @IBOutlet var randomButton: UIButton!
     @IBOutlet var resultButton: UIButton!
+    @IBOutlet var saveButton: UIButton!
+    @IBOutlet var resetButton: UIButton!
+    
     
     @IBOutlet var uiView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // show save data
+        let height = UserDefaults.standard.string(forKey: "height")
+        
+        let weight = UserDefaults.standard.string(forKey: "weight")
+        
+        let nickname = UserDefaults.standard.string(forKey: "nickname")
+        
+        textField1.text = height
+        textField2.text = weight
+        textField3.text = nickname
+        
         
         // ---- title1, 2 ----
         title1.font = .systemFont(ofSize: 25, weight: .heavy)
@@ -40,36 +57,35 @@ class MainViewController: UIViewController {
         uiView.layer.borderWidth = 2
         uiView.layer.borderColor = UIColor.black.cgColor
 
-        // ---- randomButton ----
-        randomButton.setTitle("랜덤으로 BMI 계산하기", for: .normal)
-        randomButton.setTitleColor(.red, for: .normal)
-        randomButton.titleLabel?.font = .systemFont(ofSize: 15)
-        randomButton.backgroundColor = .white
+        // ---- Button ----
+        designButton(button: randomButton, buttonName: "랜덤으로 BMI 계산하기", buttonColor: .red)
         
-        // ---- resultButton ----
+        designButton(button: resultButton, buttonName: "결과 확인", buttonColor: .white)
+        
         resultButton.backgroundColor = .purple
-        resultButton.setTitle("결과 확인", for: .normal)
-        resultButton.setTitleColor(.white, for: .normal)
         resultButton.layer.masksToBounds = true
         resultButton.layer.cornerRadius = 15
         resultButton.titleLabel?.font = .systemFont(ofSize: 20)
+
+        designButton(button: saveButton, buttonName: "저장하기", buttonColor: .blue)
+        
+        designButton(button: resetButton, buttonName: "리셋", buttonColor: .red)
+        
+        // ---- question ----
         
         designQuestionText(label: question1, question: "키가 어떻게 되시나요?")
         
         designQuestionText(label: question2, question: "몸무게는 어떻게 되시나요?")
         
+        designQuestionText(label: question3, question: "닉네임 설정")
+        
         // ---- textfield ----
-        textField1.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10.0, height: 0.0))
-        textField1.leftViewMode = .always
-        textField1.layer.borderColor = UIColor.black.cgColor
-        textField1.layer.borderWidth = 2
-        textField1.layer.masksToBounds = true
-        textField1.layer.cornerRadius = 10
+        designTextField(textField: textField1)
+        designTextField(textField: textField3)
         
         textField2.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10.0, height: 0.0))
         textField2.leftViewMode = .always
         textField2.layer.borderColor = UIColor.white.cgColor
-        
     }
     
     func designTitle(label: UILabel, title: String) {
@@ -123,6 +139,24 @@ class MainViewController: UIViewController {
 
     }
     
+    func designTextField(textField: UITextField) {
+        
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5.0, height: 0.0))
+        textField.leftViewMode = .always
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.borderWidth = 2
+        textField.layer.masksToBounds = true
+        textField.layer.cornerRadius = 10
+    }
+    
+    func designButton(button: UIButton, buttonName: String, buttonColor: UIColor) {
+        
+        button.setTitle(buttonName, for: .normal)
+        button.setTitleColor(buttonColor, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15)
+        
+    }
+    
     @IBAction func resultButton(_ sender: UIButton) {
         
         let result: String = resultButtonClicked()
@@ -138,6 +172,7 @@ class MainViewController: UIViewController {
 
         present(alert, animated: true)
         
+        
     }
     
     @IBAction func randomButton(_ sender: UIButton) {
@@ -152,6 +187,31 @@ class MainViewController: UIViewController {
     @IBAction func blindButton(_ sender: UIButton) {
         
         textField2.isSecureTextEntry.toggle()
+        
+    }
+    
+    @IBAction func saveButtonClicked(_ sender: UIButton) {
+        
+        UserDefaults.standard.set(textField1.text, forKey: "height")
+        
+        UserDefaults.standard.set(textField2.text, forKey: "weight")
+        
+        UserDefaults.standard.set(textField3.text, forKey: "nickname")
+        
+    }
+    
+    
+    @IBAction func resetButtonClicked(_ sender: UIButton) {
+        
+        textField1.text = ""
+        textField2.text = ""
+        textField3.text = ""
+        
+        UserDefaults.standard.set("", forKey: "height")
+        
+        UserDefaults.standard.set("", forKey: "weight")
+        
+        UserDefaults.standard.set("", forKey: "nickname")
         
     }
     
