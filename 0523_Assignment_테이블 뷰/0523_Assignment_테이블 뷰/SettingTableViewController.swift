@@ -18,12 +18,10 @@ class SettingTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return settings.count
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        let text = section
         
         if section == 0 {
             return "전체 설정"
@@ -49,6 +47,7 @@ class SettingTableViewController: UITableViewController {
             return 0
         }
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "setting")!
