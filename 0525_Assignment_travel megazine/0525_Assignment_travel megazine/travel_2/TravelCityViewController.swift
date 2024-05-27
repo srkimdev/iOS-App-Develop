@@ -25,7 +25,6 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var titleLabel: UILabel!
     
     var list = TravelInfo().travel
-    var first: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +52,7 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if list[indexPath.row].ad {
-            return 80
+            return 90
         } else {
             return 120
         }
@@ -66,7 +65,7 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
             
             cell.designAD(data: list[indexPath.row])
             
-            cell.background.backgroundColor = randomColor()
+            cell.background.backgroundColor = randomColor() // 새로 셀이 재활용될때마다 색이 바뀜 -> how?
             
             return cell
             
