@@ -9,6 +9,8 @@ import UIKit
 
 class TravelInfoTableViewCell: UITableViewCell {
 
+    static let identifier = "TravelInfoTableViewCell"
+    
     @IBOutlet var title: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var grade: UILabel!
@@ -34,24 +36,31 @@ class TravelInfoTableViewCell: UITableViewCell {
         grade.textColor = .lightGray
         grade.font = .systemFont(ofSize: 13)
         
+        guard let store = data.save, let image = data.travel_image, let like = data.like else {
+            return
+        }
+        
         // ---- save ----
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        save.text = "저장 " + numberFormatter.string(from: NSNumber(value: data.save))!
+        save.text = "저장 " + numberFormatter.string(from: NSNumber(value: store))!
         save.textColor = .lightGray
         save.font = .systemFont(ofSize: 13)
         
         // ---- travel_image ----
-        let url = URL(string: data.travel_image ?? "")
+        let url = URL(string: image)
         travel_image.kf.setImage(with: url)
         travel_image.contentMode = .scaleAspectFill
         travel_image.layer.cornerRadius = 8
         
         // ---- likeButton ----
-        let heart = data.like! ? "heart.fill" : "heart"
-        likeButton.setImage(UIImage(systemName: heart), for: .normal)
-        likeButton.tintColor = .white
-        
+        if like {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            likeButton.tintColor = .red
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            likeButton.tintColor = .white
+        }
         
     }
     

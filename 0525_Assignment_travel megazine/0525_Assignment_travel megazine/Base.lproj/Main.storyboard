@@ -92,7 +92,7 @@
                             <outlet property="delegate" destination="keT-6x-aJc" id="NUt-eK-Wa1"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="IbB-Ep-O3A"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="doc" catalog="system" id="IbB-Ep-O3A"/>
                     <connections>
                         <outlet property="titleBar" destination="KYi-Pz-XGC" id="qer-hF-0CZ"/>
                     </connections>
@@ -153,7 +153,7 @@
                             <constraint firstItem="zi1-R0-GNz" firstAttribute="top" secondItem="Vzh-Lz-tql" secondAttribute="bottom" id="pyQ-na-UEf"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="OPW-cy-MG6"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="magnifyingglass" catalog="system" id="OPW-cy-MG6"/>
                     <connections>
                         <outlet property="titleLabel" destination="6iG-GF-Blb" id="H1T-JV-Ozk"/>
                         <outlet property="travelTableView" destination="zi1-R0-GNz" id="C3B-cn-zj3"/>
@@ -446,6 +446,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="keT-6x-aJc" kind="relationship" relationship="viewControllers" id="hVF-ar-LND"/>
@@ -458,12 +459,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="doc" catalog="system" width="115" height="128"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="mapp" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray3Color">
-            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

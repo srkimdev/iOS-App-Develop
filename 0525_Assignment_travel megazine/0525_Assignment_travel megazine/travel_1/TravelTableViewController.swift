@@ -20,10 +20,8 @@ struct Magazine {
 class TravelTableViewController: UITableViewController {
 
     let magazineinfo = MagazineInfo()
-    var index: Int = 0
     
     @IBOutlet var titleBar: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,31 +44,10 @@ class TravelTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TravelTableViewCell", for: indexPath) as! TravelTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TravelTableViewCell.identifier, for: indexPath) as! TravelTableViewCell
         
-        let format = DateFormatter()
-        format.dateFormat = "yyMMdd"
-        let convertDate = format.date(from: magazineinfo.magazine[index].date)
-        let time = DateFormatter()
-        time.dateFormat = "yy년 MM월 dd일"
-        cell.date.text = time.string(from: convertDate!)
-        cell.date.textColor = .darkGray
-        cell.date.font = .systemFont(ofSize: 13)
-        
-        cell.title.font = .boldSystemFont(ofSize: 22)
-        cell.title.numberOfLines = 2
-        cell.subTitle.font = .systemFont(ofSize: 13)
-        cell.subTitle.textColor = .darkGray
-        cell.travelImage.contentMode = .scaleAspectFill
-        cell.travelImage.layer.cornerRadius = 15
-        
-        let url = URL(string: magazineinfo.magazine[index].photo_image)
-        
-        cell.title.text = magazineinfo.magazine[index].title
-        cell.subTitle.text = magazineinfo.magazine[index].subtitle
-        cell.travelImage.kf.setImage(with: url)
-        
-        index += 1
+        let data = magazineinfo.magazine[indexPath.section]
+        cell.designTravelTableView(data: data)
         
         return cell
     }

@@ -9,6 +9,8 @@ import UIKit
 
 class TravelAdTableViewCell: UITableViewCell {
 
+    static let identifier = "TravelAdTableViewCell"
+    
     @IBOutlet var adTitle: UILabel!
     @IBOutlet var adLabel: UILabel!
     @IBOutlet var background: UIView!
@@ -21,12 +23,14 @@ class TravelAdTableViewCell: UITableViewCell {
     }
     
     func designAD(data: Travel) {
+        
         adTitle.text = data.title
         adTitle.font = .boldSystemFont(ofSize: 15)
         adTitle.textAlignment = .center
         adTitle.numberOfLines = 2
         
         background.layer.cornerRadius = 10
+        
         adLabel.text = "AD"
         adLabel.layer.masksToBounds = true
         adLabel.layer.cornerRadius = 5

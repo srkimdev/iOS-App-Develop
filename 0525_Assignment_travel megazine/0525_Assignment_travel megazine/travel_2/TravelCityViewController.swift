@@ -13,7 +13,7 @@ struct Travel {
     let description: String?
     let travel_image: String?
     let grade: Double?
-    let save: Int!
+    let save: Int?
     var like: Bool?
     var ad: Bool
 }
@@ -35,11 +35,11 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
         titleLabel.font = .boldSystemFont(ofSize: 18)
         titleLabel.text = "도시 상세 정보"
         
-        let xib1 = UINib(nibName: "TravelInfoTableViewCell", bundle: nil)
-        let xib2 = UINib(nibName: "TravelAdTableViewCell", bundle: nil)
+        let xib1 = UINib(nibName: TravelInfoTableViewCell.identifier, bundle: nil)
+        let xib2 = UINib(nibName: TravelAdTableViewCell.identifier, bundle: nil)
         
-        travelTableView.register(xib1, forCellReuseIdentifier: "TravelInfoTableViewCell")
-        travelTableView.register(xib2, forCellReuseIdentifier: "TravelAdTableViewCell")
+        travelTableView.register(xib1, forCellReuseIdentifier: TravelInfoTableViewCell.identifier)
+        travelTableView.register(xib2, forCellReuseIdentifier: TravelAdTableViewCell.identifier)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,7 +61,7 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if list[indexPath.row].ad {
-            let cell = travelTableView.dequeueReusableCell(withIdentifier: "TravelAdTableViewCell", for: indexPath) as! TravelAdTableViewCell
+            let cell = travelTableView.dequeueReusableCell(withIdentifier: TravelAdTableViewCell.identifier, for: indexPath) as! TravelAdTableViewCell
             
             cell.designAD(data: list[indexPath.row])
             
@@ -70,12 +70,12 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
             return cell
             
         } else {
-            let cell = travelTableView.dequeueReusableCell(withIdentifier: "TravelInfoTableViewCell", for: indexPath) as! TravelInfoTableViewCell
+            let cell = travelTableView.dequeueReusableCell(withIdentifier: TravelInfoTableViewCell.identifier, for: indexPath) as! TravelInfoTableViewCell
             
             cell.designTravelInfo(data: list[indexPath.row])
             
             let star: Int = Int(round(list[indexPath.row].grade!))
-            cell.grade.text = drawStars(for: star) + " (\(list[indexPath.row].grade!))" + " * "
+            cell.grade.text = drawStars(for: star) + " (\(list[indexPath.row].grade!))" + " · "
             
             cell.likeButton.tag = indexPath.row
             cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
@@ -87,7 +87,8 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
     @objc func likeButtonClicked(sender: UIButton) {
         
         list[sender.tag].like!.toggle()
-        travelTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
+        travelTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
+        // with -> animation
     }
     
     func drawStars(for rating: Int) -> String {
