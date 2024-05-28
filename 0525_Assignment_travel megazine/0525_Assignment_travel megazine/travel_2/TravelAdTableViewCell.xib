@@ -38,7 +38,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIx-Ge-mFl">
-                        <rect key="frame" x="139" y="43" width="42" height="21"/>
+                        <rect key="frame" x="0.0" y="43" width="320" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -47,6 +47,8 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="9hn-0F-H4Z" secondAttribute="trailing" constant="20" id="53t-xj-43g"/>
                     <constraint firstItem="9hn-0F-H4Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="8pb-L2-d49"/>
+                    <constraint firstItem="XIx-Ge-mFl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9uU-ds-Pjt"/>
+                    <constraint firstAttribute="trailing" secondItem="XIx-Ge-mFl" secondAttribute="trailing" id="DCv-6B-ynT"/>
                     <constraint firstItem="XIx-Ge-mFl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IZI-dV-fQk"/>
                     <constraint firstItem="XIx-Ge-mFl" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="cOc-44-aAE"/>
                     <constraint firstItem="9hn-0F-H4Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="kkE-Lu-i5I"/>

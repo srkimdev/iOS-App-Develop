@@ -23,6 +23,8 @@ class TravelAdTableViewCell: UITableViewCell {
     func designAD(data: Travel) {
         adTitle.text = data.title
         adTitle.font = .boldSystemFont(ofSize: 15)
+        adTitle.textAlignment = .center
+        adTitle.numberOfLines = 2
         
         background.layer.cornerRadius = 10
         adLabel.text = "AD"
