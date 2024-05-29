@@ -84,20 +84,21 @@ class CityInfoViewController: UIViewController, UITableViewDelegate, UITableView
         cityInfoTableView.reloadData()
         
     }
-//    방콕
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         var ex: [City] = []
         
-        guard let result = searchBar.text else {
+        guard let result = searchBar.text?.lowercased() else {
             return
         }
         
+        let removeSpace = result.replacingOccurrences(of: " ", with: "")
+        UserDefaults.standard.set(removeSpace, forKey: "hightlight") // how to change the color?
+        
         for item in store {
-//            if item.city_name.contains(result) || item.city_explain.contains(result) {
-//                filteredList.append(item)
-//            }
-            if item.city_english_name.contains(result) {
+
+            if item.city_english_name.lowercased().contains(removeSpace) || item.city_name.contains(removeSpace) || item.city_explain.contains(removeSpace) {
                 ex.append(item)
             }
             
@@ -107,5 +108,7 @@ class CityInfoViewController: UIViewController, UITableViewDelegate, UITableView
         
         cityInfoTableView.reloadData()
     }
+    
+    
     
 }
