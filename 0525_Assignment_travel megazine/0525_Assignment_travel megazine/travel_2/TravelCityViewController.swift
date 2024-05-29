@@ -83,6 +83,27 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if list[indexPath.row].ad {
+            
+            let vc = storyboard?.instantiateViewController(withIdentifier: "TravelADViewController") as! TravelADViewController
+            
+            let nav = UINavigationController(rootViewController: vc)
+            
+            nav.modalPresentationStyle = .fullScreen
+            
+            present(nav, animated: true)
+            
+        } else {
+            
+            let vc = storyboard?.instantiateViewController(identifier: "TravelInfoViewController") as! TravelInfoViewController
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
         
     @objc func likeButtonClicked(sender: UIButton) {
         
