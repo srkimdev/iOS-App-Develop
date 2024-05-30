@@ -11,15 +11,17 @@ class TravelADViewController: UIViewController {
 
     @IBOutlet var mainLabel: UILabel!
     
+    var data: Travel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "광고 화면"
 
-        mainLabel.text = "광고 화면"
-        mainLabel.font = .systemFont(ofSize: 25, weight: .heavy)
+        mainLabel.text = data?.title
+        mainLabel.font = .systemFont(ofSize: 20, weight: .heavy)
         mainLabel.textAlignment = .center
+        mainLabel.numberOfLines = 0
         
     }
     

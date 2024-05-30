@@ -90,6 +90,8 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
             
             let vc = storyboard?.instantiateViewController(withIdentifier: "TravelADViewController") as! TravelADViewController
             
+            vc.data = list[indexPath.row]
+            
             let nav = UINavigationController(rootViewController: vc)
             
             nav.modalPresentationStyle = .fullScreen
@@ -99,6 +101,8 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
         } else {
             
             let vc = storyboard?.instantiateViewController(identifier: "TravelInfoViewController") as! TravelInfoViewController
+            
+            vc.data = list[indexPath.row]
             
             navigationController?.pushViewController(vc, animated: true)
         }

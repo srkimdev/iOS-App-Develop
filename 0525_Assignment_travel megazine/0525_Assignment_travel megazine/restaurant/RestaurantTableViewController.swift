@@ -32,6 +32,10 @@ class RestaurantTableViewController: UITableViewController {
         textField.placeholder = "카테고리를 입력하세요"
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0 ))
         textField.leftViewMode = .always
+        
+        let map = UIBarButtonItem(title: "지도", style: .plain, target: self, action: #selector(mapButtonClicked))
+        navigationItem.rightBarButtonItem = map
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -110,6 +114,14 @@ class RestaurantTableViewController: UITableViewController {
         UserDefaults.standard.set(result, forKey: "result")
         print(result)
         // 한식, 중식, 카페, 경양식
+    }
+    
+    @objc func mapButtonClicked() {
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "RestaurantLocationViewController") as! RestaurantLocationViewController
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
    
 }
