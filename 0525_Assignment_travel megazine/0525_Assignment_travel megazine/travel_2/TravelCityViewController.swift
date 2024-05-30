@@ -20,7 +20,6 @@ struct Travel {
 
 class TravelCityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
     @IBOutlet var travelTableView: UITableView!
     @IBOutlet var titleLabel: UILabel!
     
@@ -40,10 +39,6 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
         
         travelTableView.register(xib1, forCellReuseIdentifier: TravelInfoTableViewCell.identifier)
         travelTableView.register(xib2, forCellReuseIdentifier: TravelAdTableViewCell.identifier)
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

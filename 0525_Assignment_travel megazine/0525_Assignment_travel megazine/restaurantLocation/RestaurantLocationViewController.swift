@@ -23,6 +23,7 @@ class RestaurantLocationViewController: UIViewController, MKMapViewDelegate {
         
         let map = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterButtonClicked))
         navigationItem.rightBarButtonItem = map
+        navigationItem.rightBarButtonItem?.tintColor = .gray
     
     }
     
@@ -44,7 +45,7 @@ class RestaurantLocationViewController: UIViewController, MKMapViewDelegate {
             
             for item in data {
                 if item.category == category {
-                    print("dd")
+                    
                     let annotation = MKPointAnnotation()
                     let center = CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude)
                     

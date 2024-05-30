@@ -9,6 +9,8 @@ import UIKit
 
 class Restaurant2TableViewCell: UITableViewCell {
 
+    static let identifier = "Restaurant2TableViewCell"
+    
     @IBOutlet var name: UILabel!
     @IBOutlet var address: UILabel!
     @IBOutlet var phone: UILabel!

@@ -9,7 +9,6 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
 
-    
     @IBOutlet var mainTitle: UILabel!
     @IBOutlet var textField: UITextField!
     @IBOutlet var searchButton: UIButton!
@@ -48,48 +47,10 @@ class RestaurantTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.identifier, for: indexPath) as! RestaurantTableViewCell
         
-        // ---- image ----
-        let url = URL(string: restaurantlist.restaurantArray[indexPath.section].image)
+        cell.designRestaurantTableViewCell(data: restaurantlist.restaurantArray, i: indexPath.row)
         
-        cell.restaurantImage.contentMode = .scaleAspectFill
-        cell.restaurantImage.kf.setImage(with: url)
-        cell.restaurantImage.layer.cornerRadius = 15
-        
-        cell.addressImage.image = UIImage(systemName: "mappin.and.ellipse")
-        cell.addressImage.tintColor = .black
-        cell.addressImage.contentMode = .scaleToFill
-        
-        cell.callImage.image = UIImage(systemName: "phone")
-        cell.callImage.tintColor = .black
-        
-        cell.tagImage.image = UIImage(systemName: "tag")
-        cell.tagImage.tintColor = .black
-        
-        
-        // ---- title ----
-        cell.title.text = restaurantlist.restaurantArray[indexPath.section].name
-        cell.title.font = .boldSystemFont(ofSize: 18)
-        cell.title.numberOfLines = 1
-        
-        // ---- label ----
-        cell.addressLabel.text = restaurantlist.restaurantArray[indexPath.section].address
-        cell.addressLabel.numberOfLines = 2
-        cell.callLabel.text = restaurantlist.restaurantArray[indexPath.section].phoneNumber
-        cell.tagLabel.text = restaurantlist.restaurantArray[indexPath.section].category
-        
-        cell.addressLabel.font = .systemFont(ofSize: 15)
-        cell.callLabel.font = .systemFont(ofSize: 15)
-        cell.tagLabel.font = .systemFont(ofSize: 15)
-        
-        // ---- likeButton ----
-        
-        let heart = restaurantlist.restaurantArray[indexPath.section].like ? "heart.fill" : "heart"
-        
-        cell.likeButton.setImage(UIImage(systemName: heart), for: .normal)
-        cell.likeButton.tintColor = .red
-        cell.likeButton.tag = indexPath.section
         cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
         
         return cell
@@ -98,11 +59,12 @@ class RestaurantTableViewController: UITableViewController {
     @objc func likeButtonClicked(sender: UIButton) {
         
         restaurantlist.restaurantArray[sender.tag].like.toggle()
-        
         tableView.reloadData()
+        
     }
     
     @IBAction func searchButtonClicked(_ sender: UIButton) {
+        
         result = []
         
         for i in restaurantlist.restaurantArray {
@@ -112,8 +74,7 @@ class RestaurantTableViewController: UITableViewController {
         }
         
         UserDefaults.standard.set(result, forKey: "result")
-        print(result)
-        // 한식, 중식, 카페, 경양식
+
     }
     
     @objc func mapButtonClicked() {
