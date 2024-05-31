@@ -41,6 +41,7 @@ class RestaurantLocationViewController: UIViewController, MKMapViewDelegate {
                 annotation.title = item.name
                 mapView.addAnnotation(annotation)
             }
+            
         } else {
             
             for item in data {
@@ -64,6 +65,7 @@ class RestaurantLocationViewController: UIViewController, MKMapViewDelegate {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
+        // 클로저 동작원리
         let korean = UIAlertAction(title: "한식", style: .default) { _ in
             self.filtering(data: self.list, category: "한식")
         }
