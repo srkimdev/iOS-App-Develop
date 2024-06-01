@@ -23,39 +23,16 @@ class MainTableViewController: UITableViewController {
     ]
     
     @IBOutlet var textField: UITextField!
-    
     @IBOutlet var addButton: UIButton!
-    
     @IBOutlet var header: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 60
+        configureMain()
         
         addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         
-        // ---- textField ----
-        textField.placeholder = "무엇을 구매하실 건가요?"
-                                    
-        textField.leftViewMode = .always
-        
-        // ---- button ----
-        addButton.setTitle("추가", for: .normal)
-        addButton.setTitleColor(.black, for: .normal)
-        addButton.titleLabel?.font = .systemFont(ofSize: 8)
-        addButton.layer.masksToBounds = true
-        addButton.layer.cornerRadius = 8
-        addButton.backgroundColor = .systemGray5
-     
-        // ---- header ----
-        header.backgroundColor = .systemGray6
-        header.layer.cornerRadius = 7
-
-    }
-        
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,27 +44,17 @@ class MainTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell", for: indexPath) as! TodoTableViewCell
         
-        cell.todoLabel?.text = list[indexPath.row].chore
-        cell.todoLabel?.font = .boldSystemFont(ofSize: 13)
-        cell.background.backgroundColor = .systemGray6
-        cell.background.layer.cornerRadius = 7
-        cell.checkButton.tintColor = .black
-        cell.starButton.tintColor = .black
+        cell.configureTodoCell(transition: list[indexPath.row])
         
-        let check = list[indexPath.row].check ? "checkmark.square.fill" : "checkmark.square"
-        let star = list[indexPath.row].star ? "star.fill" : "star"
-        
-        cell.checkButton.setImage(UIImage(systemName: check), for: .normal)
-        cell.starButton.setImage(UIImage(systemName: star), for: .normal)
         cell.checkButton.tag = indexPath.row
         cell.starButton.tag = indexPath.row
         
         cell.checkButton.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
-        
         cell.starButton.addTarget(self, action: #selector(starButtonClicked), for: .touchUpInside)
         
         return cell
     }
+    
     
     @objc func checkButtonClicked(sender: UIButton) {
         list[sender.tag].check.toggle()
@@ -101,9 +68,24 @@ class MainTableViewController: UITableViewController {
     
     @objc func addButtonClicked(sender: UIButton) {
         let text = textField.text!
-        
         list.append(todo(check: false, chore: text, star: false))
         tableView.reloadData()
+    }
+    
+    func configureMain() {
+        
+        tableView.rowHeight = 60
+        textField.placeholder = "무엇을 구매하실 건가요?"
+        textField.leftViewMode = .always
+        
+        addButton.setTitle("추가", for: .normal)
+        addButton.titleLabel?.font = .systemFont(ofSize: 8)
+        addButton.layer.masksToBounds = true
+        addButton.layer.cornerRadius = 8
+        addButton.backgroundColor = .systemGray5
+        
+        header.backgroundColor = .systemGray6
+        header.layer.cornerRadius = 7
     }
 
 }
