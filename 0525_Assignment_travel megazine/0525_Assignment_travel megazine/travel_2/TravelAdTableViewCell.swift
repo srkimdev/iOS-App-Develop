@@ -15,13 +15,6 @@ class TravelAdTableViewCell: UITableViewCell {
     @IBOutlet var adLabel: UILabel!
     @IBOutlet var background: UIView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        print(#function)
-        
-    }
-    
     func designAD(data: Travel) {
         
         adTitle.text = data.title

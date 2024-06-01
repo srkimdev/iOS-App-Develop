@@ -18,7 +18,7 @@ struct Travel {
     var ad: Bool
 }
 
-class TravelCityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TravelCityViewController: UIViewController{
 
     @IBOutlet var travelTableView: UITableView!
     @IBOutlet var titleLabel: UILabel!
@@ -30,16 +30,27 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
         
         travelTableView.delegate = self
         travelTableView.dataSource = self
+        configureTravelCityViewController()
         
-        titleLabel.font = .boldSystemFont(ofSize: 18)
-        titleLabel.text = "도시 상세 정보"
-        
-        let xib1 = UINib(nibName: TravelInfoTableViewCell.identifier, bundle: nil)
-        let xib2 = UINib(nibName: TravelAdTableViewCell.identifier, bundle: nil)
-        
-        travelTableView.register(xib1, forCellReuseIdentifier: TravelInfoTableViewCell.identifier)
-        travelTableView.register(xib2, forCellReuseIdentifier: TravelAdTableViewCell.identifier)
     }
+    
+    @objc func likeButtonClicked(sender: UIButton) {
+        
+        list[sender.tag].like!.toggle()
+        travelTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
+    }
+    
+    func randomColor() -> UIColor {
+        let red = CGFloat.random(in: 0...1)
+        let green = CGFloat.random(in: 0...1)
+        let blue = CGFloat.random(in: 0...1)
+        let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        
+        return color
+    }
+}
+
+extension TravelCityViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
@@ -67,10 +78,7 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
         } else {
             let cell = travelTableView.dequeueReusableCell(withIdentifier: TravelInfoTableViewCell.identifier, for: indexPath) as! TravelInfoTableViewCell
             
-            cell.designTravelInfo(data: list[indexPath.row])
-            
-            let star: Int = Int(round(list[indexPath.row].grade!))
-            cell.grade.text = drawStars(for: star) + " (\(list[indexPath.row].grade!))" + " · "
+            cell.designTravelInfo(transition: list[indexPath.row])
             
             cell.likeButton.tag = indexPath.row
             cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
@@ -88,7 +96,6 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
             vc.data = list[indexPath.row]
             
             let nav = UINavigationController(rootViewController: vc)
-            
             nav.modalPresentationStyle = .fullScreen
             
             present(nav, animated: true)
@@ -103,34 +110,22 @@ class TravelCityViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
     }
-        
-    @objc func likeButtonClicked(sender: UIButton) {
-        
-        list[sender.tag].like!.toggle()
-        travelTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
-        // with -> animation
-    }
     
-    func drawStars(for rating: Int) -> String {
-        
-        var starsString = ""
-        for _ in 0..<rating {
-            starsString += "★"
-        }
-        for _ in rating..<5 {
-            starsString += "☆"
-        }
-        
-        return starsString
-    }
+}
 
-    func randomColor() -> UIColor {
-        let red = CGFloat.random(in: 0...1)
-        let green = CGFloat.random(in: 0...1)
-        let blue = CGFloat.random(in: 0...1)
-        let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+extension TravelCityViewController {
+    
+    func configureTravelCityViewController() {
         
-        return color
+        titleLabel.font = .boldSystemFont(ofSize: 18)
+        titleLabel.text = "도시 상세 정보"
+        
+        let xib1 = UINib(nibName: TravelInfoTableViewCell.identifier, bundle: nil)
+        let xib2 = UINib(nibName: TravelAdTableViewCell.identifier, bundle: nil)
+        
+        travelTableView.register(xib1, forCellReuseIdentifier: TravelInfoTableViewCell.identifier)
+        travelTableView.register(xib2, forCellReuseIdentifier: TravelAdTableViewCell.identifier)
+        
     }
     
 }

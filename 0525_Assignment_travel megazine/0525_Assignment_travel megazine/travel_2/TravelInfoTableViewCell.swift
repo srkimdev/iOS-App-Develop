@@ -20,14 +20,14 @@ class TravelInfoTableViewCell: UITableViewCell {
     
     @IBOutlet var save: UILabel!
     
-    func designTravelInfo(data: Travel) {
+    func designTravelInfo(transition: Travel) {
         
         // ---- title ----
-        title.text = data.title
+        title.text = transition.title
         title.font = .boldSystemFont(ofSize: 17)
         
         // ---- description ----
-        descriptionLabel.text = data.description
+        descriptionLabel.text = transition.description
         descriptionLabel.font = .systemFont(ofSize: 15)
         descriptionLabel.textColor = .darkGray
         descriptionLabel.numberOfLines = 2
@@ -36,7 +36,7 @@ class TravelInfoTableViewCell: UITableViewCell {
         grade.textColor = .lightGray
         grade.font = .systemFont(ofSize: 13)
         
-        guard let store = data.save, let image = data.travel_image, let like = data.like else {
+        guard let store = transition.save, let image = transition.travel_image, let like = transition.like else {
             return
         }
         
@@ -62,6 +62,21 @@ class TravelInfoTableViewCell: UITableViewCell {
             likeButton.tintColor = .white
         }
         
+        let star: Int = Int(round(transition.grade!))
+        grade.text = drawStars(for: star) + " (\(transition.grade!))" + " · "
+    }
+    
+    func drawStars(for rating: Int) -> String {
+        
+        var starsString = ""
+        for _ in 0..<rating {
+            starsString += "★"
+        }
+        for _ in rating..<5 {
+            starsString += "☆"
+        }
+        
+        return starsString
     }
     
 }
