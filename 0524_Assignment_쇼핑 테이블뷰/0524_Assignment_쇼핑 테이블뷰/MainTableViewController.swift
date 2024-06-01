@@ -71,6 +71,10 @@ class MainTableViewController: UITableViewController {
         list.append(todo(check: false, chore: text, star: false))
         tableView.reloadData()
     }
+
+}
+
+extension MainTableViewController {
     
     func configureMain() {
         
@@ -87,5 +91,5 @@ class MainTableViewController: UITableViewController {
         header.backgroundColor = .systemGray6
         header.layer.cornerRadius = 7
     }
-
+    
 }
