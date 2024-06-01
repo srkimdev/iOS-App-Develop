@@ -12,25 +12,21 @@ class TravelTableViewCell: UITableViewCell {
     static let identifier = "TravelTableViewCell"
     
     @IBOutlet var travelImage: UIImageView!
-    
     @IBOutlet var title: UILabel!
-    
     @IBOutlet var subTitle: UILabel!
-    
     @IBOutlet var date: UILabel!
     
-    
-    func designTravelTableView(data: Magazine) {
+    func configureTravelTableView(transition: Magazine) {
         
-        title.text = data.title
+        title.text = transition.title
         title.font = .boldSystemFont(ofSize: 22)
         title.numberOfLines = 2
         
-        subTitle.text = data.subtitle
+        subTitle.text = transition.subtitle
         subTitle.font = .systemFont(ofSize: 13)
         subTitle.textColor = .darkGray
         
-        let url = URL(string: data.photo_image)
+        let url = URL(string: transition.photo_image)
         travelImage.contentMode = .scaleAspectFill
         travelImage.layer.cornerRadius = 15
         travelImage.kf.setImage(with: url)
@@ -38,7 +34,7 @@ class TravelTableViewCell: UITableViewCell {
         // ---- format ----
         let format = DateFormatter()
         format.dateFormat = "yyMMdd"
-        let convertDate = format.date(from: data.date)
+        let convertDate = format.date(from: transition.date)
         let time = DateFormatter()
         time.dateFormat = "yy년 MM월 dd일"
         date.text = time.string(from: convertDate!)

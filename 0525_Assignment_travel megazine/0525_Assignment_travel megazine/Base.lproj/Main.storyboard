@@ -320,7 +320,7 @@
         <!--Restaurant Table View Controller-->
         <scene sceneID="Vbv-zO-ojy">
             <objects>
-                <tableViewController id="HLO-yD-BJR" customClass="RestaurantTableViewController" customModule="_525_Assignment_travel_megazine" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RestaurantTableViewController" id="HLO-yD-BJR" customClass="RestaurantTableViewController" customModule="_525_Assignment_travel_megazine" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="PHY-ZY-CvG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -350,7 +350,6 @@
                                     <buttonConfiguration key="configuration" style="plain"/>
                                     <connections>
                                         <action selector="searchButtonClicked:" destination="HLO-yD-BJR" eventType="touchUpInside" id="q3M-rO-U8u"/>
-                                        <segue destination="dqd-ef-yYh" kind="show" id="8Z7-hj-eWw"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -486,7 +485,7 @@
         <!--Restaurant2 Table View Controller-->
         <scene sceneID="vmP-f6-vD3">
             <objects>
-                <tableViewController id="dqd-ef-yYh" customClass="Restaurant2TableViewController" customModule="_525_Assignment_travel_megazine" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Restaurant2TableViewController" id="dqd-ef-yYh" customClass="Restaurant2TableViewController" customModule="_525_Assignment_travel_megazine" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="dWP-RK-IMe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -711,7 +710,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

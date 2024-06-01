@@ -17,4 +17,10 @@ class Restaurant2TableViewCell: UITableViewCell {
     
     @IBOutlet var restaurantImage: UIImageView!
     
+    func configureRestaurant2TableViewCell() {
+        restaurantImage.contentMode = .scaleAspectFill
+        address.font = .systemFont(ofSize: 12)
+        phone.font = .systemFont(ofSize: 12)
+    }
+    
 }

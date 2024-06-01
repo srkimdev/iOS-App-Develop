@@ -9,7 +9,6 @@ import UIKit
 
 class Restaurant2TableViewController: UITableViewController {
 
-    
     @IBOutlet var resultLabel: UILabel!
     
     var result: [[String]] = []
@@ -26,6 +25,7 @@ class Restaurant2TableViewController: UITableViewController {
         result = temp
         resultLabel.text = "총 \(result.count)개를 검색했습니다."
         resultLabel.textAlignment = .center
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,11 +41,10 @@ class Restaurant2TableViewController: UITableViewController {
         cell.address.text = result[indexPath.row][1]
         cell.phone.text = result[indexPath.row][2]
         cell.restaurantImage.kf.setImage(with: url)
-        cell.restaurantImage.contentMode = .scaleAspectFill
-        cell.address.font = .systemFont(ofSize: 12)
-        cell.phone.font = .systemFont(ofSize: 12)
+        
+        cell.configureRestaurant2TableViewCell()
         
         return cell 
     }
-
+    
 }

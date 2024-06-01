@@ -15,6 +15,7 @@ struct Magazine {
     let photo_image: String
     let date: String
     let link: String
+    
 }
 
 class TravelTableViewController: UITableViewController {
@@ -26,11 +27,7 @@ class TravelTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 460
-        
-        titleBar.text = "SeSAC TRAVEL"
-        titleBar.font = .systemFont(ofSize: 20, weight: .bold)
-        titleBar.textAlignment = .center
+        configureTravelTableViewController()
         
     }
 
@@ -45,10 +42,23 @@ class TravelTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TravelTableViewCell.identifier, for: indexPath) as! TravelTableViewCell
         
-        let data = magazineinfo.magazine[indexPath.section]
-        cell.designTravelTableView(data: data)
+        let list = magazineinfo.magazine[indexPath.section]
+        cell.configureTravelTableView(transition: list)
         
         return cell
     }
    
+}
+
+extension TravelTableViewController {
+    
+    func configureTravelTableViewController() {
+        
+        tableView.rowHeight = 460
+        
+        titleBar.text = "SeSAC TRAVEL"
+        titleBar.font = .systemFont(ofSize: 20, weight: .bold)
+        titleBar.textAlignment = .center
+        
+    }
 }

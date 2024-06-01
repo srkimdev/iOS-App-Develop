@@ -11,23 +11,21 @@ class RestaurantTableViewCell: UITableViewCell {
 
     static let identifier = "RestaurantTableViewCell"
     
-    @IBOutlet var restaurantImage: UIImageView!
-    
-    @IBOutlet var title: UILabel!
-    
     @IBOutlet var likeButton: UIButton!
     
+    @IBOutlet var restaurantImage: UIImageView!
     @IBOutlet var addressImage: UIImageView!
     @IBOutlet var callImage: UIImageView!
     @IBOutlet var tagImage: UIImageView!
     
+    @IBOutlet var title: UILabel!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var callLabel: UILabel!
     @IBOutlet var tagLabel: UILabel!
     
-    func designRestaurantTableViewCell(data: [Restaurant], i: Int) {
+    func configureRestaurantTableViewCell(transition: [Restaurant], i: Int) {
         
-        let url = URL(string: data[i].image)
+        let url = URL(string: transition[i].image)
         
         restaurantImage.contentMode = .scaleAspectFill
         restaurantImage.kf.setImage(with: url)
@@ -43,20 +41,20 @@ class RestaurantTableViewCell: UITableViewCell {
         tagImage.image = UIImage(systemName: "tag")
         tagImage.tintColor = .black
         
-        title.text = data[i].name
+        title.text = transition[i].name
         title.font = .boldSystemFont(ofSize: 18)
         title.numberOfLines = 1
         
-        addressLabel.text = data[i].address
+        addressLabel.text = transition[i].address
         addressLabel.numberOfLines = 2
-        callLabel.text = data[i].phoneNumber
-        tagLabel.text = data[i].category
+        callLabel.text = transition[i].phoneNumber
+        tagLabel.text = transition[i].category
         
         addressLabel.font = .systemFont(ofSize: 15)
         callLabel.font = .systemFont(ofSize: 15)
         tagLabel.font = .systemFont(ofSize: 15)
         
-        let heart = data[i].like ? "heart.fill" : "heart"
+        let heart = transition[i].like ? "heart.fill" : "heart"
         
         likeButton.setImage(UIImage(systemName: heart), for: .normal)
         likeButton.tintColor = .red
