@@ -16,18 +16,28 @@ class TravelADViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "광고 화면"
-
-        mainLabel.text = data?.title
-        mainLabel.font = .systemFont(ofSize: 20, weight: .heavy)
-        mainLabel.textAlignment = .center
-        mainLabel.numberOfLines = 0
+        configureTravelADViewController()
         
     }
     
     @IBAction func exitButton(_ sender: UIBarButtonItem) {
         
         dismiss(animated: true)
+        
+    }
+    
+}
+
+extension TravelADViewController {
+    
+    func configureTravelADViewController() {
+        
+        navigationItem.title = "광고 화면"
+
+        mainLabel.text = data?.title
+        mainLabel.font = .systemFont(ofSize: 20, weight: .heavy)
+        mainLabel.textAlignment = .center
+        mainLabel.numberOfLines = 0
         
     }
     

@@ -17,6 +17,16 @@ class TravelInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureTravelInfoViewController()
+    }
+    
+
+}
+
+extension TravelInfoViewController {
+    
+    func configureTravelInfoViewController() {
+        
         navigationItem.title = "관광지 화면"
 
         mainLabel.text = data?.title
@@ -27,8 +37,6 @@ class TravelInfoViewController: UIViewController {
         mainLabel.font = .systemFont(ofSize: 25, weight: .heavy)
         mainLabel.textAlignment = .center
         
-        
     }
     
-
 }
