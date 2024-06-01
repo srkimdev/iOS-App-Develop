@@ -12,28 +12,29 @@ class CityInfoTableViewCell: UITableViewCell {
     static let identifier = "CityInfoTableViewCell"
     
     @IBOutlet var cityKrEng: UILabel!
-    
     @IBOutlet var cityArray: UILabel!
-    
     @IBOutlet var cityImage: UIImageView!
-    
     @IBOutlet var cityArrayBackground: UIView!
     
-    func designCityInfoTableViewCell(data: City) {
+    func designCityInfoTableViewCell(transition: City) {
         
-        cityKrEng.text = "\(data.city_name) | \(data.city_english_name)"
+        cityKrEng.text = "\(transition.city_name) | \(transition.city_english_name)"
         cityKrEng.textColor = .white
         cityKrEng.font = .boldSystemFont(ofSize: 20)
         
-        cityArray.text = data.city_explain
+        cityArray.text = transition.city_explain
         cityArray.textColor = .white
         cityArray.font = .systemFont(ofSize: 14)
     
-        let url = URL(string: data.city_image)
+        let url = URL(string: transition.city_image)
         cityImage.kf.setImage(with: url)
         cityImage.contentMode = .scaleAspectFill
+        cityImage.layer.cornerRadius = 15
+        cityImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
 
         cityArrayBackground.backgroundColor = .black.withAlphaComponent(0.5)
+        cityArrayBackground.layer.cornerRadius = 15
+        cityArrayBackground.layer.maskedCorners = [.layerMaxXMaxYCorner]
         
     }
 }
