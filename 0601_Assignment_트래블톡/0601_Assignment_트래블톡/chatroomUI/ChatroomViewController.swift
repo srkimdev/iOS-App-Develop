@@ -10,22 +10,26 @@ import UIKit
 class ChatroomViewController: UIViewController {
 
     var chat: ChatRoom?
+    
     @IBOutlet var chatTableView: UITableView!
     @IBOutlet var chatTextField: UITextField!
+    @IBOutlet var textFieldUI: UIView!
+    @IBOutlet var sendButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let chat = chat else { return }
+
         configureChatroomViewController(transition: chat)
         
         chatTableView.delegate = self
         chatTableView.dataSource = self
         
+        sendButton.addTarget(self, action: #selector(sendButtonClicked), for: .touchUpInside)
+        
     }
     
-
-
 }
 
 extension ChatroomViewController {
@@ -42,17 +46,39 @@ extension ChatroomViewController {
         chatTableView.separatorStyle = .none
         chatTableView.rowHeight = UITableView.automaticDimension
         
-        let userXib = UINib(nibName: "UserTableViewCell", bundle: nil)
-        chatTableView.register(userXib, forCellReuseIdentifier: "UserTableViewCell")
+        chatTextField.placeholder = "메세지를 입력하세요"
+        chatTextField.borderStyle = .none
+        chatTextField.backgroundColor = .systemGray6
+        textFieldUI.backgroundColor = .systemGray6
+        textFieldUI.layer.cornerRadius = 7
         
-        let otherXib = UINib(nibName: "otherTableViewCell", bundle: nil)
-        chatTableView.register(otherXib, forCellReuseIdentifier: "otherTableViewCell")
+        let userXib = UINib(nibName: UserTableViewCell.identifier, bundle: nil)
+        chatTableView.register(userXib, forCellReuseIdentifier: UserTableViewCell.identifier)
+        
+        let otherXib = UINib(nibName: otherTableViewCell.identifier, bundle: nil)
+        chatTableView.register(otherXib, forCellReuseIdentifier: otherTableViewCell.identifier)
         
     }
     
     @objc func backButtonClicked() {
             navigationController?.popViewController(animated: true)
         }
+    
+    @objc func sendButtonClicked(sender: UIButton) {
+        let text = chatTextField.text!
+        
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm a"
+        dateFormatter.locale = Locale(identifier:"ko_KR")
+        
+        let formattedDate = dateFormatter.string(from: currentDate)
+        
+        chat?.chatList.append(Chat(user: .user, date: formattedDate, message: text))
+        
+        chatTableView.reloadData()
+        chatTextField.text = ""
+    }
     
 }
 
@@ -67,15 +93,15 @@ extension ChatroomViewController: UITableViewDelegate, UITableViewDataSource {
         
         if chat?.chatList[indexPath.row].user == .user {
             
-            let cell = chatTableView.dequeueReusableCell(withIdentifier: "UserTableViewCell") as! UserTableViewCell
+            let cell = chatTableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier) as! UserTableViewCell
             
             cell.configureUserTableViewCell(transition: chat!, index: indexPath.row)
             
             return cell
             
         } else {
-            
-            let cell = chatTableView.dequeueReusableCell(withIdentifier: "otherTableViewCell") as! otherTableViewCell
+
+            let cell = chatTableView.dequeueReusableCell(withIdentifier: otherTableViewCell.identifier) as! otherTableViewCell
             
             cell.configureOtherTableViewCell(transition: chat!, index: indexPath.row)
             
@@ -84,5 +110,4 @@ extension ChatroomViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-
 }

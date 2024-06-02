@@ -9,6 +9,8 @@ import UIKit
 
 class otherTableViewCell: UITableViewCell {
 
+    static let identifier = "otherTableViewCell"
+    
     @IBOutlet var otherTextLabelUI: UIView!
     
     @IBOutlet var otherTextLabel: UILabel!
@@ -16,15 +18,13 @@ class otherTableViewCell: UITableViewCell {
     @IBOutlet var otherDateLabel: UILabel!
     
     @IBOutlet var otherImage: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     func configureOtherTableViewCell(transition: ChatRoom, index: Int) {
         
         otherImage.image = UIImage(named: transition.chatList[index].user.rawValue)
+        otherImage.layer.borderWidth = 1
+        otherImage.layer.cornerRadius = otherImage.frame.width / 2
+        otherImage.contentMode = .scaleAspectFit
         
         otherTextLabelUI.layer.borderWidth = 1
         otherTextLabelUI.layer.borderColor = UIColor.lightGray.cgColor
@@ -39,19 +39,7 @@ class otherTableViewCell: UITableViewCell {
         
         otherDateLabel.font = .systemFont(ofSize: 11)
         otherDateLabel.textColor = .gray
-    
-        let temp: String = transition.chatList[index].date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        
-        if let date = dateFormatter.date(from: temp) {
-            dateFormatter.dateFormat = "HH:mm a"
-            dateFormatter.locale = Locale(identifier:"ko_KR")
-            
-            let newDateString = dateFormatter.string(from: date)
-            
-            otherDateLabel.text = newDateString
-        }
+        otherDateLabel.text = dateSetting(date: transition.chatList[index].date)
         
     }
     

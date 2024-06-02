@@ -12,7 +12,6 @@ class TravelTalkViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
-    
     var filteredChatRooms: [ChatRoom] = []
     
     override func viewDidLoad() {
@@ -62,7 +61,7 @@ extension TravelTalkViewController: UISearchBarDelegate {
             filteredChatRooms = mockChatList
         } else {
             for item in mockChatList {
-                if input == item.chatroomName.lowercased() {
+                if item.chatroomName.lowercased().contains(input) {
                     temp.append(item)
                 }
             }
@@ -100,3 +99,4 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+

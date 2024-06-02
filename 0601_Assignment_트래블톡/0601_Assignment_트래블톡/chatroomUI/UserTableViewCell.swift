@@ -9,6 +9,8 @@ import UIKit
 
 class UserTableViewCell: UITableViewCell {
 
+    static let identifier = "UserTableViewCell"
+    
     @IBOutlet var otherTextLabelUI: UIView!
     
     @IBOutlet var talkLabel: UILabel!
@@ -34,18 +36,7 @@ class UserTableViewCell: UITableViewCell {
         otherTextLabelUI.layer.borderWidth = 1
         otherTextLabelUI.layer.borderColor = UIColor.lightGray.cgColor
         
-        let temp: String = transition.chatList[index].date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        
-        if let date = dateFormatter.date(from: temp) {
-            dateFormatter.dateFormat = "HH:mm a"
-            dateFormatter.locale = Locale(identifier:"ko_KR")
-            
-            let newDateString = dateFormatter.string(from: date)
-            
-            dateLabel.text = newDateString
-        }
+        dateLabel.text = dateSetting(date: transition.chatList[index].date)
         
     }
     

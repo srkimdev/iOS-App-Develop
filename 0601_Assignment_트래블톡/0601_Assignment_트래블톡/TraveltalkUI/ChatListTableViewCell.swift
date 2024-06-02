@@ -15,11 +15,6 @@ class ChatListTableViewCell: UITableViewCell {
     @IBOutlet var userName: UILabel!
     @IBOutlet var chatContents: UILabel!
     @IBOutlet var latestDate: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
 
     func configureChatroomTableViewCell(transition: ChatRoom) {
         
@@ -45,14 +40,32 @@ class ChatListTableViewCell: UITableViewCell {
             dateFormatter.dateFormat = "yy.MM.dd"
             
             let newDateString = dateFormatter.string(from: date)
-            print(newDateString)
-            
             latestDate.text = newDateString
         }
         
         latestDate.font = .systemFont(ofSize: 13)
         latestDate.textColor = .gray
         
+    }
+    
+}
+
+extension UITableViewCell {
+    
+    func dateSetting(date: String) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        if let date = dateFormatter.date(from: date) {
+            dateFormatter.dateFormat = "HH:mm a"
+            dateFormatter.locale = Locale(identifier:"ko_KR")
+            
+            let newDateString = dateFormatter.string(from: date)
+            
+            return newDateString
+        }
+        return ""
     }
     
 }
