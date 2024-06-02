@@ -61,23 +61,26 @@ extension ChatroomViewController {
     }
     
     @objc func backButtonClicked() {
-            navigationController?.popViewController(animated: true)
-        }
+        
+        navigationController?.popViewController(animated: true)
+            
+    }
     
     @objc func sendButtonClicked(sender: UIButton) {
-        let text = chatTextField.text!
         
         let currentDate = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm a"
-        dateFormatter.locale = Locale(identifier:"ko_KR")
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         
         let formattedDate = dateFormatter.string(from: currentDate)
         
-        chat?.chatList.append(Chat(user: .user, date: formattedDate, message: text))
+        if chatTextField.text != "" {
+            chat?.chatList.append(Chat(user: .user, date: formattedDate, message: chatTextField.text!))
+            
+        }
         
         chatTableView.reloadData()
-        chatTextField.text = ""
+        chatTextField.text = nil
     }
     
 }

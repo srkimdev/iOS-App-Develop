@@ -30,13 +30,12 @@ class UserTableViewCell: UITableViewCell {
         dateLabel.text = transition.chatList[index].date
         dateLabel.font = .systemFont(ofSize: 11)
         dateLabel.textColor = .gray
+        dateLabel.text = dateSetting(date: transition.chatList[index].date)
         
         otherTextLabelUI.backgroundColor = .systemGray5
         otherTextLabelUI.layer.cornerRadius = 10
         otherTextLabelUI.layer.borderWidth = 1
         otherTextLabelUI.layer.borderColor = UIColor.lightGray.cgColor
-        
-        dateLabel.text = dateSetting(date: transition.chatList[index].date)
         
     }
     

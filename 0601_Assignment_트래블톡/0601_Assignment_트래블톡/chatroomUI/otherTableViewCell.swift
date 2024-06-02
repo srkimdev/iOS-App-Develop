@@ -40,7 +40,7 @@ class otherTableViewCell: UITableViewCell {
         otherDateLabel.font = .systemFont(ofSize: 11)
         otherDateLabel.textColor = .gray
         otherDateLabel.text = dateSetting(date: transition.chatList[index].date)
-        
+
     }
     
 }
