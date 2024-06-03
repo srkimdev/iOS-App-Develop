@@ -90,7 +90,7 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ChatroomViewController") as! ChatroomViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: ChatroomViewController.identifier) as! ChatroomViewController
         
         vc.chat = filteredChatRooms[indexPath.row]
         

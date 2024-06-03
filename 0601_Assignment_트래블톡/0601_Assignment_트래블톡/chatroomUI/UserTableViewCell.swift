@@ -8,8 +8,6 @@
 import UIKit
 
 class UserTableViewCell: UITableViewCell {
-
-    static let identifier = "UserTableViewCell"
     
     @IBOutlet var otherTextLabelUI: UIView!
     

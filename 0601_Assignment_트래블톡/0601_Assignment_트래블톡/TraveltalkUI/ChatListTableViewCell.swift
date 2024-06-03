@@ -9,8 +9,6 @@ import UIKit
 
 class ChatListTableViewCell: UITableViewCell {
 
-    static let identifier = "ChatListTableViewCell"
-    
     @IBOutlet var chatRoomImage: UIImageView!
     @IBOutlet var userName: UILabel!
     @IBOutlet var chatContents: UILabel!

@@ -22,7 +22,7 @@
 		DC197B7A2C0B43A400FCD6FA /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC197B782C0B43A400FCD6FA /* UserTableViewCell.xib */; };
 		DC197B7D2C0B43B600FCD6FA /* otherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC197B7B2C0B43B600FCD6FA /* otherTableViewCell.swift */; };
 		DC197B7E2C0B43B600FCD6FA /* otherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC197B7C2C0B43B600FCD6FA /* otherTableViewCell.xib */; };
-		DC197B802C0B501B00FCD6FA /* paddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC197B7F2C0B501B00FCD6FA /* paddingLabel.swift */; };
+		DCB036FF2C0DA07300A3FFB8 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB036FE2C0DA07300A3FFB8 /* ReusableProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +43,7 @@
 		DC197B782C0B43A400FCD6FA /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		DC197B7B2C0B43B600FCD6FA /* otherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherTableViewCell.swift; sourceTree = "<group>"; };
 		DC197B7C2C0B43B600FCD6FA /* otherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = otherTableViewCell.xib; sourceTree = "<group>"; };
-		DC197B7F2C0B501B00FCD6FA /* paddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paddingLabel.swift; sourceTree = "<group>"; };
+		DCB036FE2C0DA07300A3FFB8 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 				DC197B562C0AED2600FCD6FA /* AppDelegate.swift */,
 				DC197B582C0AED2600FCD6FA /* SceneDelegate.swift */,
 				DC197B5A2C0AED2600FCD6FA /* ViewController.swift */,
-				DC197B7F2C0B501B00FCD6FA /* paddingLabel.swift */,
+				DCB036FE2C0DA07300A3FFB8 /* ReusableProtocol.swift */,
 				DC197B5C2C0AED2600FCD6FA /* Main.storyboard */,
 				DC197B5F2C0AED2800FCD6FA /* Assets.xcassets */,
 				DC197B612C0AED2800FCD6FA /* LaunchScreen.storyboard */,
@@ -201,7 +201,7 @@
 				DC197B6E2C0B0F1B00FCD6FA /* TravelTalkViewController.swift in Sources */,
 				DC197B792C0B43A400FCD6FA /* UserTableViewCell.swift in Sources */,
 				DC197B7D2C0B43B600FCD6FA /* otherTableViewCell.swift in Sources */,
-				DC197B802C0B501B00FCD6FA /* paddingLabel.swift in Sources */,
+				DCB036FF2C0DA07300A3FFB8 /* ReusableProtocol.swift in Sources */,
 				DC197B572C0AED2600FCD6FA /* AppDelegate.swift in Sources */,
 				DC197B712C0B122200FCD6FA /* ChatListTableViewCell.swift in Sources */,
 				DC197B592C0AED2600FCD6FA /* SceneDelegate.swift in Sources */,

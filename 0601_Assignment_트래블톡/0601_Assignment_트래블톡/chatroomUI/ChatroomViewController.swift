@@ -10,9 +10,10 @@ import UIKit
 class ChatroomViewController: UIViewController {
 
     var chat: ChatRoom?
+    let placeholder = "메세지를 입력하세요"
     
     @IBOutlet var chatTableView: UITableView!
-    @IBOutlet var chatTextField: UITextField!
+    @IBOutlet var chatTextView: UITextView!
     @IBOutlet var textFieldUI: UIView!
     @IBOutlet var sendButton: UIButton!
     
@@ -25,6 +26,12 @@ class ChatroomViewController: UIViewController {
         
         chatTableView.delegate = self
         chatTableView.dataSource = self
+        chatTextView.delegate = self
+        
+        DispatchQueue.main.async {
+            let index = IndexPath(row: chat.chatList.count - 1, section: 0)
+            self.chatTableView.scrollToRow(at: index, at: .bottom, animated: false)
+        }
         
         sendButton.addTarget(self, action: #selector(sendButtonClicked), for: .touchUpInside)
         
@@ -46,9 +53,10 @@ extension ChatroomViewController {
         chatTableView.separatorStyle = .none
         chatTableView.rowHeight = UITableView.automaticDimension
         
-        chatTextField.placeholder = "메세지를 입력하세요"
-        chatTextField.borderStyle = .none
-        chatTextField.backgroundColor = .systemGray6
+        chatTextView.text = placeholder
+        chatTextView.textColor = .lightGray
+        chatTextView.backgroundColor = .systemGray6
+        
         textFieldUI.backgroundColor = .systemGray6
         textFieldUI.layer.cornerRadius = 7
         
@@ -74,13 +82,13 @@ extension ChatroomViewController {
         
         let formattedDate = dateFormatter.string(from: currentDate)
         
-        if chatTextField.text != "" {
-            chat?.chatList.append(Chat(user: .user, date: formattedDate, message: chatTextField.text!))
+        if chatTextView.text != "" {
+            chat?.chatList.append(Chat(user: .user, date: formattedDate, message: chatTextView.text!))
             
         }
         
         chatTableView.reloadData()
-        chatTextField.text = nil
+        chatTextView.text = nil
     }
     
 }
@@ -109,6 +117,28 @@ extension ChatroomViewController: UITableViewDelegate, UITableViewDataSource {
             cell.configureOtherTableViewCell(transition: chat!, index: indexPath.row)
             
             return cell
+        }
+        
+    }
+    
+}
+
+extension ChatroomViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        if chatTextView.textColor == .lightGray {
+            chatTextView.text = nil
+            chatTextView.textColor = .black
+        }
+        
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        if chatTextView.text.isEmpty {
+            chatTextView.text = placeholder
+            chatTextView.textColor = .lightGray
         }
         
     }
