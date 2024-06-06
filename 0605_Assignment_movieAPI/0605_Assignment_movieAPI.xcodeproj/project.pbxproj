@@ -17,6 +17,7 @@
 		DC33E1BE2C105B4D00B8787A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DC33E1BD2C105B4D00B8787A /* SnapKit */; };
 		DC33E1C02C105C4900B8787A /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33E1BF2C105C4900B8787A /* MovieTableViewCell.swift */; };
 		DC33E1C22C108BDB00B8787A /* movieParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33E1C12C108BDB00B8787A /* movieParsing.swift */; };
+		DC33E1C42C117A8500B8787A /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33E1C32C117A8500B8787A /* APIKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DC33E1B32C105A8E00B8787A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC33E1BF2C105C4900B8787A /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		DC33E1C12C108BDB00B8787A /* movieParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieParsing.swift; sourceTree = "<group>"; };
+		DC33E1C32C117A8500B8787A /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				DC33E1A92C105A8C00B8787A /* ViewController.swift */,
 				DC33E1BF2C105C4900B8787A /* MovieTableViewCell.swift */,
 				DC33E1C12C108BDB00B8787A /* movieParsing.swift */,
+				DC33E1C32C117A8500B8787A /* APIKey.swift */,
 			);
 			path = 0605_Assignment_movieAPI;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				DC33E1A62C105A8C00B8787A /* AppDelegate.swift in Sources */,
 				DC33E1C02C105C4900B8787A /* MovieTableViewCell.swift in Sources */,
 				DC33E1A82C105A8C00B8787A /* SceneDelegate.swift in Sources */,
+				DC33E1C42C117A8500B8787A /* APIKey.swift in Sources */,
 				DC33E1C22C108BDB00B8787A /* movieParsing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
