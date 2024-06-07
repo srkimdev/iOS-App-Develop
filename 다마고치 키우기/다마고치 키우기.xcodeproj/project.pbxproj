@@ -14,12 +14,15 @@
 		DC6EA0222C117DC700DD7AEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6EA0212C117DC700DD7AEB /* Assets.xcassets */; };
 		DC6EA0252C117DC700DD7AEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6EA0232C117DC700DD7AEB /* LaunchScreen.storyboard */; };
 		DC6EA02D2C117EB100DD7AEB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6EA02C2C117EB100DD7AEB /* MainViewController.swift */; };
-		DC6EA02F2C117FE500DD7AEB /* mainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6EA02E2C117FE500DD7AEB /* mainTableViewCell.swift */; };
 		DC6EA0312C11806E00DD7AEB /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6EA0302C11806E00DD7AEB /* ReusableProtocol.swift */; };
 		DC6EA0342C11812000DD7AEB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DC6EA0332C11812000DD7AEB /* SnapKit */; };
 		DC6EA0362C1190E500DD7AEB /* damagochiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6EA0352C1190E500DD7AEB /* damagochiList.swift */; };
 		DC6EA0382C119CE500DD7AEB /* popupScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6EA0372C119CE500DD7AEB /* popupScreenViewController.swift */; };
 		DC6EA03B2C11BF7300DD7AEB /* mainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6EA03A2C11BF7300DD7AEB /* mainCollectionViewCell.swift */; };
+		DC6EA03D2C12B4D200DD7AEB /* feedingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6EA03C2C12B4D200DD7AEB /* feedingViewController.swift */; };
+		DC6EA03F2C12EC3700DD7AEB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6EA03E2C12EC3700DD7AEB /* SettingViewController.swift */; };
+		DC6EA0412C12EF8B00DD7AEB /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6EA0402C12EF8B00DD7AEB /* SettingTableViewCell.swift */; };
+		DC76FD162C12FC8E00C4CA8F /* nameChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC76FD152C12FC8E00C4CA8F /* nameChangeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,11 +35,14 @@
 		DC6EA0242C117DC700DD7AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC6EA0262C117DC700DD7AEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6EA02C2C117EB100DD7AEB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		DC6EA02E2C117FE500DD7AEB /* mainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainTableViewCell.swift; sourceTree = "<group>"; };
 		DC6EA0302C11806E00DD7AEB /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		DC6EA0352C1190E500DD7AEB /* damagochiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = damagochiList.swift; sourceTree = "<group>"; };
 		DC6EA0372C119CE500DD7AEB /* popupScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupScreenViewController.swift; sourceTree = "<group>"; };
 		DC6EA03A2C11BF7300DD7AEB /* mainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC6EA03C2C12B4D200DD7AEB /* feedingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedingViewController.swift; sourceTree = "<group>"; };
+		DC6EA03E2C12EC3700DD7AEB /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		DC6EA0402C12EF8B00DD7AEB /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		DC76FD152C12FC8E00C4CA8F /* nameChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nameChangeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +87,10 @@
 				DC6EA02C2C117EB100DD7AEB /* MainViewController.swift */,
 				DC6EA03A2C11BF7300DD7AEB /* mainCollectionViewCell.swift */,
 				DC6EA0372C119CE500DD7AEB /* popupScreenViewController.swift */,
-				DC6EA02E2C117FE500DD7AEB /* mainTableViewCell.swift */,
+				DC6EA03C2C12B4D200DD7AEB /* feedingViewController.swift */,
+				DC6EA03E2C12EC3700DD7AEB /* SettingViewController.swift */,
+				DC6EA0402C12EF8B00DD7AEB /* SettingTableViewCell.swift */,
+				DC76FD152C12FC8E00C4CA8F /* nameChangeViewController.swift */,
 			);
 			path = "다마고치 키우기";
 			sourceTree = "<group>";
@@ -173,10 +182,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC6EA01D2C117DC500DD7AEB /* ViewController.swift in Sources */,
+				DC6EA03F2C12EC3700DD7AEB /* SettingViewController.swift in Sources */,
 				DC6EA0192C117DC500DD7AEB /* AppDelegate.swift in Sources */,
 				DC6EA03B2C11BF7300DD7AEB /* mainCollectionViewCell.swift in Sources */,
+				DC6EA03D2C12B4D200DD7AEB /* feedingViewController.swift in Sources */,
 				DC6EA0312C11806E00DD7AEB /* ReusableProtocol.swift in Sources */,
-				DC6EA02F2C117FE500DD7AEB /* mainTableViewCell.swift in Sources */,
+				DC6EA0412C12EF8B00DD7AEB /* SettingTableViewCell.swift in Sources */,
+				DC76FD162C12FC8E00C4CA8F /* nameChangeViewController.swift in Sources */,
 				DC6EA01B2C117DC500DD7AEB /* SceneDelegate.swift in Sources */,
 				DC6EA0382C119CE500DD7AEB /* popupScreenViewController.swift in Sources */,
 				DC6EA0362C1190E500DD7AEB /* damagochiList.swift in Sources */,

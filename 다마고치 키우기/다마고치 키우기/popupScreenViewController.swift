@@ -27,19 +27,13 @@ class popupScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(1)
-        
         configureHierarchy()
         configureLayout()
+        configureUI()
         
         cancelButton.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
         startButton.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
         
-    }
-    
-    override func viewDidLayoutSubviews() {
-        print(2)
-        configureUI()
     }
 
     func configureHierarchy() {
@@ -121,30 +115,30 @@ class popupScreenViewController: UIViewController {
         damagochiName.layer.borderWidth = 1
         damagochiName.layer.masksToBounds = true
         damagochiName.layer.cornerRadius = 5
-        damagochiName.layer.borderColor = UIColor.lightGray.cgColor
+        damagochiName.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
         
         line.backgroundColor = .gray
         
         infoLabel.backgroundColor = .clear
         infoLabel.text = "저는 방실방실 다마고치입니당 키는 100km\n몸무게는 150톤이에용\n성격은 화끈하고 날라다닙니당~!\n열심히 잘 먹고 잘 클 자신은\n있답니당 방실방실!"
         infoLabel.font = .systemFont(ofSize: 13)
-        infoLabel.textColor = .black
+        infoLabel.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         infoLabel.textAlignment = .center
         infoLabel.numberOfLines = 0
         
         cancelButton.setTitle("취소", for: .normal)
-        cancelButton.setTitleColor(.black, for: .normal)
+        cancelButton.setTitleColor(UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
         cancelButton.titleLabel?.font = .systemFont(ofSize: 15)
         cancelButton.backgroundColor = .clear
         cancelButton.layer.borderWidth = 1
-        cancelButton.layer.borderColor = UIColor.lightGray.cgColor
+        cancelButton.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
         
         startButton.setTitle("시작하기", for: .normal)
-        startButton.setTitleColor(.black, for: .normal)
+        startButton.setTitleColor(UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
         startButton.titleLabel?.font = .systemFont(ofSize: 15)
         startButton.backgroundColor = .clear
         startButton.layer.borderWidth = 1
-        startButton.layer.borderColor = UIColor.lightGray.cgColor
+        startButton.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
         
     }
     
@@ -156,7 +150,17 @@ class popupScreenViewController: UIViewController {
     
     @objc func startButtonClicked() {
         
+        print(#function)
         
+        let vc = feedingViewController()
+        vc.data = data
+        
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .overFullScreen
+        nav.modalTransitionStyle = .crossDissolve
+        
+        present(nav, animated: true)
         
     }
     

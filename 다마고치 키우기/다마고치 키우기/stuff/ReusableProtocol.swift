@@ -13,16 +13,19 @@ protocol ReusableProtocol {
     
 }
 
-protocol CustomCellDelegate: AnyObject {
-    func didImageButton(in cell: mainTableViewCell)
-}
-
 extension UICollectionViewCell: ReusableProtocol {
     
     static var identifier: String {
         return String(describing: self)
     }
     
+}
+
+extension UITableViewCell: ReusableProtocol {
+    
+    static var identifier: String {
+        return String(describing: self)
+    }
 }
 
 extension UIViewController: ReusableProtocol {

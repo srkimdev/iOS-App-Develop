@@ -23,12 +23,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057.2519083969464" y="-28.169014084507044"/>
+            <point key="canvasLocation" x="1055.7251908396945" y="-28.169014084507044"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QxA-hD-yfU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aiV-Vj-8Yf" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="aiV-Vj-8Yf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="h0j-Yr-KwD">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>

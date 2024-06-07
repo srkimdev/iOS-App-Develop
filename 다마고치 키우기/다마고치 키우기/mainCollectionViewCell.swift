@@ -61,10 +61,10 @@ class mainCollectionViewCell: UICollectionViewCell {
         
         damagochiName.text = transition.name
         damagochiName.font = .systemFont(ofSize: 12)
-        damagochiName.textColor = .black
+        damagochiName.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         damagochiName.textAlignment = .center
         damagochiName.layer.borderWidth = 1
-        damagochiName.layer.borderColor = UIColor.lightGray.cgColor
+        damagochiName.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
         damagochiName.layer.masksToBounds = true
         damagochiName.layer.cornerRadius = 5
     
