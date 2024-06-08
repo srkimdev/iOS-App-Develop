@@ -59,14 +59,12 @@ class nameChangeViewController: UIViewController {
     func configureUI() {
         
         view.backgroundColor = #colorLiteral(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
-        navigationItem.title = "대장님 이름 정하기"
-        navigationItem.leftBarButtonItem?.tintColor = .black
+        navigationItem.title = UserDefaults.standard.string(forKey: "nameChange")! + "님 이름 정하기"
         
         let item = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = item
         
         naviLine.backgroundColor = .systemGray5
-        inputTextField.textColor = .black
         inputTextField.font = .systemFont(ofSize: 13)
         line.backgroundColor = .gray
         

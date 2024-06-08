@@ -22,7 +22,9 @@ class popupScreenViewController: UIViewController {
     let cancelButton = UIButton()
     let startButton = UIButton()
     
-    var data: Damagochi?
+    var totalData: [Damagochi]?
+    var data: Damagochi
+    var startButtonTitle = "시작하기"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,22 @@ class popupScreenViewController: UIViewController {
         startButton.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
         
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        startButton.setTitle(startButtonTitle, for: .normal)
+    }
+    
+    init(totalData: [Damagochi]? = nil, data: Damagochi) {
+        self.totalData = totalData
+        self.data = data
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func configureHierarchy() {
         
         view.addSubview(infoBackground)
@@ -100,9 +117,7 @@ class popupScreenViewController: UIViewController {
     }
     
     func configureUI() {
-        
-        guard let data = data else { return }
-        
+    
         view.backgroundColor = .black.withAlphaComponent(0.5)
         
         infoBackground.backgroundColor = #colorLiteral(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
@@ -111,6 +126,7 @@ class popupScreenViewController: UIViewController {
         
         damagochiName.text = data.name
         damagochiName.textAlignment = .center
+        damagochiName.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         damagochiName.font = .systemFont(ofSize: 13)
         damagochiName.layer.borderWidth = 1
         damagochiName.layer.masksToBounds = true
@@ -133,7 +149,6 @@ class popupScreenViewController: UIViewController {
         cancelButton.layer.borderWidth = 1
         cancelButton.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
         
-        startButton.setTitle("시작하기", for: .normal)
         startButton.setTitleColor(UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
         startButton.titleLabel?.font = .systemFont(ofSize: 15)
         startButton.backgroundColor = .clear
@@ -150,10 +165,11 @@ class popupScreenViewController: UIViewController {
     
     @objc func startButtonClicked() {
         
-        print(#function)
-        
-        let vc = feedingViewController()
-        vc.data = data
+        let vc = feedingViewController(data: data)
+
+        UserDefaults.standard.set(true, forKey: "selected")
+        UserDefaults.standard.set(data.name, forKey: "name")
+        UserDefaults.standard.set(data.type, forKey: "type")
         
         let nav = UINavigationController(rootViewController: vc)
         

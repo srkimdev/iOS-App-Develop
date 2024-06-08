@@ -8,84 +8,6 @@
 import UIKit
 import SnapKit
 
-struct DamagochiStatus {
-    
-    var rice: Int {
-        didSet {
-            updateLevel()
-        }
-    }
-    var water: Int {
-        didSet {
-            updateLevel()
-        }
-    }
-    
-    var level: Int
-    var type: Int
-    var image: String
-    
-    init(rice: Int = 0, water: Int = 0, type: Int) {
-        self.rice = rice
-        self.water = water
-        self.type = type
-        self.level = 1
-        self.image = "\(type)-1"
-        updateLevel()
-    }
-    
-    mutating func updateLevel() {
-        let amount = rice / 5 + water / 2
-        
-        if amount < 20 {
-            level = 1
-        } else if amount < 30 {
-            level = 2
-        } else if amount < 40 {
-            level = 3
-        } else if amount < 50 {
-            level = 4
-        } else if amount < 60 {
-            level = 5
-        } else if amount < 70 {
-            level = 6
-        } else if amount < 80 {
-            level = 7
-        } else if amount < 90 {
-            level = 8
-        } else if amount < 100 {
-            level = 9
-        } else {
-            level = 10
-        }
-        updateImage()
-    }
-    
-    mutating func updateImage() {
-        
-        if level <= 1 {
-            image = "\(type)-1"
-        } else if level <= 2 {
-            image = "\(type)-2"
-        } else if level <= 3 {
-            image = "\(type)-3"
-        } else if level <= 4 {
-            image = "\(type)-4"
-        } else if level <= 5 {
-            image = "\(type)-5"
-        } else if level <= 6 {
-            image = "\(type)-6"
-        } else if level <= 7 {
-            image = "\(type)-7"
-        } else if level <= 8 {
-            image = "\(type)-8"
-        } else {
-            image = "\(type)-9"
-        }
-    }
-    
-}
-
 class feedingViewController: UIViewController {
 
     let line = UIView()
@@ -105,29 +27,35 @@ class feedingViewController: UIViewController {
     let riceButton = UIButton()
     let waterButton = UIButton()
     
-    var data: Damagochi?
-    var damagochiStatus = DamagochiStatus(type: 1)
+    var data: Damagochi
     
     let list = ["복습 아직 안하셨다구요? 지금 잠이 오세여? 대장님??", "좋은 하루 되세요", "오늘 11시간 했다. 질문받는다", "배고파요", "테이블뷰컨트롤러와 뷰컨트롤러는 어떤 차이가 있을까요?", "오늘 깃허브 푸쉬 하셨어요?", "점점 미쳐 가는구나~", "한국 싱가포르 7대0 오졌구요~", "Bonjour Je suis Francais", "여기에 이름 넣는거는 너무 귀찮아~~"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let data = data else { return }
-        damagochiStatus.type = data.type
+
         UserDefaults.standard.set("대장", forKey: "nameChange")
 
         configureHierarchy()
         configureLayout()
         configureUI()
-        updateDamagochiStatus()
         
         riceButton.addTarget(self, action: #selector(riceButtonClicked), for: .touchUpInside)
         waterButton.addTarget(self, action: #selector(waterButtonClicked), for: .touchUpInside)
-        
+       
+    }
+    
+    init(data: Damagochi) {
+        self.data = data
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationItem.title = UserDefaults.standard.string(forKey: "nameChange")! + "님의 다마고치"
         randomComment()
     }
@@ -254,9 +182,7 @@ class feedingViewController: UIViewController {
         commentLabel.numberOfLines = 0
         commentLabel.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         
-        damagochiImage.image = UIImage(named: damagochiStatus.image)
-        
-        damagochiName.text = data?.name
+        damagochiName.text = data.name
         damagochiName.textAlignment = .center
         damagochiName.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         damagochiName.font = .systemFont(ofSize: 13)
@@ -265,6 +191,9 @@ class feedingViewController: UIViewController {
         damagochiName.layer.borderWidth = 1
         damagochiName.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
         
+        damagochiImage.image = UIImage(named: data.image)
+        
+        damagochiInfo.text = "LV\(data.level) · 밥알 \(data.rice)개 · 물방울 \(data.water)개"
         damagochiInfo.textAlignment = .center
         damagochiInfo.font = .systemFont(ofSize: 13)
         damagochiInfo.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
@@ -305,8 +234,8 @@ class feedingViewController: UIViewController {
     }
     
     func updateDamagochiStatus() {
-        damagochiInfo.text = "LV\(damagochiStatus.level) · 밥알 \(damagochiStatus.rice)개 · 물방울 \(damagochiStatus.water)개"
-        damagochiImage.image = UIImage(named: damagochiStatus.image)
+        damagochiInfo.text = "LV\(data.level) · 밥알 \(data.rice)개 · 물방울 \(data.water)개"
+        damagochiImage.image = UIImage(named: data.image)
     }
     
     func randomComment() {
@@ -321,10 +250,7 @@ class feedingViewController: UIViewController {
         
         let vc = SettingViewController()
         
-        guard let data = data else { return }
-        
         vc.data = data
-        
         
         navigationController?.pushViewController(vc, animated: true)
         
@@ -333,29 +259,31 @@ class feedingViewController: UIViewController {
     @objc func riceButtonClicked() {
         
         if riceTextField.text == "" {
-            damagochiStatus.rice += 1
+            data.rice += 1
         } else {
             
             if Int(riceTextField.text!)! < 100 {
-                damagochiStatus.rice += Int(riceTextField.text!)!
+                data.rice += Int(riceTextField.text!)!
             }
         }
         
+        UserDefaults.standard.set(data.rice, forKey: "rice")
         updateDamagochiStatus()
         riceTextField.text = nil
         randomComment()
     }
-    
+
     @objc func waterButtonClicked() {
         
         if waterTextField.text == "" {
-            damagochiStatus.water += 1
+            data.water += 1
         } else {
             if Int(waterTextField.text!)! < 50 {
-                damagochiStatus.water += Int(waterTextField.text!)!
+                data.water += Int(waterTextField.text!)!
             }
         }
         
+        UserDefaults.standard.set(data.water, forKey: "water")
         updateDamagochiStatus()
         waterTextField.text = nil
         randomComment()

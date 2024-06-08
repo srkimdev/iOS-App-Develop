@@ -88,4 +88,10 @@ class SettingTableViewCell: UITableViewCell {
         
     }
     
+    func designCell(transition: Setting) {
+        titleLabel.text = transition.titleLabel
+        name.text = transition.name
+        settingImage.image = UIImage(systemName: transition.settingImage)
+    }
+    
 }

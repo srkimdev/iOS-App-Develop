@@ -19,7 +19,7 @@ class SettingViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureUI()
-        
+                
         settingTableView.delegate = self
         settingTableView.dataSource = self
         settingTableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
@@ -76,19 +76,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = settingTableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as! SettingTableViewCell
         
-        if indexPath.row == 0 {
-            cell.titleLabel.text = "내 이름 설정하기"
-            cell.name.text = UserDefaults.standard.string(forKey: "nameChange")
-            cell.settingImage.image = UIImage(systemName: "pencil")
-        } else if indexPath.row == 1 {
-            cell.titleLabel.text = "다마고치 변경하기"
-            cell.name.text = nil
-            cell.settingImage.image = UIImage(systemName: "moon.fill")
-        } else if indexPath.row == 2 {
-            cell.titleLabel.text = "데이터 초기화"
-            cell.name.text = nil
-            cell.settingImage.image = UIImage(systemName: "arrow.clockwise")
-        }
+        cell.designCell(transition: SettingList().settingList[indexPath.row])
         
         return cell
     }
@@ -98,9 +86,12 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             let vc = nameChangeViewController()
             navigationController?.pushViewController(vc, animated: true)
+            
         } else if indexPath.row == 1 {
             
-            
+            let vc = MainViewController()
+            vc.navigationTitle = "변경하기"
+            navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.row == 2 {
             
@@ -110,8 +101,21 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                 preferredStyle: .alert)
             
             let yes = UIAlertAction(title: "웅", style: .default) { _ in
-                // 초기화
+                
+                UserDefaults.standard.removeObject(forKey: "rice")
+                UserDefaults.standard.removeObject(forKey: "water")
+                UserDefaults.standard.removeObject(forKey: "nameChange")
+                
+                let vc = MainViewController()
+                let nav = UINavigationController(rootViewController: vc)
+                
+                nav.modalPresentationStyle = .overFullScreen
+                nav.modalTransitionStyle = .crossDissolve
+                
+                self.present(nav, animated: true)
+                
             }
+            
             let cancel = UIAlertAction(title: "아니!", style: .cancel)
             
             alert.addAction(yes)

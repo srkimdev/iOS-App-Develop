@@ -84,13 +84,11 @@
 				DC6EA0212C117DC700DD7AEB /* Assets.xcassets */,
 				DC6EA0232C117DC700DD7AEB /* LaunchScreen.storyboard */,
 				DC6EA0262C117DC700DD7AEB /* Info.plist */,
-				DC6EA02C2C117EB100DD7AEB /* MainViewController.swift */,
-				DC6EA03A2C11BF7300DD7AEB /* mainCollectionViewCell.swift */,
+				DC76FD1D2C14004900C4CA8F /* Main */,
 				DC6EA0372C119CE500DD7AEB /* popupScreenViewController.swift */,
 				DC6EA03C2C12B4D200DD7AEB /* feedingViewController.swift */,
-				DC6EA03E2C12EC3700DD7AEB /* SettingViewController.swift */,
-				DC6EA0402C12EF8B00DD7AEB /* SettingTableViewCell.swift */,
-				DC76FD152C12FC8E00C4CA8F /* nameChangeViewController.swift */,
+				DC76FD1E2C14005900C4CA8F /* Setting */,
+				DC76FD1F2C14007F00C4CA8F /* GochiChange */,
 			);
 			path = "다마고치 키우기";
 			sourceTree = "<group>";
@@ -102,6 +100,32 @@
 				DC6EA0352C1190E500DD7AEB /* damagochiList.swift */,
 			);
 			path = stuff;
+			sourceTree = "<group>";
+		};
+		DC76FD1D2C14004900C4CA8F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DC6EA02C2C117EB100DD7AEB /* MainViewController.swift */,
+				DC6EA03A2C11BF7300DD7AEB /* mainCollectionViewCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DC76FD1E2C14005900C4CA8F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				DC6EA03E2C12EC3700DD7AEB /* SettingViewController.swift */,
+				DC6EA0402C12EF8B00DD7AEB /* SettingTableViewCell.swift */,
+				DC76FD152C12FC8E00C4CA8F /* nameChangeViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		DC76FD1F2C14007F00C4CA8F /* GochiChange */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GochiChange;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

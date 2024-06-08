@@ -22,15 +22,13 @@ class MainViewController: UIViewController {
         return mainCollectionView
     }()
     
-    
     var list = DamagochiList().damagochiArray
-
     
+    var navigationTitle = "다마고치 선택하기"
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.title = "다마고치 선택하기"
-        
+                
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         
@@ -38,6 +36,11 @@ class MainViewController: UIViewController {
         configureLayout()
         configureUI()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = navigationTitle
     }
     
     func configureHierarchy() {
@@ -61,18 +64,19 @@ class MainViewController: UIViewController {
         
         view.backgroundColor = #colorLiteral(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         mainCollectionView.backgroundColor = .clear
+        
         navigationController?.navigationBar.tintColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)]   
     }
     
     @objc func imageButtonClicked(sender: UIButton) {
         
-        let vc = popupScreenViewController()
+        let vc = popupScreenViewController(data: list[sender.tag])
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
 
-        vc.data = list[sender.tag]
-        
+        vc.startButtonTitle = "변경하기"
+
         present(vc, animated: true)
         
     }
