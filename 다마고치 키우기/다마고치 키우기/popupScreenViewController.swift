@@ -119,6 +119,7 @@ class popupScreenViewController: UIViewController {
     func configureUI() {
     
         view.backgroundColor = .black.withAlphaComponent(0.5)
+        UserDefaults.standard.set("대장", forKey: "nameChange")
         
         infoBackground.backgroundColor = #colorLiteral(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         
@@ -166,6 +167,7 @@ class popupScreenViewController: UIViewController {
     @objc func startButtonClicked() {
         
         let vc = feedingViewController(data: data)
+//        vc.navigationTitle = UserDefaults.standard.string(forKey: "nameChange")!
 
         UserDefaults.standard.set(true, forKey: "selected")
         UserDefaults.standard.set(data.name, forKey: "name")

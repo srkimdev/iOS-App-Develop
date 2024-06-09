@@ -28,7 +28,6 @@ class mainCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func configureHierarchy() {
         
         contentView.addSubview(damagochiButton)

@@ -28,13 +28,12 @@ class feedingViewController: UIViewController {
     let waterButton = UIButton()
     
     var data: Damagochi
+//    var navigationTitle: String = "대장"
     
     let list = ["복습 아직 안하셨다구요? 지금 잠이 오세여? 대장님??", "좋은 하루 되세요", "오늘 11시간 했다. 질문받는다", "배고파요", "테이블뷰컨트롤러와 뷰컨트롤러는 어떤 차이가 있을까요?", "오늘 깃허브 푸쉬 하셨어요?", "점점 미쳐 가는구나~", "한국 싱가포르 7대0 오졌구요~", "Bonjour Je suis Francais", "여기에 이름 넣는거는 너무 귀찮아~~"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        UserDefaults.standard.set("대장", forKey: "nameChange")
 
         configureHierarchy()
         configureLayout()
@@ -245,7 +244,6 @@ class feedingViewController: UIViewController {
         commentLabel.text = list[num]
     }
     
-    
     @objc func userButtonClicked() {
         
         let vc = SettingViewController()
@@ -261,7 +259,6 @@ class feedingViewController: UIViewController {
         if riceTextField.text == "" {
             data.rice += 1
         } else {
-            
             if Int(riceTextField.text!)! < 100 {
                 data.rice += Int(riceTextField.text!)!
             }
@@ -287,7 +284,7 @@ class feedingViewController: UIViewController {
         updateDamagochiStatus()
         waterTextField.text = nil
         randomComment()
-        
+
     }
 
 }

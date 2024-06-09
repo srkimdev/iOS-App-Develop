@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
         if UserDefaults.standard.bool(forKey: "selected") {
-            let vc = feedingViewController(data: Damagochi(type: 3, name: "11"))
+            let vc = feedingViewController(data: Damagochi(type: UserDefaults.standard.integer(forKey: "type"), name: UserDefaults.standard.string(forKey: "name")!))
             let navigationController = UINavigationController(rootViewController: vc)
             window?.rootViewController = navigationController
         } else {
