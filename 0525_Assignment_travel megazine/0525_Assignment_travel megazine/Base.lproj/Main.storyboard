@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Wj-KM-Aym">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RLa-lJ-8wX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -600,27 +600,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8px-Rg-foe">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="701"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ph-vi-5bl">
+                                <rect key="frame" x="313" y="768" width="54" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="위치"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ruh-a5-whE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8px-Rg-foe" firstAttribute="top" secondItem="ruh-a5-whE" secondAttribute="top" id="0ge-Vr-UJ0"/>
+                            <constraint firstItem="ruh-a5-whE" firstAttribute="bottom" secondItem="0ph-vi-5bl" secondAttribute="bottom" constant="15" id="4Jp-JA-skN"/>
                             <constraint firstItem="ruh-a5-whE" firstAttribute="trailing" secondItem="8px-Rg-foe" secondAttribute="trailing" id="BXP-cx-Q7n"/>
+                            <constraint firstItem="ruh-a5-whE" firstAttribute="trailing" secondItem="0ph-vi-5bl" secondAttribute="trailing" constant="26" id="KDe-LX-PXD"/>
                             <constraint firstItem="8px-Rg-foe" firstAttribute="leading" secondItem="ruh-a5-whE" secondAttribute="leading" id="VQ6-2Z-6ly"/>
-                            <constraint firstItem="ruh-a5-whE" firstAttribute="bottom" secondItem="8px-Rg-foe" secondAttribute="bottom" id="ZZh-fM-VS3"/>
+                            <constraint firstItem="0ph-vi-5bl" firstAttribute="leading" secondItem="ruh-a5-whE" secondAttribute="leading" constant="313" id="VXJ-xi-SjH"/>
+                            <constraint firstItem="0ph-vi-5bl" firstAttribute="top" secondItem="8px-Rg-foe" secondAttribute="bottom" constant="8" id="ayK-IT-LMC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="W8K-34-Tsd"/>
                     <connections>
+                        <outlet property="locationButton" destination="0ph-vi-5bl" id="qWd-cD-1Rz"/>
                         <outlet property="mapView" destination="8px-Rg-foe" id="k5p-kp-5fT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaZ-oj-V43" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6636" y="666"/>
+            <point key="canvasLocation" x="6635.8778625954192" y="665.49295774647885"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tay-vD-E1k">
