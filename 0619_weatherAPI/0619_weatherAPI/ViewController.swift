@@ -167,32 +167,6 @@ class ViewController: UIViewController {
         
     }
     
-    func callRequest(lat: Double, long: Double) {
-        
-        let url = "https://api.openweathermap.org/data/2.5/weather?units=metric&lat=\(lat)&lon=\(long)&appid="
-        
-        AF.request(url).responseDecodable(of: Total.self) { response in
-            switch response.result {
-            case .success(let value):
-                
-                print(value)
-                
-                self.dateLabel.text = self.getCurrentDateTimeFormatted()
-                self.locationLabel.text = "서울 \(value.name)"
-                self.temperatureLabel.text = "지금은 \(value.main.temp)도 에요"
-                self.wetLabel.text = "\(value.main.humidity)% 만큼 습해요"
-                self.windLabel.text = "\(value.wind.speed)m/s의 바람이 불어요"
-                
-                let url = URL(string: "https://openweathermap.org/img/wn/\(value.weather[0].icon)@2x.png")
-                self.weatherImage.kf.setImage(with: url)
-
-            case .failure(let error):
-                print("실패")
-            }
-        }
-        
-    }
-    
     func getCurrentDateTimeFormatted() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -220,7 +194,7 @@ extension ViewController: CLLocationManagerDelegate {
             longitude = location.coordinate.longitude
         
         APIRequest.shared.callRequest(lat: latitude, long: longitude) { value, error in
-            print(value)
+    
             guard let value = value else { return }
             
             self.dateLabel.text = self.getCurrentDateTimeFormatted()
@@ -233,7 +207,6 @@ extension ViewController: CLLocationManagerDelegate {
             self.weatherImage.kf.setImage(with: url)
         }
         
-//        callRequest(lat: latitude, long: longitude)
         locationManager.stopUpdatingLocation()
         
     }
