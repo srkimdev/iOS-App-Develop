@@ -28,7 +28,6 @@ class feedingViewController: UIViewController {
     let waterButton = UIButton()
     
     var data: Damagochi
-//    var navigationTitle: String = "대장"
     
     let list = ["복습 아직 안하셨다구요? 지금 잠이 오세여? 대장님??", "좋은 하루 되세요", "오늘 11시간 했다. 질문받는다", "배고파요", "테이블뷰컨트롤러와 뷰컨트롤러는 어떤 차이가 있을까요?", "오늘 깃허브 푸쉬 하셨어요?", "점점 미쳐 가는구나~", "한국 싱가포르 7대0 오졌구요~", "Bonjour Je suis Francais", "여기에 이름 넣는거는 너무 귀찮아~~"]
     
@@ -166,11 +165,11 @@ class feedingViewController: UIViewController {
     func configureUI() {
     
         view.backgroundColor = #colorLiteral(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
-        navigationController?.navigationBar.tintColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)]
+        navigationController?.navigationBar.tintColor = DamagochiColor.greenColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: DamagochiColor.greenColor]
         
         let item = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(userButtonClicked))
-        item.tintColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        item.tintColor = DamagochiColor.greenColor
         navigationItem.rightBarButtonItem = item
         
         line.backgroundColor = .gray
@@ -179,53 +178,53 @@ class feedingViewController: UIViewController {
         commentLabel.font = .systemFont(ofSize: 13)
         commentLabel.textAlignment = .center
         commentLabel.numberOfLines = 0
-        commentLabel.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        commentLabel.textColor = DamagochiColor.greenColor
         
         damagochiName.text = data.name
         damagochiName.textAlignment = .center
-        damagochiName.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        damagochiName.textColor = DamagochiColor.greenColor
         damagochiName.font = .systemFont(ofSize: 13)
         damagochiName.layer.cornerRadius = 5
         damagochiName.layer.masksToBounds = true
         damagochiName.layer.borderWidth = 1
-        damagochiName.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
+        damagochiName.layer.borderColor = DamagochiColor.greenColor.cgColor
         
         damagochiImage.image = UIImage(named: data.image)
         
         damagochiInfo.text = "LV\(data.level) · 밥알 \(data.rice)개 · 물방울 \(data.water)개"
         damagochiInfo.textAlignment = .center
         damagochiInfo.font = .systemFont(ofSize: 13)
-        damagochiInfo.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        damagochiInfo.textColor = DamagochiColor.greenColor
 
         riceTextField.placeholder = "밥주세용"
-        riceTextField.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        riceTextField.textColor = DamagochiColor.greenColor
         riceTextField.font = .systemFont(ofSize: 13)
         riceTextField.textAlignment = .center
         
         var image = UIImage(systemName: "drop.circle")
         riceButton.setImage(image, for: .normal)
-        riceButton.tintColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        riceButton.tintColor = DamagochiColor.greenColor
         riceButton.setTitleColor(.black, for: .normal)
         riceButton.setTitle(" 밥먹기", for: .normal)
         riceButton.titleLabel?.font = .systemFont(ofSize: 13)
         riceButton.layer.cornerRadius = 5
         riceButton.layer.borderWidth = 1
-        riceButton.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
+        riceButton.layer.borderColor = DamagochiColor.greenColor.cgColor
         
         waterTextField.placeholder = "물주세용"
-        waterTextField.textColor = .gray
+        waterTextField.textColor = DamagochiColor.greenColor
         waterTextField.font = .systemFont(ofSize: 13)
         waterTextField.textAlignment = .center
         
         image = UIImage(systemName: "leaf.circle")
         waterButton.setImage(image, for: .normal)
-        waterButton.tintColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        waterButton.tintColor = DamagochiColor.greenColor
         waterButton.setTitleColor(.black, for: .normal)
         waterButton.setTitle(" 물먹기", for: .normal)
         waterButton.titleLabel?.font = .systemFont(ofSize: 13)
         waterButton.layer.cornerRadius = 5
         waterButton.layer.borderWidth = 1
-        waterButton.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
+        waterButton.layer.borderColor = DamagochiColor.greenColor.cgColor
         
         waterTextFieldLine.backgroundColor = .gray
         riceTextFieldLine.backgroundColor = .gray

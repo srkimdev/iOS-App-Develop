@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC6DAFE32C26E0960007DA9D /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6DAFE22C26E0960007DA9D /* Struct.swift */; };
 		DC6EA0192C117DC500DD7AEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6EA0182C117DC500DD7AEB /* AppDelegate.swift */; };
 		DC6EA01B2C117DC500DD7AEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6EA01A2C117DC500DD7AEB /* SceneDelegate.swift */; };
 		DC6EA01D2C117DC500DD7AEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6EA01C2C117DC500DD7AEB /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC6DAFE22C26E0960007DA9D /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
 		DC6EA0152C117DC500DD7AEB /* 다마고치 키우기.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "다마고치 키우기.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6EA0182C117DC500DD7AEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC6EA01A2C117DC500DD7AEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				DC6EA0302C11806E00DD7AEB /* ReusableProtocol.swift */,
 				DC6EA0352C1190E500DD7AEB /* damagochiList.swift */,
+				DC6DAFE22C26E0960007DA9D /* Struct.swift */,
 			);
 			path = stuff;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				DC76FD162C12FC8E00C4CA8F /* nameChangeViewController.swift in Sources */,
 				DC6EA01B2C117DC500DD7AEB /* SceneDelegate.swift in Sources */,
 				DC6EA0382C119CE500DD7AEB /* popupScreenViewController.swift in Sources */,
+				DC6DAFE32C26E0960007DA9D /* Struct.swift in Sources */,
 				DC6EA0362C1190E500DD7AEB /* damagochiList.swift in Sources */,
 				DC6EA02D2C117EB100DD7AEB /* MainViewController.swift in Sources */,
 			);

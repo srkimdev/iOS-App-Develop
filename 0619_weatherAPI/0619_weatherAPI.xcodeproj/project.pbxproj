@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC0CFA8C2C2FE68000E80424 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0CFA8B2C2FE68000E80424 /* APIRequest.swift */; };
+		DC0CFA8E2C2FE81200E80424 /* APIkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0CFA8D2C2FE81200E80424 /* APIkey.swift */; };
 		DCE6F5192C22D6ED00211C08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE6F5182C22D6ED00211C08 /* AppDelegate.swift */; };
 		DCE6F51B2C22D6ED00211C08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE6F51A2C22D6ED00211C08 /* SceneDelegate.swift */; };
 		DCE6F51D2C22D6ED00211C08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE6F51C2C22D6ED00211C08 /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC0CFA8B2C2FE68000E80424 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		DC0CFA8D2C2FE81200E80424 /* APIkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIkey.swift; sourceTree = "<group>"; };
 		DCE6F5152C22D6EC00211C08 /* 0619_weatherAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 0619_weatherAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE6F5182C22D6ED00211C08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCE6F51A2C22D6ED00211C08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 				DCE6F51A2C22D6ED00211C08 /* SceneDelegate.swift */,
 				DCE6F51C2C22D6ED00211C08 /* ViewController.swift */,
 				DCE6F5322C22E1A800211C08 /* Struct.swift */,
+				DC0CFA8B2C2FE68000E80424 /* APIRequest.swift */,
+				DC0CFA8D2C2FE81200E80424 /* APIkey.swift */,
 				DCE6F51E2C22D6ED00211C08 /* Main.storyboard */,
 				DCE6F5212C22D6EF00211C08 /* Assets.xcassets */,
 				DCE6F5232C22D6EF00211C08 /* LaunchScreen.storyboard */,
@@ -160,6 +166,8 @@
 				DCE6F5332C22E1A800211C08 /* Struct.swift in Sources */,
 				DCE6F51D2C22D6ED00211C08 /* ViewController.swift in Sources */,
 				DCE6F5192C22D6ED00211C08 /* AppDelegate.swift in Sources */,
+				DC0CFA8C2C2FE68000E80424 /* APIRequest.swift in Sources */,
+				DC0CFA8E2C2FE81200E80424 /* APIkey.swift in Sources */,
 				DCE6F51B2C22D6ED00211C08 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

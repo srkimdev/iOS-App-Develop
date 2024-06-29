@@ -65,8 +65,8 @@ class MainViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         mainCollectionView.backgroundColor = .clear
         
-        navigationController?.navigationBar.tintColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)]   
+        navigationController?.navigationBar.tintColor = DamagochiColor.greenColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: DamagochiColor.greenColor]   
     }
     
     @objc func imageButtonClicked(sender: UIButton) {

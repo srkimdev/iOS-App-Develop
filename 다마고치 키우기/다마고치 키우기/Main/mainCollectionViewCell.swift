@@ -18,9 +18,7 @@ class mainCollectionViewCell: UICollectionViewCell {
         
         configureHierarchy()
         configureLayout()
-        
-        backgroundColor = .clear
-        contentView.backgroundColor = .clear
+        configureUI()
         
     }
     
@@ -53,6 +51,13 @@ class mainCollectionViewCell: UICollectionViewCell {
         
     }
     
+    func configureUI() {
+        
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
+        
+    }
+    
     func configureCollectionViewCell(transition: Damagochi) {
         
         let image = UIImage(named: transition.image)
@@ -60,10 +65,10 @@ class mainCollectionViewCell: UICollectionViewCell {
         
         damagochiName.text = transition.name
         damagochiName.font = .systemFont(ofSize: 12)
-        damagochiName.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        damagochiName.textColor = DamagochiColor.greenColor
         damagochiName.textAlignment = .center
         damagochiName.layer.borderWidth = 1
-        damagochiName.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
+        damagochiName.layer.borderColor = DamagochiColor.greenColor.cgColor
         damagochiName.layer.masksToBounds = true
         damagochiName.layer.cornerRadius = 5
     

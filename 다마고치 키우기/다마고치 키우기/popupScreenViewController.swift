@@ -127,34 +127,34 @@ class popupScreenViewController: UIViewController {
         
         damagochiName.text = data.name
         damagochiName.textAlignment = .center
-        damagochiName.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        damagochiName.textColor = DamagochiColor.greenColor
         damagochiName.font = .systemFont(ofSize: 13)
         damagochiName.layer.borderWidth = 1
         damagochiName.layer.masksToBounds = true
         damagochiName.layer.cornerRadius = 5
-        damagochiName.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
+        damagochiName.layer.borderColor = DamagochiColor.greenColor.cgColor
         
         line.backgroundColor = .gray
         
         infoLabel.backgroundColor = .clear
         infoLabel.text = "저는 방실방실 다마고치입니당 키는 100km\n몸무게는 150톤이에용\n성격은 화끈하고 날라다닙니당~!\n열심히 잘 먹고 잘 클 자신은\n있답니당 방실방실!"
         infoLabel.font = .systemFont(ofSize: 13)
-        infoLabel.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        infoLabel.textColor = DamagochiColor.greenColor
         infoLabel.textAlignment = .center
         infoLabel.numberOfLines = 0
         
         cancelButton.setTitle("취소", for: .normal)
-        cancelButton.setTitleColor(UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
+        cancelButton.setTitleColor(DamagochiColor.greenColor, for: .normal)
         cancelButton.titleLabel?.font = .systemFont(ofSize: 15)
         cancelButton.backgroundColor = .clear
         cancelButton.layer.borderWidth = 1
-        cancelButton.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
+        cancelButton.layer.borderColor = DamagochiColor.greenColor.cgColor
         
-        startButton.setTitleColor(UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
+        startButton.setTitleColor(DamagochiColor.greenColor, for: .normal)
         startButton.titleLabel?.font = .systemFont(ofSize: 15)
         startButton.backgroundColor = .clear
         startButton.layer.borderWidth = 1
-        startButton.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
+        startButton.layer.borderColor = DamagochiColor.greenColor.cgColor
         
     }
     
@@ -167,7 +167,6 @@ class popupScreenViewController: UIViewController {
     @objc func startButtonClicked() {
         
         let vc = feedingViewController(data: data)
-//        vc.navigationTitle = UserDefaults.standard.string(forKey: "nameChange")!
 
         UserDefaults.standard.set(true, forKey: "selected")
         UserDefaults.standard.set(data.name, forKey: "name")

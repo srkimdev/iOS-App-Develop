@@ -53,7 +53,7 @@ class SettingViewController: UIViewController {
         settingTableView.backgroundColor = .clear
         
         let item = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButtonClicked))
-        item.tintColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        item.tintColor = DamagochiColor.greenColor
         navigationItem.leftBarButtonItem = item
         
     }
@@ -126,19 +126,5 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         }
     
     }
-    
-//    func navigateToFirstScreen() {
-//
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        
-//        let mainViewController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-//
-//        if let window = UIApplication.shared.windows.first {
-//            window.rootViewController = mainViewController
-//            window.makeKeyAndVisible()
-//            
-//            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: nil, completion: nil)
-//        }
-//    }
     
 }

@@ -75,16 +75,16 @@ class SettingTableViewCell: UITableViewCell {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         
-        settingImage.tintColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        settingImage.tintColor = DamagochiColor.greenColor
         
         titleLabel.font = .boldSystemFont(ofSize: 13)
         
         nextButton.setImage(UIImage(systemName: "chevron.forward"), for: .normal)
-        nextButton.tintColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        nextButton.tintColor = DamagochiColor.greenColor
         
         name.font = .systemFont(ofSize: 13)
         name.textAlignment = .right
-        name.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        name.textColor = DamagochiColor.greenColor
         
     }
     
