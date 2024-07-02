@@ -58,20 +58,23 @@ class TodoListTableViewCell: UITableViewCell {
     }
     
     func configureUI() {
-        
-        contentView.backgroundColor = .lightGray
-        
-        titleLabel.text = "키보드 구매"
-        titleLabel.textColor = .white
+       
+        titleLabel.textColor = .gray
         titleLabel.font = .systemFont(ofSize: 14)
-        
-        memoLabel.text = "예쁜 키캡 알아보기"
+
         memoLabel.textColor = .gray
         memoLabel.font = .systemFont(ofSize: 13)
         
-        deadlineLabel.text = "2024. 2. 20"
         deadlineLabel.textColor = .gray
         deadlineLabel.font = .systemFont(ofSize: 13)
+        
+    }
+    
+    func designCell(transition: Table) {
+        
+        titleLabel.text = transition.memoTitle
+        memoLabel.text = transition.memoContents
+        deadlineLabel.text = "\(transition.enrollDate ?? Date())"
         
     }
     

@@ -18,9 +18,9 @@
 		DC5B042D2C33E7D700CBA85C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DC5B042C2C33E7D700CBA85C /* SnapKit */; };
 		DC5B04302C33EB1800CBA85C /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B042F2C33EB1800CBA85C /* TodoListTableViewCell.swift */; };
 		DC5B04332C33EE1500CBA85C /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B04322C33EE1500CBA85C /* ReusableProtocol.swift */; };
-		DC5B04362C33F3FD00CBA85C /* RegisterFirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B04352C33F3FD00CBA85C /* RegisterFirstTableViewCell.swift */; };
 		DC5B04382C33F64400CBA85C /* ResisterOtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B04372C33F64400CBA85C /* ResisterOtherTableViewCell.swift */; };
 		DC5B043B2C340DA400CBA85C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC5B043A2C340DA400CBA85C /* RealmSwift */; };
+		DC5B043E2C340EB200CBA85C /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B043D2C340EB200CBA85C /* DataBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +36,8 @@
 		DC5B04262C33E7A300CBA85C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DC5B042F2C33EB1800CBA85C /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
 		DC5B04322C33EE1500CBA85C /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
-		DC5B04352C33F3FD00CBA85C /* RegisterFirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirstTableViewCell.swift; sourceTree = "<group>"; };
 		DC5B04372C33F64400CBA85C /* ResisterOtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResisterOtherTableViewCell.swift; sourceTree = "<group>"; };
+		DC5B043D2C340EB200CBA85C /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +79,7 @@
 				DC5B04192C33E67E00CBA85C /* Assets.xcassets */,
 				DC5B041B2C33E67E00CBA85C /* LaunchScreen.storyboard */,
 				DC5B041E2C33E67E00CBA85C /* Info.plist */,
+				DC5B043C2C340E9000CBA85C /* DB */,
 				DC5B04312C33EE0600CBA85C /* Stuff */,
 				DC5B042E2C33EAFB00CBA85C /* List */,
 				DC5B04342C33F3C300CBA85C /* Register */,
@@ -107,10 +108,17 @@
 			isa = PBXGroup;
 			children = (
 				DC5B04262C33E7A300CBA85C /* RegisterViewController.swift */,
-				DC5B04352C33F3FD00CBA85C /* RegisterFirstTableViewCell.swift */,
 				DC5B04372C33F64400CBA85C /* ResisterOtherTableViewCell.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		DC5B043C2C340E9000CBA85C /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				DC5B043D2C340EB200CBA85C /* DataBase.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,13 +200,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC5B043E2C340EB200CBA85C /* DataBase.swift in Sources */,
 				DC5B04252C33E78000CBA85C /* TodoListViewController.swift in Sources */,
 				DC5B04332C33EE1500CBA85C /* ReusableProtocol.swift in Sources */,
 				DC5B04272C33E7A300CBA85C /* RegisterViewController.swift in Sources */,
 				DC5B04152C33E67C00CBA85C /* ViewController.swift in Sources */,
 				DC5B04112C33E67C00CBA85C /* AppDelegate.swift in Sources */,
 				DC5B04132C33E67C00CBA85C /* SceneDelegate.swift in Sources */,
-				DC5B04362C33F3FD00CBA85C /* RegisterFirstTableViewCell.swift in Sources */,
 				DC5B04302C33EB1800CBA85C /* TodoListTableViewCell.swift in Sources */,
 				DC5B04382C33F64400CBA85C /* ResisterOtherTableViewCell.swift in Sources */,
 			);

@@ -7,11 +7,15 @@
 
 import UIKit
 import SnapKit
+import RealmSwift
 
-class TodoListViewController: UIViewController {
+class TodoListViewController: UIViewController, RegisterViewControllerDelegate {
     
     let totalLabel = UILabel()
     let todoTableView = UITableView()
+    
+    var list: Results<Table>!
+    let realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +28,14 @@ class TodoListViewController: UIViewController {
         todoTableView.dataSource = self
         todoTableView.register(TodoListTableViewCell.self, forCellReuseIdentifier: TodoListTableViewCell.identifier)
         
+        print(realm.configuration.fileURL)
+        list = realm.objects(Table.self).sorted(byKeyPath: "memoTitle")
     }
     
+    
     func configureHierarchy() {
-        
         view.addSubview(totalLabel)
         view.addSubview(todoTableView)
-        
     }
     
     func configureLayout() {
@@ -60,17 +65,23 @@ class TodoListViewController: UIViewController {
         totalLabel.font = .systemFont(ofSize: 28)
         totalLabel.textColor = .blue
         
-        todoTableView.rowHeight = 60
+        todoTableView.rowHeight = 70
         
     }
     
     @objc func nextButtonClicked() {
         
         let vc = RegisterViewController()
+        vc.delegate = self
         
         let nav = UINavigationController(rootViewController: vc)
         
         present(nav, animated: true, completion: nil)
+    }
+    
+    func RegisterViewControllerDidDismiss() {
+        
+        todoTableView.reloadData()
     }
 
 }
@@ -78,13 +89,16 @@ class TodoListViewController: UIViewController {
 extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = todoTableView.dequeueReusableCell(withIdentifier: TodoListTableViewCell.identifier, for: indexPath) as! TodoListTableViewCell
         
+        let data = list[indexPath.row]
+        
+        cell.designCell(transition: data)
         
         return cell
     }
