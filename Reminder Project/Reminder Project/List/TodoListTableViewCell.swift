@@ -74,9 +74,8 @@ class TodoListTableViewCell: UITableViewCell {
         
         titleLabel.text = transition.memoTitle
         memoLabel.text = transition.memoContents
-        deadlineLabel.text = "\(transition.enrollDate ?? Date())"
+        deadlineLabel.text = "\(transition.enrollDate ?? "")"
         
     }
     
-
 }

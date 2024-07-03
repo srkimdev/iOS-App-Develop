@@ -15,6 +15,8 @@ class RegisterOtherTableViewCell: UITableViewCell {
     let otherLabel = UILabel()
     let nextButton = UIButton()
     
+    let dateLabel = UILabel()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -33,6 +35,7 @@ class RegisterOtherTableViewCell: UITableViewCell {
         contentView.addSubview(backgroundScene)
         backgroundScene.addSubview(otherLabel)
         backgroundScene.addSubview(nextButton)
+        backgroundScene.addSubview(dateLabel)
         
     }
     
@@ -50,6 +53,12 @@ class RegisterOtherTableViewCell: UITableViewCell {
         nextButton.snp.makeConstraints { make in
             make.centerY.equalTo(backgroundScene)
             make.trailing.equalTo(backgroundScene).inset(8)
+            make.width.equalTo(20)
+        }
+        
+        dateLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(backgroundScene)
+            make.trailing.equalTo(nextButton.snp.leading)
         }
         
     }
@@ -58,11 +67,16 @@ class RegisterOtherTableViewCell: UITableViewCell {
         
         backgroundScene.backgroundColor = .lightGray
         backgroundScene.layer.cornerRadius = 10
-        
-        otherLabel.text = "마감일"
-        
+                
         nextButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         
+        dateLabel.font = .systemFont(ofSize: 15)
+        
+    }
+    
+    func designCell(transition1: String, transition2: String) {
+        otherLabel.text = transition1
+        dateLabel.text = transition2
     }
     
 }

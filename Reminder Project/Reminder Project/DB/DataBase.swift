@@ -15,13 +15,17 @@ class Table: Object {
     
     @Persisted var memoTitle: String
     @Persisted var memoContents: String?
-    @Persisted var enrollDate: Date?
+    @Persisted var enrollDate: String?
+    @Persisted var tag: String
+    @Persisted var priority: String
     
-    convenience init(memoTitle: String, memoContents: String?, enrollDate: Date?) {
+    convenience init(memoTitle: String, memoContents: String?, enrollDate: String?, tag: String, priority: String) {
         self.init()
         self.memoTitle = memoTitle
         self.memoContents = memoContents
         self.enrollDate = enrollDate
+        self.tag = tag
+        self.priority = priority
     }
 }
 

@@ -22,7 +22,8 @@ class RegisterViewController: UIViewController {
     let memoTextView = UITextView()
     
     let registerTableView = UITableView()
-    let list = ["마감일", "태그", "우선순위", "이미지 추가"]
+    var list = ["마감일", "태그", "우선순위", "이미지 추가"]
+    var cellDate = ["", "", "", ""]
     
     weak var delegate: RegisterViewControllerDelegate?
     
@@ -122,7 +123,7 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        let data = Table(memoTitle: title, memoContents: memoTextView.text, enrollDate: Date())
+        let data = Table(memoTitle: title, memoContents: memoTextView.text, enrollDate: cellDate[0], tag: cellDate[1], priority: cellDate[2])
         
         try! realm.write {
             realm.add(data)
@@ -146,10 +147,60 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-            
         let cell = registerTableView.dequeueReusableCell(withIdentifier: RegisterOtherTableViewCell.identifier, for: indexPath) as! RegisterOtherTableViewCell
         
+        cell.designCell(transition1: list[indexPath.row], transition2: cellDate[indexPath.row])
+        
         return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == 0 {
+            let vc = DateViewController()
+            
+            vc.selectedDate = { value in
+                
+                let format = DateFormatter()
+                format.dateFormat = "yyyy. MM. dd aaa"
+                
+                print(value, "value")
+                self.cellDate[indexPath.row] = format.string(from: value)
+                
+                self.registerTableView.reloadData()
+            }
+            
+            navigationController?.pushViewController(vc, animated: true)
+            
+        } else if indexPath.row == 1 {
+            let vc = TagViewController()
+            
+            vc.inputText = { value in
+                
+                self.cellDate[indexPath.row] = value
+                
+                self.registerTableView.reloadData()
+            }
+            
+            navigationController?.pushViewController(vc, animated: true)
+            
+        } else if indexPath.row == 2 {
+            let vc = PriorityViewController()
+            
+            vc.segmentTitle = { value in
+                
+                self.cellDate[indexPath.row] = value
+                
+                self.registerTableView.reloadData()
+            }
+            
+            navigationController?.pushViewController(vc, animated: true)
+            
+        } else {
+            let vc = PHPickerViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
         
     }
     

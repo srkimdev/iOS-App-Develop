@@ -21,6 +21,12 @@
 		DC5B04382C33F64400CBA85C /* ResisterOtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B04372C33F64400CBA85C /* ResisterOtherTableViewCell.swift */; };
 		DC5B043B2C340DA400CBA85C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC5B043A2C340DA400CBA85C /* RealmSwift */; };
 		DC5B043E2C340EB200CBA85C /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B043D2C340EB200CBA85C /* DataBase.swift */; };
+		DC5B04442C3531D100CBA85C /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B04432C3531D100CBA85C /* DateViewController.swift */; };
+		DC5B04462C3531DC00CBA85C /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B04452C3531DC00CBA85C /* TagViewController.swift */; };
+		DC5B04482C3531EC00CBA85C /* PriorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B04472C3531EC00CBA85C /* PriorityViewController.swift */; };
+		DC5B044A2C3532DE00CBA85C /* PHPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B04492C3532DE00CBA85C /* PHPickerViewController.swift */; };
+		DC5B044D2C3568BF00CBA85C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B044C2C3568BF00CBA85C /* MainViewController.swift */; };
+		DC5B044F2C356AC800CBA85C /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B044E2C356AC800CBA85C /* MainCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,12 @@
 		DC5B04322C33EE1500CBA85C /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		DC5B04372C33F64400CBA85C /* ResisterOtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResisterOtherTableViewCell.swift; sourceTree = "<group>"; };
 		DC5B043D2C340EB200CBA85C /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		DC5B04432C3531D100CBA85C /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
+		DC5B04452C3531DC00CBA85C /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
+		DC5B04472C3531EC00CBA85C /* PriorityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityViewController.swift; sourceTree = "<group>"; };
+		DC5B04492C3532DE00CBA85C /* PHPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerViewController.swift; sourceTree = "<group>"; };
+		DC5B044C2C3568BF00CBA85C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DC5B044E2C356AC800CBA85C /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +93,10 @@
 				DC5B041E2C33E67E00CBA85C /* Info.plist */,
 				DC5B043C2C340E9000CBA85C /* DB */,
 				DC5B04312C33EE0600CBA85C /* Stuff */,
+				DC5B044B2C35689B00CBA85C /* Main */,
 				DC5B042E2C33EAFB00CBA85C /* List */,
 				DC5B04342C33F3C300CBA85C /* Register */,
+				DC5B04422C35319E00CBA85C /* Detail */,
 			);
 			path = "Reminder Project";
 			sourceTree = "<group>";
@@ -119,6 +133,26 @@
 				DC5B043D2C340EB200CBA85C /* DataBase.swift */,
 			);
 			path = DB;
+			sourceTree = "<group>";
+		};
+		DC5B04422C35319E00CBA85C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DC5B04432C3531D100CBA85C /* DateViewController.swift */,
+				DC5B04452C3531DC00CBA85C /* TagViewController.swift */,
+				DC5B04472C3531EC00CBA85C /* PriorityViewController.swift */,
+				DC5B04492C3532DE00CBA85C /* PHPickerViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		DC5B044B2C35689B00CBA85C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DC5B044C2C3568BF00CBA85C /* MainViewController.swift */,
+				DC5B044E2C356AC800CBA85C /* MainCollectionViewCell.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,14 +234,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC5B04442C3531D100CBA85C /* DateViewController.swift in Sources */,
 				DC5B043E2C340EB200CBA85C /* DataBase.swift in Sources */,
 				DC5B04252C33E78000CBA85C /* TodoListViewController.swift in Sources */,
 				DC5B04332C33EE1500CBA85C /* ReusableProtocol.swift in Sources */,
 				DC5B04272C33E7A300CBA85C /* RegisterViewController.swift in Sources */,
 				DC5B04152C33E67C00CBA85C /* ViewController.swift in Sources */,
+				DC5B04462C3531DC00CBA85C /* TagViewController.swift in Sources */,
+				DC5B044F2C356AC800CBA85C /* MainCollectionViewCell.swift in Sources */,
+				DC5B044D2C3568BF00CBA85C /* MainViewController.swift in Sources */,
 				DC5B04112C33E67C00CBA85C /* AppDelegate.swift in Sources */,
+				DC5B04482C3531EC00CBA85C /* PriorityViewController.swift in Sources */,
 				DC5B04132C33E67C00CBA85C /* SceneDelegate.swift in Sources */,
 				DC5B04302C33EB1800CBA85C /* TodoListTableViewCell.swift in Sources */,
+				DC5B044A2C3532DE00CBA85C /* PHPickerViewController.swift in Sources */,
 				DC5B04382C33F64400CBA85C /* ResisterOtherTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
