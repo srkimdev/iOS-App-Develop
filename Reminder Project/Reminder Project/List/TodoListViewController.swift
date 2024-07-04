@@ -58,25 +58,12 @@ class TodoListViewController: UIViewController, RegisterViewControllerDelegate {
         
         view.backgroundColor = .white
         
-        let item = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(nextButtonClicked))
-        navigationItem.leftBarButtonItem = item
-        
         totalLabel.text = "전체"
         totalLabel.font = .systemFont(ofSize: 28)
         totalLabel.textColor = .blue
         
         todoTableView.rowHeight = 70
         
-    }
-    
-    @objc func nextButtonClicked() {
-        
-        let vc = RegisterViewController()
-        vc.delegate = self
-        
-        let nav = UINavigationController(rootViewController: vc)
-        
-        present(nav, animated: true, completion: nil)
     }
     
     func RegisterViewControllerDidDismiss() {

@@ -54,7 +54,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         
         numberLabel.snp.makeConstraints { make in
             make.top.equalTo(backgroundScene.snp.top).offset(8)
-            make.trailing.equalTo(backgroundScene.snp.trailing).inset(8)
+            make.trailing.equalTo(backgroundScene.snp.trailing).inset(12)
         }
         
         
@@ -62,12 +62,21 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     func configureUI() {
         
+        backgroundScene.backgroundColor = .lightGray
+        backgroundScene.layer.cornerRadius = 10
+        
         imageShow.image = UIImage(systemName: "star")
         
-        describeLabel.text = "오늘"
+//        describeLabel.text = "오늘"
         
         numberLabel.text = "0"
+        numberLabel.font = .systemFont(ofSize: 25)
         
+    }
+    
+    func designCell(transition: String) {
+        
+        describeLabel.text = transition
     }
     
     
