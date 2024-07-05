@@ -26,8 +26,6 @@ class MainViewController: UIViewController {
         
         return layout
     }
-    
-    var list = ["오늘", "예정", "전체", "깃발 표시", "완료됨"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +37,8 @@ class MainViewController: UIViewController {
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         mainCollectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
+        
+        newTodo.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         
     }
     
@@ -94,6 +94,15 @@ class MainViewController: UIViewController {
         addList.setTitleColor(.black, for: .normal)
     }
     
+    @objc func addButtonClicked() {
+        
+        let vc = RegisterViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        
+        present(nav, animated: true)
+        
+    }
+    
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -106,7 +115,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as! MainCollectionViewCell
         
-        cell.designCell(transition: list[indexPath.item])
+        let icon = Icon.allCases[indexPath.row]
+        cell.designCell(transition: icon)
         
         return cell
     }

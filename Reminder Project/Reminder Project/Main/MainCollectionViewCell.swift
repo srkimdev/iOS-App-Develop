@@ -11,6 +11,7 @@ import SnapKit
 class MainCollectionViewCell: UICollectionViewCell {
     
     let backgroundScene = UIView()
+    let imageBackground = UIView()
     let imageShow = UIImageView()
     let describeLabel = UILabel()
     let numberLabel = UILabel()
@@ -28,9 +29,14 @@ class MainCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func draw(_ rect: CGRect) {
+        imageBackground.layer.cornerRadius = imageBackground.frame.width / 2
+    }
+    
     func configureHierarchy() {
         contentView.addSubview(backgroundScene)
-        backgroundScene.addSubview(imageShow)
+        backgroundScene.addSubview(imageBackground)
+        imageBackground.addSubview(imageShow)
         backgroundScene.addSubview(describeLabel)
         backgroundScene.addSubview(numberLabel)
     }
@@ -40,15 +46,19 @@ class MainCollectionViewCell: UICollectionViewCell {
             make.edges.equalTo(contentView.safeAreaLayoutGuide)
         }
         
-        imageShow.snp.makeConstraints { make in
+        imageBackground.snp.makeConstraints { make in
             make.top.equalTo(backgroundScene.snp.top).offset(8)
             make.leading.equalTo(backgroundScene.snp.leading).offset(8)
             make.height.equalTo(30)
             make.width.equalTo(30)
         }
         
+        imageShow.snp.makeConstraints { make in
+            make.edges.equalTo(imageBackground).inset(4)
+        }
+        
         describeLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageShow.snp.bottom).offset(8)
+            make.top.equalTo(imageBackground.snp.bottom).offset(8)
             make.horizontalEdges.equalTo(backgroundScene).inset(8)
         }
         
@@ -65,18 +75,21 @@ class MainCollectionViewCell: UICollectionViewCell {
         backgroundScene.backgroundColor = .lightGray
         backgroundScene.layer.cornerRadius = 10
         
-        imageShow.image = UIImage(systemName: "star")
-        
-//        describeLabel.text = "오늘"
+        imageShow.tintColor = .white
         
         numberLabel.text = "0"
         numberLabel.font = .systemFont(ofSize: 25)
         
+        describeLabel.font = .systemFont(ofSize: 15)
+        
     }
     
-    func designCell(transition: String) {
+    func designCell(transition: Icon) {
         
-        describeLabel.text = transition
+        describeLabel.text = transition.rawValue
+        imageShow.image = transition.systemImageName
+        imageBackground.backgroundColor = transition.iconColor
+        
     }
     
     
