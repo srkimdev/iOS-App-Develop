@@ -42,8 +42,8 @@ class TagViewController: UIViewController {
     }
     
     func configureUI() {
-        view.backgroundColor = .white
-        textField.backgroundColor = .lightGray
+        view.backgroundColor = .systemGray5
+        textField.backgroundColor = .white
     }
 
 }

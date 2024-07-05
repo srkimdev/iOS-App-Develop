@@ -28,7 +28,6 @@
 		DC5B04592C36E28700CBA85C /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5B04582C36E28700CBA85C /* Icon.swift */; };
 		DCFBF73F2C36E864007DA893 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCFBF73E2C36E864007DA893 /* RealmSwift */; };
 		DCFBF7422C36E86D007DA893 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DCFBF7412C36E86D007DA893 /* SnapKit */; };
-		DCFBF7442C36EC1F007DA893 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFBF7432C36EC1F007DA893 /* CircleImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +52,6 @@
 		DC5B044C2C3568BF00CBA85C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DC5B044E2C356AC800CBA85C /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC5B04582C36E28700CBA85C /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
-		DCFBF7432C36EC1F007DA893 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +154,6 @@
 				DC5B044C2C3568BF00CBA85C /* MainViewController.swift */,
 				DC5B044E2C356AC800CBA85C /* MainCollectionViewCell.swift */,
 				DC5B04582C36E28700CBA85C /* Icon.swift */,
-				DCFBF7432C36EC1F007DA893 /* CircleImageView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -248,7 +245,6 @@
 				DC5B04152C33E67C00CBA85C /* ViewController.swift in Sources */,
 				DC5B04462C3531DC00CBA85C /* TagViewController.swift in Sources */,
 				DC5B044F2C356AC800CBA85C /* MainCollectionViewCell.swift in Sources */,
-				DCFBF7442C36EC1F007DA893 /* CircleImageView.swift in Sources */,
 				DC5B044D2C3568BF00CBA85C /* MainViewController.swift in Sources */,
 				DC5B04112C33E67C00CBA85C /* AppDelegate.swift in Sources */,
 				DC5B04482C3531EC00CBA85C /* PriorityViewController.swift in Sources */,

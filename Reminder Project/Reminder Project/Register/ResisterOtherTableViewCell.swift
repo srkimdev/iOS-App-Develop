@@ -65,10 +65,13 @@ class RegisterOtherTableViewCell: UITableViewCell {
     
     func configureUI() {
         
-        backgroundScene.backgroundColor = .lightGray
+        contentView.backgroundColor = .systemGray5
+        
         backgroundScene.layer.cornerRadius = 10
+        backgroundScene.backgroundColor = .white
                 
         nextButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        nextButton.tintColor = .black
         
         dateLabel.font = .systemFont(ofSize: 15)
         

@@ -47,7 +47,6 @@ class RegisterViewController: UIViewController {
         backgroundScene.addSubview(titleTextField)
         backgroundScene.addSubview(line)
         backgroundScene.addSubview(memoTextView)
-        
         view.addSubview(registerTableView)
     }
     
@@ -61,13 +60,13 @@ class RegisterViewController: UIViewController {
         
         titleTextField.snp.makeConstraints { make in
             make.top.equalTo(backgroundScene.snp.top).offset(8)
-            make.horizontalEdges.equalTo(backgroundScene).inset(8)
+            make.horizontalEdges.equalTo(backgroundScene).inset(12)
             make.height.equalTo(20)
         }
         
         line.snp.makeConstraints { make in
             make.top.equalTo(titleTextField.snp.bottom).offset(4)
-            make.horizontalEdges.equalTo(backgroundScene).inset(8)
+            make.horizontalEdges.equalTo(backgroundScene).inset(12)
             make.height.equalTo(1)
         }
         
@@ -86,7 +85,7 @@ class RegisterViewController: UIViewController {
     
     func configureUI() {
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray5
         
         navigationItem.title = "새로운 할 일"
         
@@ -96,18 +95,18 @@ class RegisterViewController: UIViewController {
         let rightBarButton = UIBarButtonItem(title: "추가", style: .plain, target: self, action: #selector(addButtonClicked))
         navigationItem.rightBarButtonItem = rightBarButton
         
-        backgroundScene.backgroundColor = .lightGray
         backgroundScene.layer.cornerRadius = 10
+        backgroundScene.backgroundColor = .white
         
         titleTextField.placeholder = "제목"
         titleTextField.font = .systemFont(ofSize: 12)
         
         line.backgroundColor = .black
         
-        memoTextView.backgroundColor = .lightGray
         memoTextView.text = "메모"
-        memoTextView.textColor = .magenta
+        memoTextView.textColor = .systemGray2
         
+        registerTableView.backgroundColor = .systemGray5
     }
     
     @objc func cancelButtonClicked() {
@@ -163,9 +162,9 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
             vc.selectedDate = { value in
                 
                 let format = DateFormatter()
-                format.dateFormat = "yyyy. MM. dd aaa"
+                format.dateFormat = "yyyy. MM. dd E"
+                format.locale = Locale(identifier:"ko_KR")
                 
-                print(value, "value")
                 self.cellDate[indexPath.row] = format.string(from: value)
                 
                 self.registerTableView.reloadData()

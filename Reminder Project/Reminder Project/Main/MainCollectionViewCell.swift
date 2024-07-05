@@ -72,8 +72,8 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     func configureUI() {
         
-        backgroundScene.backgroundColor = .lightGray
         backgroundScene.layer.cornerRadius = 10
+        backgroundScene.backgroundColor = .white
         
         imageShow.tintColor = .white
         
@@ -91,6 +91,5 @@ class MainCollectionViewCell: UICollectionViewCell {
         imageBackground.backgroundColor = transition.iconColor
         
     }
-    
     
 }

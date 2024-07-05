@@ -80,7 +80,8 @@ class MainViewController: UIViewController {
     }
     
     func configureUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray5
+        mainCollectionView.backgroundColor = .systemGray5
         
         totalLabel.text = "전체"
         totalLabel.font = .systemFont(ofSize: 28)
@@ -108,7 +109,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.count
+        return Icon.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
