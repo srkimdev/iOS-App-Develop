@@ -85,11 +85,9 @@ class MainCollectionViewCell: UICollectionViewCell {
     }
     
     func designCell(transition: Icon) {
-        
         describeLabel.text = transition.rawValue
         imageShow.image = transition.systemImageName
         imageBackground.backgroundColor = transition.iconColor
-        
     }
     
 }

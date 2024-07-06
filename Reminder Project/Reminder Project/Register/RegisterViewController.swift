@@ -24,6 +24,7 @@ class RegisterViewController: UIViewController {
     let registerTableView = UITableView()
     var list = ["마감일", "태그", "우선순위", "이미지 추가"]
     var cellDate = ["", "", "", ""]
+    var temp = ""
     
     weak var delegate: RegisterViewControllerDelegate?
     
@@ -122,7 +123,9 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        let data = Table(memoTitle: title, memoContents: memoTextView.text, enrollDate: cellDate[0], tag: cellDate[1], priority: cellDate[2])
+        let data = DBTable(memoTitle: title, memoContents: memoTextView.text, enrollDate: cellDate[0], tag: cellDate[1], priority: cellDate[2])
+        
+        print(realm.configuration.fileURL)
         
         try! realm.write {
             realm.add(data)
@@ -167,6 +170,9 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 self.cellDate[indexPath.row] = format.string(from: value)
                 
+                format.dateFormat = "yyyyMMdd"
+                self.temp = format.string(from: value)
+                
                 self.registerTableView.reloadData()
             }
             
@@ -210,14 +216,11 @@ extension RegisterViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
             
         if textView == memoTextView {
-            
-            if textView.textColor == .magenta {
+            if textView.textColor == .systemGray2 {
                 textView.text = nil
                 textView.textColor = .black
             }
-            
         }
-            
     }
 }
 

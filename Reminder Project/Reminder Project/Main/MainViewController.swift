@@ -124,7 +124,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let vc = TodoListViewController()
+        let vc = TodoListViewController(standard: indexPath.item)
+        
         navigationController?.pushViewController(vc, animated: true)
         
     }

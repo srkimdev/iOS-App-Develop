@@ -12,11 +12,23 @@ import RealmSwift
 class TodoListViewController: UIViewController, RegisterViewControllerDelegate {
     
     let totalLabel = UILabel()
+    let searchBar = UISearchBar()
+    
     let todoTableView = UITableView()
     
-    var list: Results<Table>!
+    var list: Results<DBTable>!
     let realm = try! Realm()
-
+    var standard: Int
+    
+    init(standard: Int) {
+        self.standard = standard
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,14 +39,27 @@ class TodoListViewController: UIViewController, RegisterViewControllerDelegate {
         todoTableView.delegate = self
         todoTableView.dataSource = self
         todoTableView.register(TodoListTableViewCell.self, forCellReuseIdentifier: TodoListTableViewCell.identifier)
+
+        switch standard {
+        case 0:
+            return list = realm.objects(DBTable.self).where{ /*$0.enrollDate == current*/ $0.flag == true}.sorted(byKeyPath: "memoTitle", ascending: true)
+        case 1:
+            return list = realm.objects(DBTable.self).where{ /*$0.enrollDate > Int(Date())*/ $0.flag == true }.sorted(byKeyPath: "memoTitle", ascending: true)
+        case 2:
+            return list = realm.objects(DBTable.self).sorted(byKeyPath: "memoTitle", ascending: true)
+        case 3:
+            return list = realm.objects(DBTable.self).where{ $0.flag == true }.sorted(byKeyPath: "memoTitle", ascending: true)
+        case 4:
+            return list = realm.objects(DBTable.self).where{ $0.complete == true }.sorted(byKeyPath: "memoTitle", ascending: true)
+        default:
+            return list = realm.objects(DBTable.self).sorted(byKeyPath: "memoTitle", ascending: true)
+        }
         
-        print(realm.configuration.fileURL)
-        list = realm.objects(Table.self).sorted(byKeyPath: "memoTitle")
     }
-    
     
     func configureHierarchy() {
         view.addSubview(totalLabel)
+        view.addSubview(searchBar)
         view.addSubview(todoTableView)
     }
     
@@ -46,8 +71,14 @@ class TodoListViewController: UIViewController, RegisterViewControllerDelegate {
             make.height.equalTo(24)
         }
         
+        searchBar.snp.makeConstraints { make in
+            make.top.equalTo(totalLabel.snp.bottom).offset(4)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(8)
+            make.height.equalTo(44)
+        }
+        
         todoTableView.snp.makeConstraints { make in
-            make.top.equalTo(totalLabel.snp.bottom).offset(16)
+            make.top.equalTo(searchBar.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
@@ -57,6 +88,9 @@ class TodoListViewController: UIViewController, RegisterViewControllerDelegate {
     func configureUI() {
         
         view.backgroundColor = .white
+        
+        let item = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(updateButtonClicked))
+        navigationItem.rightBarButtonItem = item
         
         totalLabel.text = "전체"
         totalLabel.font = .systemFont(ofSize: 28)
@@ -70,7 +104,27 @@ class TodoListViewController: UIViewController, RegisterViewControllerDelegate {
         
         todoTableView.reloadData()
     }
+    
+    @objc func circleButtonClicked(sender: UIButton) {
 
+        try! realm.write {
+            list[sender.tag].complete.toggle()
+        }
+
+        let state = list[sender.tag].complete
+        
+        let color: UIColor = state ? .gray : .clear
+        sender.backgroundColor = color
+        
+        UIView.performWithoutAnimation {
+            todoTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
+        }
+    }
+    
+    @objc func updateButtonClicked() {
+        list = realm.objects(DBTable.self).sorted(byKeyPath: "enrollDate", ascending: false)
+        todoTableView.reloadData()
+    }
 }
 
 extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -86,8 +140,63 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
         let data = list[indexPath.row]
         
         cell.designCell(transition: data)
+        cell.circleImage.backgroundColor = data.complete ? .gray : .clear
+        cell.circleImage.tag = indexPath.row
+        cell.circleImage.addTarget(self, action: #selector(circleButtonClicked), for: .touchUpInside)
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            let deleteAction = UIContextualAction(style: .destructive, title: "삭제") { (_, _, completionHandler) in
+                try! self.realm.write {
+                    self.realm.delete(self.list[indexPath.row])
+                }
+                
+                self.todoTableView.reloadData()
+            }
 
+            let flagAction = UIContextualAction(style: .normal, title: "깃발") { (_, _, completionHandler) in
+                
+                try! self.realm.write {
+                    self.list[indexPath.row].flag.toggle()
+                }
+                
+                self.todoTableView.reloadData()
+            }
+        
+            flagAction.backgroundColor = .orange
+            
+            return UISwipeActionsConfiguration(actions: [deleteAction, flagAction])
+        }
+
+}
+
+extension TodoListViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        guard let result = searchBar.text?.lowercased() else { return }
+        
+        let removeSpace = result.replacingOccurrences(of: " ", with: "")
+        
+        for item in list {
+
+            if item.memoTitle.lowercased().contains(removeSpace) || item.memoContents.lowercased().contains(removeSpace) {
+                ex.append(item)
+            }
+            
+        }
+        
+        filteredList = ex
+        
+        cityInfoTableView.reloadData()
+        
+        
+    }
+    
 }
