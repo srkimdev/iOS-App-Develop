@@ -119,8 +119,8 @@ class TodoListTableViewCell: UITableViewCell {
         
         memoLabel.text = transition.memoContents
         
-        if transition.enrollDate != "" {
-            deadlineLabel.text = transition.enrollDate! + " "
+        if transition.enrollDate != nil {
+            deadlineLabel.text = dateChange(date: transition.enrollDate!)
         } else {
             deadlineLabel.text = nil
         }
@@ -133,4 +133,18 @@ class TodoListTableViewCell: UITableViewCell {
         
     }
     
+}
+
+extension TodoListTableViewCell {
+    
+    func dateChange(date: Date) -> String {
+        
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "yyyy. MM. dd"
+        
+        let dateChange = dateformat.string(from: date)
+        
+        return dateChange
+    }
+
 }

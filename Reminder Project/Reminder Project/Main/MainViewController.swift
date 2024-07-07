@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
     let newTodo = UIButton()
     let addList = UIButton()
     
+    let repository = RealmRepository()
+    
     lazy var mainCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
     
     func layout() -> UICollectionViewLayout {
@@ -87,8 +89,8 @@ class MainViewController: UIViewController {
         totalLabel.font = .systemFont(ofSize: 28)
         totalLabel.textColor = .blue
         
-        newTodo.setImage(UIImage(systemName: "plus"), for: .normal)
-        newTodo.setTitle("새로운 할 일", for: .normal)
+        newTodo.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
+        newTodo.setTitle(" 새로운 할 일", for: .normal)
         newTodo.setTitleColor(.black, for: .normal)
         
         addList.setTitle("목록 추가", for: .normal)
@@ -117,7 +119,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as! MainCollectionViewCell
         
         let icon = Icon.allCases[indexPath.row]
-        cell.designCell(transition: icon)
+        cell.designCell(transition: icon, count: repository.readItems(standard: indexPath.row).count)
         
         return cell
     }

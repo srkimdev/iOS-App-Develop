@@ -24,7 +24,7 @@ class RegisterViewController: UIViewController {
     let registerTableView = UITableView()
     var list = ["마감일", "태그", "우선순위", "이미지 추가"]
     var cellDate = ["", "", "", ""]
-    var temp = ""
+    var temp: Date?
     
     weak var delegate: RegisterViewControllerDelegate?
     
@@ -123,7 +123,7 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        let data = DBTable(memoTitle: title, memoContents: memoTextView.text, enrollDate: cellDate[0], tag: cellDate[1], priority: cellDate[2])
+        let data = DBTable(memoTitle: title, memoContents: memoTextView.text, enrollDate: temp, tag: cellDate[1], priority: cellDate[2])
         
         print(realm.configuration.fileURL)
         
@@ -169,9 +169,14 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
                 format.locale = Locale(identifier:"ko_KR")
                 
                 self.cellDate[indexPath.row] = format.string(from: value)
-                
-                format.dateFormat = "yyyyMMdd"
-                self.temp = format.string(from: value)
+
+                let calendar = Calendar.current
+                let components = calendar.dateComponents([.year, .month, .day], from: value)
+
+                if let year = components.year, let month = components.month, let day = components.day {
+                    let dateOnly = calendar.date(from: DateComponents(year: year, month: month, day: day))
+                    self.temp = dateOnly
+                }
                 
                 self.registerTableView.reloadData()
             }

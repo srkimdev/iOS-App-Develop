@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import RealmSwift
+import FSCalendar
 
 class TodoListViewController: UIViewController, RegisterViewControllerDelegate {
     
@@ -17,6 +18,7 @@ class TodoListViewController: UIViewController, RegisterViewControllerDelegate {
     let todoTableView = UITableView()
     
     var list: Results<DBTable>!
+    let realrepository = RealmRepository()
     let realm = try! Realm()
     var standard: Int
     
@@ -39,22 +41,10 @@ class TodoListViewController: UIViewController, RegisterViewControllerDelegate {
         todoTableView.delegate = self
         todoTableView.dataSource = self
         todoTableView.register(TodoListTableViewCell.self, forCellReuseIdentifier: TodoListTableViewCell.identifier)
-
-        switch standard {
-        case 0:
-            return list = realm.objects(DBTable.self).where{ /*$0.enrollDate == current*/ $0.flag == true}.sorted(byKeyPath: "memoTitle", ascending: true)
-        case 1:
-            return list = realm.objects(DBTable.self).where{ /*$0.enrollDate > Int(Date())*/ $0.flag == true }.sorted(byKeyPath: "memoTitle", ascending: true)
-        case 2:
-            return list = realm.objects(DBTable.self).sorted(byKeyPath: "memoTitle", ascending: true)
-        case 3:
-            return list = realm.objects(DBTable.self).where{ $0.flag == true }.sorted(byKeyPath: "memoTitle", ascending: true)
-        case 4:
-            return list = realm.objects(DBTable.self).where{ $0.complete == true }.sorted(byKeyPath: "memoTitle", ascending: true)
-        default:
-            return list = realm.objects(DBTable.self).sorted(byKeyPath: "memoTitle", ascending: true)
-        }
         
+        searchBar.delegate = self
+        
+        list = realrepository.readItems(standard: standard).sorted(byKeyPath: "memoTitle", ascending: true)
     }
     
     func configureHierarchy() {
@@ -152,51 +142,44 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            let deleteAction = UIContextualAction(style: .destructive, title: "삭제") { (_, _, completionHandler) in
-                try! self.realm.write {
-                    self.realm.delete(self.list[indexPath.row])
-                }
-                
-                self.todoTableView.reloadData()
+        let deleteAction = UIContextualAction(style: .destructive, title: "삭제") { (_, _, completionHandler) in
+            try! self.realm.write {
+                self.realm.delete(self.list[indexPath.row])
             }
-
-            let flagAction = UIContextualAction(style: .normal, title: "깃발") { (_, _, completionHandler) in
-                
-                try! self.realm.write {
-                    self.list[indexPath.row].flag.toggle()
-                }
-                
-                self.todoTableView.reloadData()
-            }
-        
-            flagAction.backgroundColor = .orange
             
-            return UISwipeActionsConfiguration(actions: [deleteAction, flagAction])
         }
+
+        let flagAction = UIContextualAction(style: .normal, title: "깃발") { (_, _, completionHandler) in
+            
+            try! self.realm.write {
+                self.list[indexPath.row].flag.toggle()
+            }
+            
+        }
+    
+        self.todoTableView.reloadData()
+        flagAction.backgroundColor = .orange
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, flagAction])
+    }
 
 }
 
 extension TodoListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(#function)
         
-        guard let result = searchBar.text?.lowercased() else { return }
-        
-        let removeSpace = result.replacingOccurrences(of: " ", with: "")
-        
-        for item in list {
-
-            if item.memoTitle.lowercased().contains(removeSpace) || item.memoContents.lowercased().contains(removeSpace) {
-                ex.append(item)
-            }
-            
+        let filter = realm.objects(DBTable.self).where {
+            $0.memoTitle.contains(searchText, options: .caseInsensitive) || $0.memoContents.contains(searchText,  options: .caseInsensitive)
         }
         
-        filteredList = ex
+        let result = searchText.isEmpty ? realm.objects(DBTable.self) : filter
         
-        cityInfoTableView.reloadData()
+        list = result
         
-        
+        todoTableView.reloadData()
     }
-    
 }
+
+

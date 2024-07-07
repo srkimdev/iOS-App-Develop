@@ -15,13 +15,13 @@ class DBTable: Object {
     
     @Persisted var memoTitle: String
     @Persisted var memoContents: String?
-    @Persisted var enrollDate: String?
+    @Persisted var enrollDate: Date?
     @Persisted var tag: String
     @Persisted var priority: String
     @Persisted var flag: Bool
     @Persisted var complete: Bool
     
-    convenience init(memoTitle: String, memoContents: String?, enrollDate: String?, tag: String, priority: String) {
+    convenience init(memoTitle: String, memoContents: String?, enrollDate: Date?, tag: String, priority: String) {
         self.init()
         self.memoTitle = memoTitle
         self.memoContents = memoContents

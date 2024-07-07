@@ -77,17 +77,18 @@ class MainCollectionViewCell: UICollectionViewCell {
         
         imageShow.tintColor = .white
         
-        numberLabel.text = "0"
         numberLabel.font = .systemFont(ofSize: 25)
         
         describeLabel.font = .systemFont(ofSize: 15)
         
     }
     
-    func designCell(transition: Icon) {
+    func designCell(transition: Icon, count: Int) {
         describeLabel.text = transition.rawValue
         imageShow.image = transition.systemImageName
         imageBackground.backgroundColor = transition.iconColor
+        
+        numberLabel.text = String(count)
     }
     
 }
