@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC2CA94B2C3D4EBE00B31A98 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2CA94A2C3D4EBE00B31A98 /* Observable.swift */; };
+		DC2CA94D2C3D4F6100B31A98 /* CityInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2CA94C2C3D4F6100B31A98 /* CityInfoViewModel.swift */; };
 		DC2D6E7A2C00CD09008FE79F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D6E792C00CD09008FE79F /* AppDelegate.swift */; };
 		DC2D6E7C2C00CD09008FE79F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D6E7B2C00CD09008FE79F /* SceneDelegate.swift */; };
 		DC2D6E7E2C00CD09008FE79F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D6E7D2C00CD09008FE79F /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC2CA94A2C3D4EBE00B31A98 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		DC2CA94C2C3D4F6100B31A98 /* CityInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInfoViewModel.swift; sourceTree = "<group>"; };
 		DC2D6E762C00CD09008FE79F /* 0525_Assignment_travel megazine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "0525_Assignment_travel megazine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC2D6E792C00CD09008FE79F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC2D6E7B2C00CD09008FE79F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 				DC5FDFE82C0712BA003262DD /* CityInfoViewController.swift */,
 				DC5FDFEA2C0713DB003262DD /* CityInfoTableViewCell.swift */,
 				DC5FDFEB2C0713DB003262DD /* CityInfoTableViewCell.xib */,
+				DC2CA94A2C3D4EBE00B31A98 /* Observable.swift */,
+				DC2CA94C2C3D4F6100B31A98 /* CityInfoViewModel.swift */,
 			);
 			path = CityInfo;
 			sourceTree = "<group>";
@@ -268,6 +274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2CA94D2C3D4F6100B31A98 /* CityInfoViewModel.swift in Sources */,
+				DC2CA94B2C3D4EBE00B31A98 /* Observable.swift in Sources */,
 				DC2D6E932C00D011008FE79F /* TravelTableViewController.swift in Sources */,
 				DC5FDFE92C0712BA003262DD /* CityInfoViewController.swift in Sources */,
 				DC5FDFEC2C0713DB003262DD /* CityInfoTableViewCell.swift in Sources */,

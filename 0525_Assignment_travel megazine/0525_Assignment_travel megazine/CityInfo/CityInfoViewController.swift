@@ -17,6 +17,8 @@ class CityInfoViewController: UIViewController {
     var filteredList: [City] = []
     var store: [City] = []
     
+    let viewModel = CityInfoViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,42 +31,22 @@ class CityInfoViewController: UIViewController {
         
         configureCityInfoViewController()
         
+        bindData()
+        
     }
     
     @IBAction func segueButtonClicked(_ sender: UISegmentedControl) {
-        
-        var ex: [City] = []
-        
-        if sender.selectedSegmentIndex == 1 {
+        viewModel.inputFilter.value = sender.selectedSegmentIndex
+    }
+    
+    func bindData() {
+        viewModel.outputFilter.bind { value in
+            self.filteredList = value
+            self.store = value
+            self.cityInfoTableView.reloadData()
             
-            for item in list {
-                if item.domestic_travel {
-                    ex.append(item)
-                }
-            }
-            
-            filteredList = ex
-            
-        } else if sender.selectedSegmentIndex == 2 {
-            
-            for item in list {
-                if item.domestic_travel == false {
-                    ex.append(item)
-                }
-            }
-           
-            filteredList = ex
-            
-        } else {
-            
-            filteredList = list
-            
+            self.cityInfoTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         }
-        
-        store = filteredList
-        
-        cityInfoTableView.reloadData()
-        
     }
     
 }
@@ -105,9 +87,7 @@ extension CityInfoViewController: UISearchBarDelegate {
         
         var ex: [City] = []
         
-        guard let result = searchBar.text?.lowercased() else {
-            return
-        }
+        guard let result = searchBar.text?.lowercased() else { return }
         
         let removeSpace = result.replacingOccurrences(of: " ", with: "")
         
