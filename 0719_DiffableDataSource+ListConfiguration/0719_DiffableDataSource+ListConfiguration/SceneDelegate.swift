@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        let vc = SettingViewController()
+        let vc = TravelTalkViewController()
         window?.rootViewController = vc // 스토리보드에서의 엔트리포인트 역할
         window?.makeKeyAndVisible() // show
     }

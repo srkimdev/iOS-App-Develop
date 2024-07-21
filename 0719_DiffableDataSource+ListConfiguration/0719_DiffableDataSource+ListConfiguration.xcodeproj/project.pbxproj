@@ -15,6 +15,8 @@
 		DCAF985B2C4A2D7E00CE2197 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAF98592C4A2D7E00CE2197 /* LaunchScreen.storyboard */; };
 		DCAF98632C4A2D9600CE2197 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAF98622C4A2D9600CE2197 /* SettingViewController.swift */; };
 		DCAF98662C4A2E5000CE2197 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DCAF98652C4A2E5000CE2197 /* SnapKit */; };
+		DCBF1CF52C4D1E67000F89CF /* TravelTalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBF1CF42C4D1E67000F89CF /* TravelTalkViewController.swift */; };
+		DCBF1CF72C4D1ED2000F89CF /* ChattingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBF1CF62C4D1ED2000F89CF /* ChattingData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		DCAF985A2C4A2D7E00CE2197 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCAF985C2C4A2D7E00CE2197 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCAF98622C4A2D9600CE2197 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		DCBF1CF42C4D1E67000F89CF /* TravelTalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTalkViewController.swift; sourceTree = "<group>"; };
+		DCBF1CF62C4D1ED2000F89CF /* ChattingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 				DCAF98592C4A2D7E00CE2197 /* LaunchScreen.storyboard */,
 				DCAF985C2C4A2D7E00CE2197 /* Info.plist */,
 				DCAF98622C4A2D9600CE2197 /* SettingViewController.swift */,
+				DCBF1CF42C4D1E67000F89CF /* TravelTalkViewController.swift */,
+				DCBF1CF62C4D1ED2000F89CF /* ChattingData.swift */,
 			);
 			path = "0719_DiffableDataSource+ListConfiguration";
 			sourceTree = "<group>";
@@ -150,7 +156,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCAF98532C4A2D7C00CE2197 /* ViewController.swift in Sources */,
+				DCBF1CF72C4D1ED2000F89CF /* ChattingData.swift in Sources */,
 				DCAF984F2C4A2D7C00CE2197 /* AppDelegate.swift in Sources */,
+				DCBF1CF52C4D1E67000F89CF /* TravelTalkViewController.swift in Sources */,
 				DCAF98512C4A2D7C00CE2197 /* SceneDelegate.swift in Sources */,
 				DCAF98632C4A2D9600CE2197 /* SettingViewController.swift in Sources */,
 			);
