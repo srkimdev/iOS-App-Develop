@@ -12,11 +12,7 @@ import RxCocoa
 class ViewController: UIViewController {
     
     
-    let simpleSwitch = UISwitch()
     
-    let signName = UITextField()
-    let signEmail = UITextField()
-    let signButton = UIButton()
     
     let disposeBag = DisposeBag()
     

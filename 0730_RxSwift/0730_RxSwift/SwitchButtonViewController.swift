@@ -12,8 +12,12 @@ import SnapKit
 
 class SwitchButtonViewController: UIViewController {
     
-    let simpleTableView = UITableView()
+    let simpleSwitch = UISwitch()
+    
+    let signName = UITextField()
+    let signEmail = UITextField()
     let simpleLabel = UILabel()
+    let signButton = UIButton()
     
     let disposeBag = DisposeBag()
     
@@ -23,23 +27,45 @@ class SwitchButtonViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureUI()
-        setTableView()
+        setSwitch()
+        setSign()
     }
     
     func configureHierarchy() {
-        view.addSubview(simpleTableView)
+        view.addSubview(simpleSwitch)
+        view.addSubview(signName)
+        view.addSubview(signEmail)
         view.addSubview(simpleLabel)
+        view.addSubview(signButton)
     }
     
     func configureLayout() {
-        simpleTableView.snp.makeConstraints { make in
+        simpleSwitch.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(100)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(200)
+            make.centerX.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(30)
+        }
+        
+        signName.snp.makeConstraints { make in
+            make.top.equalTo(simpleSwitch.snp.bottom).offset(20)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(50)
+            make.height.equalTo(50)
+        }
+        
+        signEmail.snp.makeConstraints { make in
+            make.top.equalTo(signName.snp.bottom).offset(20)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(50)
+            make.height.equalTo(50)
         }
         
         simpleLabel.snp.makeConstraints { make in
-            make.top.equalTo(simpleTableView.snp.bottom).offset(100)
+            make.top.equalTo(signEmail.snp.bottom).offset(20)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(50)
+            make.height.equalTo(50)
+        }
+        
+        signButton.snp.makeConstraints { make in
+            make.top.equalTo(simpleLabel.snp.bottom).offset(20)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(50)
             make.height.equalTo(50)
         }
@@ -47,8 +73,15 @@ class SwitchButtonViewController: UIViewController {
     
     func configureUI() {
         view.backgroundColor = .white
+        signName.backgroundColor = .lightGray
+        
+        signEmail.backgroundColor = .lightGray
+        
         simpleLabel.backgroundColor = .lightGray
         simpleLabel.textAlignment = .center
+        
+        signButton.backgroundColor = .cyan
+        
     }
     
     func setSwitch() {
@@ -76,8 +109,22 @@ class SwitchButtonViewController: UIViewController {
         
         signButton.rx.tap
             .subscribe { _ in
-//                self.showAlert
+                self.showAlert()
             }
             .disposed(by: disposeBag)
+    }
+    
+    func showAlert() {
+        
+        let alert = UIAlertController(
+            title: "Got it",
+            message: nil,
+            preferredStyle: .alert)
+            
+        let check = UIAlertAction(title: "확인", style: .default)
+
+        alert.addAction(check)
+            
+        present(alert, animated: true)
     }
 }
