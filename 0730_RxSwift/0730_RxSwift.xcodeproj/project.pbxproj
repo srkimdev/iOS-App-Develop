@@ -19,6 +19,7 @@
 		DCA4B0D72C58DA0600D3A083 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA4B0D62C58DA0600D3A083 /* PickerViewController.swift */; };
 		DCA4B0D92C58DDF000D3A083 /* SetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA4B0D82C58DDF000D3A083 /* SetTableViewController.swift */; };
 		DCA4B0DB2C58DF9A00D3A083 /* SwitchButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA4B0DA2C58DF9A00D3A083 /* SwitchButtonViewController.swift */; };
+		DCA4B0DD2C58E4C200D3A083 /* ObservableExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA4B0DC2C58E4C200D3A083 /* ObservableExample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		DCA4B0D62C58DA0600D3A083 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		DCA4B0D82C58DDF000D3A083 /* SetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTableViewController.swift; sourceTree = "<group>"; };
 		DCA4B0DA2C58DF9A00D3A083 /* SwitchButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButtonViewController.swift; sourceTree = "<group>"; };
+		DCA4B0DC2C58E4C200D3A083 /* ObservableExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableExample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				DCA4B0D62C58DA0600D3A083 /* PickerViewController.swift */,
 				DCA4B0D82C58DDF000D3A083 /* SetTableViewController.swift */,
 				DCA4B0DA2C58DF9A00D3A083 /* SwitchButtonViewController.swift */,
+				DCA4B0DC2C58E4C200D3A083 /* ObservableExample.swift */,
 			);
 			path = 0730_RxSwift;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA4B0DD2C58E4C200D3A083 /* ObservableExample.swift in Sources */,
 				DCA4B0BF2C58D39800D3A083 /* ViewController.swift in Sources */,
 				DCA4B0BB2C58D39800D3A083 /* AppDelegate.swift in Sources */,
 				DCA4B0DB2C58DF9A00D3A083 /* SwitchButtonViewController.swift in Sources */,
