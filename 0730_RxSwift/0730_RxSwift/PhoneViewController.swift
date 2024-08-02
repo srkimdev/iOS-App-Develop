@@ -1,23 +1,22 @@
 //
-//  PasswordViewController.swift
+//  PhoneViewController.swift
 //  0730_RxSwift
 //
 //  Created by 김성률 on 8/2/24.
 //
 
 import UIKit
+import SnapKit
 import RxSwift
 import RxCocoa
-import SnapKit
 
-class PasswordViewController: UIViewController {
-    
-    let passwordTextField = UITextField()
-    let nextButton = UIButton()
+class PhoneViewController: UIViewController {
+   
+    let phoneTextField = UITextField()
     let descriptionLabel = UILabel()
+    let nextButton = UIButton()
     
-    let validText = Observable.just("8자 이상 입력해주세요")
-    
+    let validText = BehaviorSubject(value: "010")
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -37,40 +36,32 @@ class PasswordViewController: UIViewController {
             .bind(to: descriptionLabel.rx.text)
             .disposed(by: disposeBag)
         
-        let validation = passwordTextField
+        let validation = phoneTextField
             .rx
             .text
             .orEmpty
-            .map { $0.count >= 8 }
-        
-        validation
-            .bind(to: nextButton.rx.isEnabled, descriptionLabel.rx.isHidden)
-            .disposed(by: disposeBag)
+            .map { text in
+                text.count >= 10 && text.allSatisfy({ $0.isNumber })
+            }
         
         validation
             .bind(with: self) { owner, value in
-                let color: UIColor = value ? .systemPink : .lightGray
-                owner.nextButton.backgroundColor = color
+                if value {
+                    owner.descriptionLabel.text = "사용 가능한 전화번호 입니다."
+                } else {
+                    owner.descriptionLabel.text = "조건에 맞지 않습니다."
+                }
             }
-            .disposed(by: disposeBag)
         
-        nextButton
-            .rx
-            .tap
-            .bind(with: self) { owner, _ in
-                print("show alert")
-                owner.navigationController?.pushViewController(PhoneViewController(), animated: true)
-            }
-            .disposed(by: disposeBag)
         
     }
     
     func configureLayout() {
-        view.addSubview(passwordTextField)
-        view.addSubview(nextButton)
+        view.addSubview(phoneTextField)
         view.addSubview(descriptionLabel)
-        
-        passwordTextField.snp.makeConstraints { make in
+        view.addSubview(nextButton)
+         
+        phoneTextField.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.top.equalTo(view.safeAreaLayoutGuide).offset(200)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
@@ -78,17 +69,21 @@ class PasswordViewController: UIViewController {
         
         descriptionLabel.snp.makeConstraints { make in
             make.height.equalTo(20)
-            make.top.equalTo(passwordTextField.snp.bottom)
+            make.top.equalTo(phoneTextField.snp.bottom)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
         nextButton.snp.makeConstraints { make in
             make.height.equalTo(50)
-            make.top.equalTo(passwordTextField.snp.bottom).offset(30)
+            make.top.equalTo(phoneTextField.snp.bottom).offset(30)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
-        passwordTextField.backgroundColor = .lightGray
+        phoneTextField.backgroundColor = .lightGray
+        phoneTextField.text = "010"
+        
+        nextButton.backgroundColor = .lightGray
     }
-    
+
 }
+

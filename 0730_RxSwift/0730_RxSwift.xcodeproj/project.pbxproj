@@ -24,6 +24,7 @@
 		DCA4B0DB2C58DF9A00D3A083 /* SwitchButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA4B0DA2C58DF9A00D3A083 /* SwitchButtonViewController.swift */; };
 		DCA4B0DD2C58E4C200D3A083 /* ObservableExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA4B0DC2C58E4C200D3A083 /* ObservableExample.swift */; };
 		DCE4C1F32C5CAF3C00B36D68 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE4C1F22C5CAF3C00B36D68 /* PasswordViewController.swift */; };
+		DCE4C1F52C5CB56800B36D68 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE4C1F42C5CB56800B36D68 /* PhoneViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		DCA4B0DA2C58DF9A00D3A083 /* SwitchButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButtonViewController.swift; sourceTree = "<group>"; };
 		DCA4B0DC2C58E4C200D3A083 /* ObservableExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableExample.swift; sourceTree = "<group>"; };
 		DCE4C1F22C5CAF3C00B36D68 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		DCE4C1F42C5CB56800B36D68 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				DC980C9D2C5A26E800B78345 /* NumbersViewController.swift */,
 				DC980C9F2C5A298900B78345 /* SimpleTableViewExampleViewController.swift */,
 				DCE4C1F22C5CAF3C00B36D68 /* PasswordViewController.swift */,
+				DCE4C1F42C5CB56800B36D68 /* PhoneViewController.swift */,
 			);
 			path = 0730_RxSwift;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				DC980C9C2C5A233F00B78345 /* SimplePickerViewExampleViewController.swift in Sources */,
 				DCA4B0D72C58DA0600D3A083 /* PickerViewController.swift in Sources */,
 				DCA4B0D92C58DDF000D3A083 /* SetTableViewController.swift in Sources */,
+				DCE4C1F52C5CB56800B36D68 /* PhoneViewController.swift in Sources */,
 				DCA4B0BD2C58D39800D3A083 /* SceneDelegate.swift in Sources */,
 				DC980CA02C5A298900B78345 /* SimpleTableViewExampleViewController.swift in Sources */,
 			);
