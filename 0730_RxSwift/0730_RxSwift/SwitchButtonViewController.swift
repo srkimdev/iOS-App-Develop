@@ -92,7 +92,7 @@ class SwitchButtonViewController: UIViewController {
     
     func setSign() {
         Observable.combineLatest(signName.rx.text.orEmpty, signEmail.rx.text.orEmpty) { value1, value2 in
-            return "name은 \(value1)이고, 이메일 \(value2)입니다"
+            return "name은 \(value1)이고, 이메일 \(value2)입니다."
         }
         .bind(to: simpleLabel.rx.text)
         .disposed(by: disposeBag)
