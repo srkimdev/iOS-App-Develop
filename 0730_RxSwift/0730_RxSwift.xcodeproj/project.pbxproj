@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC13CD682C5E2F8700652759 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13CD672C5E2F8700652759 /* TodoViewController.swift */; };
+		DC13CD6A2C5E2F9A00652759 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13CD692C5E2F9A00652759 /* TodoTableViewCell.swift */; };
 		DC980C9C2C5A233F00B78345 /* SimplePickerViewExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC980C9B2C5A233F00B78345 /* SimplePickerViewExampleViewController.swift */; };
 		DC980C9E2C5A26E800B78345 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC980C9D2C5A26E800B78345 /* NumbersViewController.swift */; };
 		DC980CA02C5A298900B78345 /* SimpleTableViewExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC980C9F2C5A298900B78345 /* SimpleTableViewExampleViewController.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC13CD672C5E2F8700652759 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		DC13CD692C5E2F9A00652759 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		DC980C9B2C5A233F00B78345 /* SimplePickerViewExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePickerViewExampleViewController.swift; sourceTree = "<group>"; };
 		DC980C9D2C5A26E800B78345 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 		DC980C9F2C5A298900B78345 /* SimpleTableViewExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewExampleViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC13CD662C5E2F3B00652759 /* SeSACRxThreads_Start */ = {
+			isa = PBXGroup;
+			children = (
+				DC13CD672C5E2F8700652759 /* TodoViewController.swift */,
+				DC13CD692C5E2F9A00652759 /* TodoTableViewCell.swift */,
+			);
+			path = SeSACRxThreads_Start;
+			sourceTree = "<group>";
+		};
 		DCA4B0AE2C58D39800D3A083 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +95,7 @@
 		DCA4B0B92C58D39800D3A083 /* 0730_RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				DC13CD662C5E2F3B00652759 /* SeSACRxThreads_Start */,
 				DCA4B0BA2C58D39800D3A083 /* AppDelegate.swift */,
 				DCA4B0BC2C58D39800D3A083 /* SceneDelegate.swift */,
 				DCA4B0BE2C58D39800D3A083 /* ViewController.swift */,
@@ -185,6 +199,8 @@
 			files = (
 				DC980C9E2C5A26E800B78345 /* NumbersViewController.swift in Sources */,
 				DCA4B0DD2C58E4C200D3A083 /* ObservableExample.swift in Sources */,
+				DC13CD682C5E2F8700652759 /* TodoViewController.swift in Sources */,
+				DC13CD6A2C5E2F9A00652759 /* TodoTableViewCell.swift in Sources */,
 				DCA4B0BF2C58D39800D3A083 /* ViewController.swift in Sources */,
 				DCB312642C5CC12000EE473E /* BirthdayViewController.swift in Sources */,
 				DCE4C1F32C5CAF3C00B36D68 /* PasswordViewController.swift in Sources */,
