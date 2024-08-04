@@ -18,18 +18,19 @@ struct todo {
 
 final class TodoViewController: UIViewController {
     
-    var list = [
+    let list = BehaviorRelay(value: [
         todo(check: false, chore: "그립톡 구매하기", star: false),
         todo(check: false, chore: "사이다 구매", star: false),
         todo(check: false, chore: "아이패드 케이스 최저가 알아보기", star: false),
         todo(check: false, chore: "양말", star: false)
-    ]
+    ])
     
     let header = UIView()
     let textField = UITextField()
     let addButton = UIButton()
     
     let todoTableView = UITableView()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +43,7 @@ final class TodoViewController: UIViewController {
         configureLayout()
         configureUI()
         
-        addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
-        
+        bind()
     }
     
     func configureHierarchy() {
@@ -88,7 +88,6 @@ final class TodoViewController: UIViewController {
         navigationItem.title = "쇼핑"
         
         todoTableView.rowHeight = 60
-        todoTableView.backgroundColor = .systemGray6
         
         textField.placeholder = "무엇을 구매하실 건가요?"
         textField.leftViewMode = .always
@@ -103,25 +102,33 @@ final class TodoViewController: UIViewController {
         header.backgroundColor = .systemGray6
         header.layer.cornerRadius = 7
         
-        
-        
     }
     
-    
     @objc func checkButtonClicked(sender: UIButton) {
-        list[sender.tag].check.toggle()
-        todoTableView.reloadData()
+//        list.value[sender.tag].check.toggle()
+//        todoTableView.reloadData()
     }
     
     @objc func starButtonClicked(sender: UIButton) {
-        list[sender.tag].star.toggle()
-        todoTableView.reloadData()
+//        list.value[sender.tag].star.toggle()
+//        todoTableView.reloadData()
     }
     
-    @objc func addButtonClicked(sender: UIButton) {
-        let text = textField.text!
-        list.append(todo(check: false, chore: text, star: false))
-        todoTableView.reloadData()
+    func bind() {
+
+        list
+            .bind(with: self) { owner, _ in
+                owner.todoTableView.reloadData()
+            }
+            .disposed(by: disposeBag)
+        
+        addButton.rx.tap
+            .bind(with: self) { owner, _ in
+                var currentList = owner.list.value
+                currentList.append(todo(check: false, chore: owner.textField.text ?? "", star: false))
+                owner.list.accept(currentList)
+            }
+        
     }
 
 }
@@ -129,15 +136,14 @@ final class TodoViewController: UIViewController {
 extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return list.count
+        return list.value.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell", for: indexPath) as! TodoTableViewCell
         
-//        cell.configureTodoCell(transition: list[indexPath.row])
+        cell.designCell(transition: list.value[indexPath.row])
         
         cell.checkButton.tag = indexPath.row
         cell.starButton.tag = indexPath.row
