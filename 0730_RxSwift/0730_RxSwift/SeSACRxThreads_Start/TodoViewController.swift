@@ -104,21 +104,12 @@ final class TodoViewController: UIViewController {
         
     }
     
-    @objc func checkButtonClicked(sender: UIButton) {
-//        list.value[sender.tag].check.toggle()
-//        todoTableView.reloadData()
-    }
-    
-    @objc func starButtonClicked(sender: UIButton) {
-//        list.value[sender.tag].star.toggle()
-//        todoTableView.reloadData()
-    }
-    
     func bind() {
 
         list
             .bind(with: self) { owner, _ in
                 owner.todoTableView.reloadData()
+                print("reload")
             }
             .disposed(by: disposeBag)
         
@@ -144,12 +135,22 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell", for: indexPath) as! TodoTableViewCell
         
         cell.designCell(transition: list.value[indexPath.row])
+ 
+        cell.starButton.rx.tap
+            .bind(with: self) { owner, _ in
+                var currentList = owner.list.value
+                currentList[indexPath.row].star.toggle()
+                owner.list.accept(currentList)
+            }
+            .disposed(by: cell.disposeBag)
         
-        cell.checkButton.tag = indexPath.row
-        cell.starButton.tag = indexPath.row
-        
-        cell.checkButton.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
-        cell.starButton.addTarget(self, action: #selector(starButtonClicked), for: .touchUpInside)
+        cell.checkButton.rx.tap
+            .bind(with: self) { owner, _ in
+                var currentList = owner.list.value
+                currentList[indexPath.row].check.toggle()
+                owner.list.accept(currentList)
+            }
+            .disposed(by: cell.disposeBag)
         
         return cell
     }

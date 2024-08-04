@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class TodoTableViewCell: UITableViewCell {
     
@@ -14,6 +16,13 @@ class TodoTableViewCell: UITableViewCell {
     let checkButton = UIButton()
     let todoLabel = UILabel()
     let starButton = UIButton()
+    
+    var disposeBag = DisposeBag()
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
