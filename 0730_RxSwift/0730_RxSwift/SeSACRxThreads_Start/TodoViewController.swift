@@ -119,6 +119,7 @@ final class TodoViewController: UIViewController {
                 currentList.append(todo(check: false, chore: owner.textField.text ?? "", star: false))
                 owner.list.accept(currentList)
             }
+            .disposed(by: disposeBag)
         
     }
 
@@ -149,6 +150,7 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
                 var currentList = owner.list.value
                 currentList[indexPath.row].check.toggle()
                 owner.list.accept(currentList)
+                owner.navigationController?.pushViewController(PickerViewController(), animated: true)
             }
             .disposed(by: cell.disposeBag)
         

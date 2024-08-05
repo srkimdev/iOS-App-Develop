@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import SnapKit
 import RxSwift
 import RxCocoa
-import SnapKit
 
 class PasswordViewController: UIViewController {
     
@@ -16,8 +16,7 @@ class PasswordViewController: UIViewController {
     let nextButton = UIButton()
     let descriptionLabel = UILabel()
     
-    let validText = Observable.just("8자 이상 입력해주세요")
-    
+    let viewModel = PasswordViewModel()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -33,30 +32,25 @@ class PasswordViewController: UIViewController {
     
     func bind() {
         
-        validText
+        let input = PasswordViewModel.Input(text: passwordTextField.rx.text, tap: nextButton.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        output.validText
             .bind(to: descriptionLabel.rx.text)
             .disposed(by: disposeBag)
-        
-        let validation = passwordTextField
-            .rx
-            .text
-            .orEmpty
-            .map { $0.count >= 8 }
-        
-        validation
+
+        output.validation
             .bind(to: nextButton.rx.isEnabled, descriptionLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
-        validation
+        output.validation
             .bind(with: self) { owner, value in
                 let color: UIColor = value ? .systemPink : .lightGray
                 owner.nextButton.backgroundColor = color
             }
             .disposed(by: disposeBag)
         
-        nextButton
-            .rx
-            .tap
+        output.tap
             .bind(with: self) { owner, _ in
                 print("show alert")
                 owner.navigationController?.pushViewController(BirthdayViewController(), animated: true)
