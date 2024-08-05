@@ -68,12 +68,8 @@ class BirthdayViewController: UIViewController {
         return label
     }()
   
+    let viewModel = BirthdayViewModel()
     let nextButton = UIButton()
-    
-    let year = BehaviorRelay(value: 2024)
-    let month = BehaviorRelay(value: 8)
-    let day = BehaviorRelay(value: 1)
-    let gap = BehaviorRelay(value: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,51 +83,27 @@ class BirthdayViewController: UIViewController {
     
     func bind() {
         
-        birthDayPicker.rx.date
-            .bind(with: self) { owner, date in
-                print(date)
-                
-                let component = Calendar.current.dateComponents([.day, .month, .year], from: date)
-                
-                owner.year.accept(component.year!)
-                owner.month.accept(component.month!)
-                owner.day.accept(component.day!)
-                
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                let today = dateFormatter.string(from: Date())
-                
-                guard let startDate = dateFormatter.date(from: "\(component.year!)-\(component.month!)-\(component.day!)"),
-                      let endDate = dateFormatter.date(from: today) else {
-                    return
-                }
-
-                let calendar = Calendar.current
-
-                let components = calendar.dateComponents([.day], from: startDate, to: endDate)
-                owner.gap.accept(components.day!)
-                
-            }
-            .disposed(by: disposeBag)
+        let input = BirthdayViewModel.Input(date: birthDayPicker.rx.date, tap: nextButton.rx.tap)
+        let output = viewModel.transform(input: input)
         
-        year
+        output.year
             .map { "\($0)년" }
             .bind(to: yearLabel.rx.text)
             .disposed(by: disposeBag)
         
-        month
+        output.month
             .map { "\($0)월" }
             .bind(to: monthLabel.rx.text)
             .disposed(by: disposeBag)
         
-        day
+        output.day
             .map { "\($0)일" }
             .bind(to: dayLabel.rx.text)
             .disposed(by: disposeBag)
         
-        gap
+        output.validation
             .bind(with: self) { owner, value in
-                if value / 365 >= 17 {
+                if value {
                     owner.infoLabel.text = "가입 가능한 나이입니다."
                     owner.infoLabel.textColor = .blue
                     owner.nextButton.isEnabled = true
@@ -141,6 +113,7 @@ class BirthdayViewController: UIViewController {
                     owner.nextButton.isEnabled = false
                 }
             }
+            .disposed(by: disposeBag)
         
         nextButton.rx.tap
             .bind(with: self) { owner, _ in
