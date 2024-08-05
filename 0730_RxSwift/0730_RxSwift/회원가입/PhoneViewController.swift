@@ -15,8 +15,8 @@ class PhoneViewController: UIViewController {
     let phoneTextField = UITextField()
     let descriptionLabel = UILabel()
     let nextButton = UIButton()
-    
-    let validText = BehaviorSubject(value: "010")
+
+    let viewModel = PhoneViewModel()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -32,27 +32,21 @@ class PhoneViewController: UIViewController {
     
     func bind() {
         
-        validText
+        let input = PhoneViewModel.Input(text: phoneTextField.rx.text, tap: nextButton.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        output.validText
+            .bind(to: phoneTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.validText
             .bind(to: descriptionLabel.rx.text)
             .disposed(by: disposeBag)
         
-        let validation = phoneTextField
-            .rx
-            .text
-            .orEmpty
-            .map { text in
-                text.count >= 10 && text.allSatisfy({ $0.isNumber })
-            }
-        
-        validation
+        output.validation
             .bind(with: self) { owner, value in
-                if value {
-                    owner.descriptionLabel.text = "사용 가능한 전화번호 입니다."
-                } else {
-                    owner.descriptionLabel.text = "조건에 맞지 않습니다."
-                }
+                owner.descriptionLabel.text = value ? "사용 가능한 전화번호 입니다." : "조건에 맞지 않습니다."
             }
-        
         
     }
     
@@ -80,7 +74,6 @@ class PhoneViewController: UIViewController {
         }
         
         phoneTextField.backgroundColor = .lightGray
-        phoneTextField.text = "010"
         
         nextButton.backgroundColor = .lightGray
     }

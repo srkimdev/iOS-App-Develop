@@ -10,6 +10,7 @@
 		DC13CD682C5E2F8700652759 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13CD672C5E2F8700652759 /* TodoViewController.swift */; };
 		DC13CD6A2C5E2F9A00652759 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13CD692C5E2F9A00652759 /* TodoTableViewCell.swift */; };
 		DC6E5F532C60A49500A7545F /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E5F522C60A49500A7545F /* PasswordViewModel.swift */; };
+		DC6E5F552C60AD5300A7545F /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E5F542C60AD5300A7545F /* PhoneViewModel.swift */; };
 		DC980C9C2C5A233F00B78345 /* SimplePickerViewExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC980C9B2C5A233F00B78345 /* SimplePickerViewExampleViewController.swift */; };
 		DC980C9E2C5A26E800B78345 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC980C9D2C5A26E800B78345 /* NumbersViewController.swift */; };
 		DC980CA02C5A298900B78345 /* SimpleTableViewExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC980C9F2C5A298900B78345 /* SimpleTableViewExampleViewController.swift */; };
@@ -35,6 +36,7 @@
 		DC13CD672C5E2F8700652759 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		DC13CD692C5E2F9A00652759 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		DC6E5F522C60A49500A7545F /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
+		DC6E5F542C60AD5300A7545F /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		DC980C9B2C5A233F00B78345 /* SimplePickerViewExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePickerViewExampleViewController.swift; sourceTree = "<group>"; };
 		DC980C9D2C5A26E800B78345 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 		DC980C9F2C5A298900B78345 /* SimpleTableViewExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewExampleViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				DCE4C1F22C5CAF3C00B36D68 /* PasswordViewController.swift */,
 				DC6E5F522C60A49500A7545F /* PasswordViewModel.swift */,
 				DCE4C1F42C5CB56800B36D68 /* PhoneViewController.swift */,
+				DC6E5F542C60AD5300A7545F /* PhoneViewModel.swift */,
 				DCB312632C5CC12000EE473E /* BirthdayViewController.swift */,
 			);
 			name = "회원가입";
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC980C9E2C5A26E800B78345 /* NumbersViewController.swift in Sources */,
+				DC6E5F552C60AD5300A7545F /* PhoneViewModel.swift in Sources */,
 				DC6E5F532C60A49500A7545F /* PasswordViewModel.swift in Sources */,
 				DCA4B0DD2C58E4C200D3A083 /* ObservableExample.swift in Sources */,
 				DC13CD682C5E2F8700652759 /* TodoViewController.swift in Sources */,
