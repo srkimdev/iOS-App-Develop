@@ -115,7 +115,7 @@ class BirthdayViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        nextButton.rx.tap
+        output.tap
             .bind(with: self) { owner, _ in
                 owner.showAlert()
             }

@@ -25,8 +25,7 @@ class SimpleTableViewExampleViewController : UIViewController, UITableViewDelega
                 cell.textLabel?.text = "\(element) @ row \(row)"
             }
             .disposed(by: disposeBag)
-
-
+        
         tableView.rx
             .modelSelected(String.self)
             .subscribe(onNext:  { value in

@@ -10,33 +10,20 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-struct todo {
-    var check: Bool
-    let chore: String
-    var star: Bool
-}
-
 final class TodoViewController: UIViewController {
-    
-    let list = BehaviorRelay(value: [
-        todo(check: false, chore: "그립톡 구매하기", star: false),
-        todo(check: false, chore: "사이다 구매", star: false),
-        todo(check: false, chore: "아이패드 케이스 최저가 알아보기", star: false),
-        todo(check: false, chore: "양말", star: false)
-    ])
     
     let header = UIView()
     let textField = UITextField()
     let addButton = UIButton()
     
     let todoTableView = UITableView()
+    
+    let viewModel = TodoViewModel()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        todoTableView.dataSource = self
-        todoTableView.delegate = self
         todoTableView.register(TodoTableViewCell.self, forCellReuseIdentifier: "TodoTableViewCell")
         
         configureHierarchy()
@@ -105,58 +92,33 @@ final class TodoViewController: UIViewController {
     }
     
     func bind() {
-
-        list
-            .bind(with: self) { owner, _ in
-                owner.todoTableView.reloadData()
-                print("reload")
+        
+        let starButtonTap = PublishRelay<Int>()
+        let checkButtonTap = PublishRelay<Int>()
+        
+        let input = TodoViewModel.Input(addButtonTap: addButton.rx.tap, newTodoText: textField.rx.text, starButtonTap: starButtonTap, checkButtonTap: checkButtonTap)
+        let output = viewModel.transform(input: input)
+        
+        output.todoList
+            .bind(to: todoTableView.rx.items(cellIdentifier: "TodoTableViewCell", cellType: TodoTableViewCell.self)) { (row, element, cell) in
+                cell.designCell(transition: element)
+                
+                cell.starButton.rx.tap
+                    .bind(with: self) { owner, _ in
+                        starButtonTap.accept(row)
+                    }
+                    .disposed(by: cell.disposeBag)
+                
+                cell.checkButton.rx.tap
+                    .bind(with: self) { owner, _ in
+                        checkButtonTap.accept(row)
+                    }
+                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
         
-        addButton.rx.tap
-            .bind(with: self) { owner, _ in
-                var currentList = owner.list.value
-                currentList.append(todo(check: false, chore: owner.textField.text ?? "", star: false))
-                owner.list.accept(currentList)
-            }
-            .disposed(by: disposeBag)
-        
     }
 
-}
-
-extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.value.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell", for: indexPath) as! TodoTableViewCell
-        
-        cell.designCell(transition: list.value[indexPath.row])
- 
-        cell.starButton.rx.tap
-            .bind(with: self) { owner, _ in
-                var currentList = owner.list.value
-                currentList[indexPath.row].star.toggle()
-                owner.list.accept(currentList)
-            }
-            .disposed(by: cell.disposeBag)
-        
-        cell.checkButton.rx.tap
-            .bind(with: self) { owner, _ in
-                var currentList = owner.list.value
-                currentList[indexPath.row].check.toggle()
-                owner.list.accept(currentList)
-                owner.navigationController?.pushViewController(PickerViewController(), animated: true)
-            }
-            .disposed(by: cell.disposeBag)
-        
-        return cell
-    }
-    
 }
 
 
