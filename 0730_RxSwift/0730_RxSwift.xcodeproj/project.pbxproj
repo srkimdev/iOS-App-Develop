@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DC13CD682C5E2F8700652759 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13CD672C5E2F8700652759 /* TodoViewController.swift */; };
 		DC13CD6A2C5E2F9A00652759 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13CD692C5E2F9A00652759 /* TodoTableViewCell.swift */; };
+		DC68F1692C633BEA00E90167 /* TodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68F1682C633BEA00E90167 /* TodoCollectionViewCell.swift */; };
 		DC6E5F532C60A49500A7545F /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E5F522C60A49500A7545F /* PasswordViewModel.swift */; };
 		DC6E5F552C60AD5300A7545F /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E5F542C60AD5300A7545F /* PhoneViewModel.swift */; };
 		DC6E5F572C60B19E00A7545F /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E5F562C60B19E00A7545F /* BirthdayViewModel.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		DC13CD672C5E2F8700652759 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		DC13CD692C5E2F9A00652759 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		DC68F1682C633BEA00E90167 /* TodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC6E5F522C60A49500A7545F /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		DC6E5F542C60AD5300A7545F /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		DC6E5F562C60B19E00A7545F /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				DC13CD672C5E2F8700652759 /* TodoViewController.swift */,
 				DC13CD692C5E2F9A00652759 /* TodoTableViewCell.swift */,
+				DC68F1682C633BEA00E90167 /* TodoCollectionViewCell.swift */,
 				DC6E5F582C60C9CD00A7545F /* TodoViewModel.swift */,
 			);
 			path = SeSACRxThreads_Start;
@@ -226,6 +229,7 @@
 				DC13CD6A2C5E2F9A00652759 /* TodoTableViewCell.swift in Sources */,
 				DCA4B0BF2C58D39800D3A083 /* ViewController.swift in Sources */,
 				DCB312642C5CC12000EE473E /* BirthdayViewController.swift in Sources */,
+				DC68F1692C633BEA00E90167 /* TodoCollectionViewCell.swift in Sources */,
 				DC6E5F592C60C9CD00A7545F /* TodoViewModel.swift in Sources */,
 				DCE4C1F32C5CAF3C00B36D68 /* PasswordViewController.swift in Sources */,
 				DCA4B0BB2C58D39800D3A083 /* AppDelegate.swift in Sources */,

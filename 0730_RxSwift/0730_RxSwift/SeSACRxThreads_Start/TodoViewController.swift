@@ -17,14 +17,23 @@ final class TodoViewController: UIViewController {
     let addButton = UIButton()
     
     let todoTableView = UITableView()
+    let todoCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
     
     let viewModel = TodoViewModel()
     let disposeBag = DisposeBag()
+    
+    static func layout() -> UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 100, height: 40)
+        layout.scrollDirection = .horizontal
+        return layout
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         todoTableView.register(TodoTableViewCell.self, forCellReuseIdentifier: "TodoTableViewCell")
+        todoCollectionView.register(TodoCollectionViewCell.self, forCellWithReuseIdentifier: "TodoCollectionViewCell")
         
         configureHierarchy()
         configureLayout()
@@ -37,6 +46,7 @@ final class TodoViewController: UIViewController {
         view.addSubview(header)
         header.addSubview(textField)
         header.addSubview(addButton)
+        view.addSubview(todoCollectionView)
         view.addSubview(todoTableView)
     }
     
@@ -61,8 +71,14 @@ final class TodoViewController: UIViewController {
             make.width.equalTo(60)
         }
         
+        todoCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(header.snp.bottom).offset(10)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(44)
+        }
+        
         todoTableView.snp.makeConstraints { make in
-            make.top.equalTo(header.snp.bottom).offset(20)
+            make.top.equalTo(todoCollectionView.snp.bottom).offset(10)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
@@ -93,13 +109,22 @@ final class TodoViewController: UIViewController {
     
     func bind() {
         
+        let tabCell = PublishSubject<todo>()
         let starButtonTap = PublishRelay<Int>()
         let checkButtonTap = PublishRelay<Int>()
         
-        let input = TodoViewModel.Input(addButtonTap: addButton.rx.tap, newTodoText: textField.rx.text, starButtonTap: starButtonTap, checkButtonTap: checkButtonTap)
+        let input = TodoViewModel.Input(addButtonTap: addButton.rx.tap, newTodoText: textField.rx.text, starButtonTap: starButtonTap, checkButtonTap: checkButtonTap, tabCell: tabCell)
         let output = viewModel.transform(input: input)
         
         output.todoList
+            .bind(to: todoCollectionView.rx.items(cellIdentifier: "TodoCollectionViewCell", cellType: TodoCollectionViewCell.self)) { (item, element, cell) in
+                
+                cell.label.text = element.chore
+                
+            }
+            .disposed(by: disposeBag)
+        
+        output.tableList
             .bind(to: todoTableView.rx.items(cellIdentifier: "TodoTableViewCell", cellType: TodoTableViewCell.self)) { (row, element, cell) in
                 cell.designCell(transition: element)
                 
@@ -114,6 +139,13 @@ final class TodoViewController: UIViewController {
                         checkButtonTap.accept(row)
                     }
                     .disposed(by: cell.disposeBag)
+                
+            }
+            .disposed(by: disposeBag)
+        
+        todoCollectionView.rx.modelSelected(todo.self)
+            .subscribe(with: self) { owner, value in
+                tabCell.onNext(value)
             }
             .disposed(by: disposeBag)
         
