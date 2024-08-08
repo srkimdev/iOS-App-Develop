@@ -8,10 +8,16 @@
 import UIKit
 import SnapKit
 import RxSwift
+import RxCocoa
+import Kingfisher
 
 final class SearchViewController: UIViewController {
     
     let searchBar = UISearchBar()
+    let tableView = UITableView()
+    
+    let viewModel = SearchViewModel()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +25,9 @@ final class SearchViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureUI()
+        
         searchBar.delegate = self
+        tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
         
         bind()
         
@@ -27,6 +35,7 @@ final class SearchViewController: UIViewController {
     
     func configureHierarchy() {
         view.addSubview(searchBar)
+        view.addSubview(tableView)
     }
     
     func configureLayout() {
@@ -35,6 +44,12 @@ final class SearchViewController: UIViewController {
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(8)
             make.height.equalTo(44)
         }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom).offset(16)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(8)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
     func configureUI() {
@@ -42,9 +57,35 @@ final class SearchViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         view.backgroundColor = .white
+        
+        tableView.rowHeight = 100
     }
     
     func bind() {
+        
+        let input = SearchViewModel.Input(searchButtonTap: searchBar.rx.searchButtonClicked, searchText: searchBar.rx.text.orEmpty)
+        let output = viewModel.transform(input: input)
+        
+        output.appList
+            .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.identifier, cellType: SearchTableViewCell.self)) { (row, element, cell) in
+                
+                cell.appNameLabel.text = element.trackName
+                
+                let url = URL(string: element.artworkUrl512)
+                cell.appIconImageView.kf.setImage(with: url)
+                
+            }
+            .disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(Apps.self)
+            .subscribe(with: self) { owner, value in
+                
+                let vc = DetailViewController()
+                vc.data = value
+                owner.navigationController?.pushViewController(vc, animated: true)
+                
+            }
+            .disposed(by: disposeBag)
         
     }
     

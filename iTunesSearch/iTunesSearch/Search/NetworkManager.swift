@@ -15,25 +15,31 @@ final class NetworkManager {
     
     private init() { }
     
-    func callRequest() {
+    func callRequest(appName: String) -> Observable<iTunes> {
         
-//        let url = ""
-//        
-//        let result = Observable<Int>.create { observer in
-//            observer.onNext(0)
-//            observer.onCompleted()
-//            return Disposables.create()
-//        }
-//
-//        
-//        a.subscribe(with: self) { owner, value in
-//            
-//        }
+        let url = "https://itunes.apple.com/search?term=\(appName)&entity=software&country=KR&limit=10"
         
+        let result = Observable<iTunes>.create { observer in
+            guard let url = URL(string: url) else {
+                return Disposables.create()
+            }
+            
+            print("com")
+            AF.request(url).responseDecodable(of: iTunes.self) { response in
+                
+                switch response.result {
+                case .success(let value):
+                    observer.onNext(value)
+                    observer.onCompleted()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            
+            return Disposables.create()
+        }
         
-        
-        
-        
+        return result
     }
     
 }

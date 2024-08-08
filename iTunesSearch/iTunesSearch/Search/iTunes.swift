@@ -13,6 +13,6 @@ struct iTunes: Decodable {
 
 struct Apps: Decodable {
     let screenshotUrls: [String]
-    let artworkUrl100: String
+    let artworkUrl512: String
     let trackName: String
 }

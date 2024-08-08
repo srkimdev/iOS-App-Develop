@@ -21,6 +21,9 @@
 		DC6C6D652C64955300694454 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C6D642C64955300694454 /* SearchViewModel.swift */; };
 		DC6C6D672C64956C00694454 /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C6D662C64956C00694454 /* iTunes.swift */; };
 		DC6C6D692C649D5C00694454 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C6D682C649D5C00694454 /* NetworkManager.swift */; };
+		DC6C6D6B2C64B38100694454 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C6D6A2C64B38100694454 /* SearchTableViewCell.swift */; };
+		DC6C6D6E2C64B49000694454 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DC6C6D6D2C64B49000694454 /* Kingfisher */; };
+		DC6C6D712C64BCCB00694454 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C6D702C64BCCB00694454 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,8 @@
 		DC6C6D642C64955300694454 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		DC6C6D662C64956C00694454 /* iTunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
 		DC6C6D682C649D5C00694454 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DC6C6D6A2C64B38100694454 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		DC6C6D702C64BCCB00694454 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 				DC6C6D632C648E0900694454 /* Alamofire in Frameworks */,
 				DC6C6D5D2C648DEE00694454 /* RxSwift in Frameworks */,
 				DC6C6D5B2C648DEE00694454 /* RxCocoa in Frameworks */,
+				DC6C6D6E2C64B49000694454 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +86,7 @@
 				DC6C6D4D2C648D0A00694454 /* LaunchScreen.storyboard */,
 				DC6C6D502C648D0A00694454 /* Info.plist */,
 				DC6C6D562C648D4000694454 /* Search */,
+				DC6C6D6F2C64BCBD00694454 /* Detail */,
 			);
 			path = iTunesSearch;
 			sourceTree = "<group>";
@@ -88,11 +95,20 @@
 			isa = PBXGroup;
 			children = (
 				DC6C6D572C648D4D00694454 /* SearchViewController.swift */,
+				DC6C6D6A2C64B38100694454 /* SearchTableViewCell.swift */,
 				DC6C6D642C64955300694454 /* SearchViewModel.swift */,
 				DC6C6D662C64956C00694454 /* iTunes.swift */,
 				DC6C6D682C649D5C00694454 /* NetworkManager.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		DC6C6D6F2C64BCBD00694454 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DC6C6D702C64BCCB00694454 /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,6 +132,7 @@
 				DC6C6D5C2C648DEE00694454 /* RxSwift */,
 				DC6C6D5F2C648DFB00694454 /* SnapKit */,
 				DC6C6D622C648E0900694454 /* Alamofire */,
+				DC6C6D6D2C64B49000694454 /* Kingfisher */,
 			);
 			productName = iTunesSearch;
 			productReference = DC6C6D3F2C648D0700694454 /* iTunesSearch.app */;
@@ -149,6 +166,7 @@
 				DC6C6D592C648DEE00694454 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				DC6C6D5E2C648DFB00694454 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DC6C6D612C648E0900694454 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DC6C6D6C2C64B49000694454 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = DC6C6D402C648D0700694454 /* Products */;
 			projectDirPath = "";
@@ -177,11 +195,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6C6D712C64BCCB00694454 /* DetailViewController.swift in Sources */,
 				DC6C6D472C648D0700694454 /* ViewController.swift in Sources */,
 				DC6C6D672C64956C00694454 /* iTunes.swift in Sources */,
 				DC6C6D652C64955300694454 /* SearchViewModel.swift in Sources */,
 				DC6C6D692C649D5C00694454 /* NetworkManager.swift in Sources */,
 				DC6C6D432C648D0700694454 /* AppDelegate.swift in Sources */,
+				DC6C6D6B2C64B38100694454 /* SearchTableViewCell.swift in Sources */,
 				DC6C6D582C648D4D00694454 /* SearchViewController.swift in Sources */,
 				DC6C6D452C648D0700694454 /* SceneDelegate.swift in Sources */,
 			);
@@ -440,6 +460,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		DC6C6D6C2C64B49000694454 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -462,6 +490,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DC6C6D612C648E0900694454 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		DC6C6D6D2C64B49000694454 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6C6D6C2C64B49000694454 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
