@@ -51,7 +51,6 @@ final class TodoViewModel {
             .subscribe(with: self) { owner, value in
                 owner.tableList.append(value)
                 tableList.onNext(owner.tableList)
-//                print(tableList)
             }
             .disposed(by: disposeBag)
         

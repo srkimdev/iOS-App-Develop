@@ -84,7 +84,6 @@ final class TodoViewController: UIViewController {
         }
     }
     
-    
     func configureUI() {
         
         view.backgroundColor = .white
