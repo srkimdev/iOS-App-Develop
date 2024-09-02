@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 import RxSwift
 import RxCocoa
 
@@ -15,6 +16,12 @@ class SimpleTableViewExampleViewController : UIViewController, UITableViewDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
         let items = Observable.just(
             (0..<20).map { "\($0)" }
