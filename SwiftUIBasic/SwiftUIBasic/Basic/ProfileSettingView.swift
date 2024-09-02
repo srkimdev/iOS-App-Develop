@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ProfileSettingView: View {
     
-    let list = [["E", "S", "T", "J"], ["I", "N", "F", "P"]]
-    
     @State private var text: String = ""
     @State private var isFull = false
     
@@ -39,35 +37,12 @@ struct ProfileSettingView: View {
                         .font(.title)
                         .bold()
                     .padding()
+                    .offset(y: -30)
                     
                     Spacer()
                     
-                    VStack {
-                        ForEach(list.indices, id: \.self) { row in
-                            HStack {
-                                ForEach(list[row].indices, id: \.self) { column in
-                                    Button(action: {
-                                                                
-                                    }) {
-                                        Circle()
-                                            .fill(.clear)
-                                            .overlay(
-                                                Circle().stroke(Color.black, lineWidth: 1)
-                                            )
-                                            .frame(width: 50, height: 50)
-                                            .overlay(
-                                                Text(list[row][column])
-                                                    .foregroundStyle(.black)
-                                            )
-                                        
-                                    }
-                                    .frame(height: 50)
-                                    
-                                }
-                            }
-                        }
-                    }
-                    .padding(.trailing, 20)
+                    MBTIView()
+                    
                 }
                 
                 Spacer().frame(height: 300)
@@ -86,13 +61,6 @@ struct ProfileSettingView: View {
             })
             .navigationTitle("Profile Setting")
             .navigationBarTitleDisplayMode(.inline)
-//            .toolbar {
-//                ToolbarItem(placement: .principal) {
-//                    Text("Profile Setting")
-//                        .font(.system(size: 18))
-//                        .frame(maxWidth: .infinity, alignment: .center)
-//                }
-//            }
 
         }
         
@@ -101,4 +69,39 @@ struct ProfileSettingView: View {
 
 #Preview {
     ProfileSettingView()
+}
+
+private struct MBTIView: View {
+    
+    let list = [["E", "S", "T", "J"], ["I", "N", "F", "P"]]
+    
+    var body: some View {
+    
+        VStack {
+            ForEach(list.indices, id: \.self) { row in
+                HStack {
+                    ForEach(list[row].indices, id: \.self) { column in
+                        Button(action: {
+                                                    
+                        }) {
+                            Circle()
+                                .fill(.clear)
+                                .overlay(
+                                    Circle().stroke(Color.black, lineWidth: 1)
+                                )
+                                .frame(width: 50, height: 50)
+                                .overlay(
+                                    Text(list[row][column])
+                                        .foregroundStyle(.black)
+                                )
+                            
+                        }
+                        .frame(height: 50)
+                        
+                    }
+                }
+            }
+        }
+        .padding(.trailing, 20)
+    }
 }
