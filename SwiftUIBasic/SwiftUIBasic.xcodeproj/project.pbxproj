@@ -13,6 +13,7 @@
 		DC998A912C8581F60000F383 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC998A902C8581F60000F383 /* Preview Assets.xcassets */; };
 		DC998A992C8582C20000F383 /* AboutModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998A982C8582C10000F383 /* AboutModifier.swift */; };
 		DC998A9B2C8585E50000F383 /* CustomViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998A9A2C8585E50000F383 /* CustomViewModifier.swift */; };
+		DC998A9D2C85883B0000F383 /* PropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998A9C2C85883B0000F383 /* PropertyWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		DC998A902C8581F60000F383 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DC998A982C8582C10000F383 /* AboutModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModifier.swift; sourceTree = "<group>"; };
 		DC998A9A2C8585E50000F383 /* CustomViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModifier.swift; sourceTree = "<group>"; };
+		DC998A9C2C85883B0000F383 /* PropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				DC998A982C8582C10000F383 /* AboutModifier.swift */,
 				DC998A9A2C8585E50000F383 /* CustomViewModifier.swift */,
+				DC998A9C2C85883B0000F383 /* PropertyWrapper.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			files = (
 				DC998A9B2C8585E50000F383 /* CustomViewModifier.swift in Sources */,
 				DC998A8C2C8581F40000F383 /* ContentView.swift in Sources */,
+				DC998A9D2C85883B0000F383 /* PropertyWrapper.swift in Sources */,
 				DC998A992C8582C20000F383 /* AboutModifier.swift in Sources */,
 				DC998A8A2C8581F40000F383 /* SwiftUIBasicApp.swift in Sources */,
 			);
