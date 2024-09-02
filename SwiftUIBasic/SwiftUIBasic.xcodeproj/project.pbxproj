@@ -17,6 +17,7 @@
 		DC998A9F2C8590050000F383 /* SimpleCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998A9E2C8590050000F383 /* SimpleCountView.swift */; };
 		DC998AA12C8593310000F383 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998AA02C8593310000F383 /* OnBoardingView.swift */; };
 		DC998AA32C8595CD0000F383 /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998AA22C8595CD0000F383 /* ProfileSettingView.swift */; };
+		DC998AA52C859A750000F383 /* JoinCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998AA42C859A750000F383 /* JoinCheckView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		DC998A9E2C8590050000F383 /* SimpleCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCountView.swift; sourceTree = "<group>"; };
 		DC998AA02C8593310000F383 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		DC998AA22C8595CD0000F383 /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
+		DC998AA42C859A750000F383 /* JoinCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCheckView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				DC998A9E2C8590050000F383 /* SimpleCountView.swift */,
 				DC998AA02C8593310000F383 /* OnBoardingView.swift */,
 				DC998AA22C8595CD0000F383 /* ProfileSettingView.swift */,
+				DC998AA42C859A750000F383 /* JoinCheckView.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				DC998A8C2C8581F40000F383 /* ContentView.swift in Sources */,
 				DC998A9D2C85883B0000F383 /* PropertyWrapper.swift in Sources */,
 				DC998AA32C8595CD0000F383 /* ProfileSettingView.swift in Sources */,
+				DC998AA52C859A750000F383 /* JoinCheckView.swift in Sources */,
 				DC998A992C8582C20000F383 /* AboutModifier.swift in Sources */,
 				DC998A8A2C8581F40000F383 /* SwiftUIBasicApp.swift in Sources */,
 			);

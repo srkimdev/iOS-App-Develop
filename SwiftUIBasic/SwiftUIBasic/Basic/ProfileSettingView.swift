@@ -9,27 +9,92 @@ import SwiftUI
 
 struct ProfileSettingView: View {
     
+    let list = [["E", "S", "T", "J"], ["I", "N", "F", "P"]]
+    
     @State private var text: String = ""
+    @State private var isFull = false
     
     var body: some View {
         
-        VStack {
-            Image("profile_8")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
-                .clipShape(.circle)
-                .overlay(
-                    Circle().stroke(Color.blue, lineWidth: 3)
-                )
-            
-            Spacer().frame(height: 50)
-            
-            TextField("닉네임을 입력해주세요 :)", text: $text)
-                .padding(.leading, 20)
-            
+        NavigationView {
+            VStack {
+                Image("profile_8")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+                    .clipShape(.circle)
+                    .overlay(
+                        Circle().stroke(Color.blue, lineWidth: 3)
+                    )
+                
+                Spacer().frame(height: 50)
+                
+                TextField("닉네임을 입력해주세요 :)", text: $text)
+                    .padding(.leading, 20)
+                
+                Spacer().frame(height: 60)
+                
+                HStack {
+                    Text("MBTI")
+                        .font(.title)
+                        .bold()
+                    .padding()
+                    
+                    Spacer()
+                    
+                    VStack {
+                        ForEach(list.indices, id: \.self) { row in
+                            HStack {
+                                ForEach(list[row].indices, id: \.self) { column in
+                                    Button(action: {
+                                                                
+                                    }) {
+                                        Circle()
+                                            .fill(.clear)
+                                            .overlay(
+                                                Circle().stroke(Color.black, lineWidth: 1)
+                                            )
+                                            .frame(width: 50, height: 50)
+                                            .overlay(
+                                                Text(list[row][column])
+                                                    .foregroundStyle(.black)
+                                            )
+                                        
+                                    }
+                                    .frame(height: 50)
+                                    
+                                }
+                            }
+                        }
+                    }
+                    .padding(.trailing, 20)
+                }
+                
+                Spacer().frame(height: 300)
+                
+                Button("완료") {
+                    isFull.toggle()
+                }
+                .frame(width: 300, height: 40)
+                .foregroundStyle(.white)
+                .background(.cyan)
+                .clipShape(.capsule)
+                
+            }
+            .fullScreenCover(isPresented: $isFull, content: {
+                JoinCheckView()
+            })
+            .navigationTitle("Profile Setting")
+            .navigationBarTitleDisplayMode(.inline)
+//            .toolbar {
+//                ToolbarItem(placement: .principal) {
+//                    Text("Profile Setting")
+//                        .font(.system(size: 18))
+//                        .frame(maxWidth: .infinity, alignment: .center)
+//                }
+//            }
+
         }
-        .offset(y: -250)
         
     }
 }
