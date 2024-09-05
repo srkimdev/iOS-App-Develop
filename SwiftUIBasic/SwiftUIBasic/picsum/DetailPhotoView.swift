@@ -9,21 +9,26 @@ import SwiftUI
 
 struct DetailPhotoView: View {
     
-    
+    @Binding var text: String
+    var image: Image
     
     var body: some View {
         
         VStack {
-            Image(systemName: "star")
+            image
                 .frame(width: 200, height: 300)
             
-            Text("un")
+            TextField("input", text: $text)
+                .padding()
+                .textFieldStyle(RoundedBorderTextFieldStyle()) // 스타일 적용
+                .padding(.horizontal, 20)
         }
-        
         
     }
 }
-
-#Preview {
-    DetailPhotoView()
-}
+//
+//#Preview {
+//    @State var text = "dasdas"
+//    @State var koreas:Image = Image(systemName: "star")
+//    DetailPhotoView(text: $text, image: )
+//}

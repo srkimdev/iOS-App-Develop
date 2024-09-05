@@ -7,13 +7,18 @@
 
 import SwiftUI
 
+struct SectionName: Hashable, Identifiable {
+    let id = UUID()
+    var section: String
+}
+
 struct MediaView: View {
     
-    let list = [
-        "un",
-        "deux",
-        "trois",
-        "quatre"
+    @State var list = [
+        SectionName(section: "un"),
+        SectionName(section: "deux"),
+        SectionName(section: "trois"),
+        SectionName(section: "quatre")
     ]
     
     var body: some View {
@@ -21,8 +26,9 @@ struct MediaView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    ForEach(list, id: \.self) { item in
-                        makeSection(item)
+                    ForEach($list, id: \.self) { item in
+                        makeSectionText(text: item.section.wrappedValue)
+                        makeSectionImage(text: item.section)
                     }
                 }
             }
@@ -31,24 +37,25 @@ struct MediaView: View {
         
     }
     
-    func makeSection(_ text: String) -> some View {
+    func makeSectionText(text: String) -> some View {
         
-        VStack {
-            Text(text)
-                .font(.title2)
-                .padding(.leading, 20)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            HorizontalSection(text)
-        }
+        Text(text)
+            .font(.title2)
+            .padding(.leading, 20)
+            .frame(maxWidth: .infinity, alignment: .leading)
         
     }
     
-    func HorizontalSection(_ text: String) -> some View {
+    func makeSectionImage(text: Binding<String>) -> some View {
+        HorizontalSection(text: text)
+    }
+    
+    func HorizontalSection(text: Binding<String>) -> some View {
         
         ScrollView(.horizontal) {
             LazyHStack(spacing: 10) {
-                ForEach(0..<6) { item in
-                    PosterSection(text)
+                ForEach(0..<6) { _ in
+                    PosterSection(text: text)
                 }
             }
         }
@@ -56,7 +63,7 @@ struct MediaView: View {
         
     }
     
-    func PosterSection(_ text: String) -> some View {
+    func PosterSection(text: Binding<String>) -> some View {
         
         let url = URL(string: "https://picsum.photos/200/300")
         
@@ -70,13 +77,13 @@ struct MediaView: View {
             case .success(let image):
                 
                 NavigationLink {
-                    DetailPhoto(text: text, image: image)
+                    DetailPhotoView(text: text, image: image)
                 } label: {
                     VStack {
                         image
                             .resizable()
                             .frame(width: 130, height: 170)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
                     }
                 }
                 
@@ -87,17 +94,6 @@ struct MediaView: View {
             }
         }
             
-    }
-    
-    func DetailPhoto(text: String, image: Image) -> some View {
-        
-        VStack {
-            image
-                .frame(width: 200, height: 300)
-            
-            Text(text)
-        }
-        
     }
     
 }

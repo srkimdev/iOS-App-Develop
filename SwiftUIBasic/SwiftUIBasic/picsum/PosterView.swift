@@ -23,7 +23,7 @@ struct PosterView: View {
             case .success(let image):
                 
                 NavigationLink {
-                    DetailPhotoView()
+                    //
                 } label: {
                     VStack {
                         image
