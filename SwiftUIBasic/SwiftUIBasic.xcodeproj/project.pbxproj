@@ -27,6 +27,7 @@
 		DCBAE5592C8858E900168DF8 /* HorizontalSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBAE5582C8858E900168DF8 /* HorizontalSectionView.swift */; };
 		DCBAE55B2C8868FB00168DF8 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBAE55A2C8868FB00168DF8 /* MediaView.swift */; };
 		DCBAE55D2C886F2500168DF8 /* DetailPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBAE55C2C886F2500168DF8 /* DetailPhotoView.swift */; };
+		DCBAE5602C899B7200168DF8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBAE55F2C899B7200168DF8 /* CategoryView.swift */; };
 		DCC2FE0F2C85D4EA0050940A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FE0E2C85D4EA0050940A /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		DCBAE5582C8858E900168DF8 /* HorizontalSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSectionView.swift; sourceTree = "<group>"; };
 		DCBAE55A2C8868FB00168DF8 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		DCBAE55C2C886F2500168DF8 /* DetailPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoView.swift; sourceTree = "<group>"; };
+		DCBAE55F2C899B7200168DF8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		DCC2FE0E2C85D4EA0050940A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				DC998A8F2C8581F60000F383 /* Preview Content */,
 				DC998A972C85828A0000F383 /* Basic */,
 				DCBAE5552C88569A00168DF8 /* picsum */,
+				DCBAE55E2C899A9300168DF8 /* Category */,
 			);
 			path = SwiftUIBasic;
 			sourceTree = "<group>";
@@ -132,6 +135,14 @@
 				DCBAE55C2C886F2500168DF8 /* DetailPhotoView.swift */,
 			);
 			path = picsum;
+			sourceTree = "<group>";
+		};
+		DCBAE55E2C899A9300168DF8 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				DCBAE55F2C899B7200168DF8 /* CategoryView.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 				DCBAE54B2C87383600168DF8 /* AdvancedSearchView.swift in Sources */,
 				DC998A9D2C85883B0000F383 /* PropertyWrapper.swift in Sources */,
 				DCBAE5522C88356B00168DF8 /* MoneyView.swift in Sources */,
+				DCBAE5602C899B7200168DF8 /* CategoryView.swift in Sources */,
 				DC998AA32C8595CD0000F383 /* ProfileSettingView.swift in Sources */,
 				DC998AA52C859A750000F383 /* JoinCheckView.swift in Sources */,
 				DC998A992C8582C20000F383 /* AboutModifier.swift in Sources */,
