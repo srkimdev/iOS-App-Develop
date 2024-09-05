@@ -26,7 +26,7 @@ struct MediaView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    ForEach($list, id: \.self) { item in
+                    ForEach($list, id: \.id) { item in
                         makeSectionText(text: item.section.wrappedValue)
                         makeSectionImage(text: item.section)
                     }
@@ -53,7 +53,7 @@ struct MediaView: View {
     func HorizontalSection(text: Binding<String>) -> some View {
         
         ScrollView(.horizontal) {
-            LazyHStack(spacing: 10) {
+            HStack(spacing: 10) {
                 ForEach(0..<6) { _ in
                     PosterSection(text: text)
                 }
@@ -65,7 +65,7 @@ struct MediaView: View {
     
     func PosterSection(text: Binding<String>) -> some View {
         
-        let url = URL(string: "https://picsum.photos/200/300")
+        let url = URL(string: "https://picsum.photos/id/200/300")
         
         return AsyncImage(url: url) { data in
             switch data {

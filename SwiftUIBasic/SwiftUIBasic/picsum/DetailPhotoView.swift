@@ -26,9 +26,3 @@ struct DetailPhotoView: View {
         
     }
 }
-//
-//#Preview {
-//    @State var text = "dasdas"
-//    @State var koreas:Image = Image(systemName: "star")
-//    DetailPhotoView(text: $text, image: )
-//}

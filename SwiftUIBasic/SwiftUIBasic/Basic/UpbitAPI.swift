@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct Market: Hashable, Codable {
-    let market, koreanName, englishName: String
-
+    let market: String
+    let koreanName: String
+    let englishName: String
+    var like: Bool = false
+    
     enum CodingKeys: String, CodingKey {
         case market
         case koreanName = "korean_name"
         case englishName = "english_name"
     }
+}
+
+struct MarketLike: Hashable {
+    let like: Bool
 }
 
 typealias Markets = [Market]

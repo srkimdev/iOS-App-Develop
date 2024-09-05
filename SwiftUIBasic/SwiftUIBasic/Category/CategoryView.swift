@@ -23,19 +23,23 @@ struct CategoryView: View {
         Categories(name: "SF", count: 27)
     ]
     
+    var filterUser: [Categories] {
+        text.isEmpty ? list : list.filter { $0.name.contains(text) }
+    }
+    
     var body: some View {
         
         NavigationView {
             List {
-                
                 ForEach(list, id: \.id) { item in
                     rowView(genre: item.name, num: item.count)
                 }
-                
-                
             }
             .navigationTitle("영화 검색")
             .searchable(text: $text, prompt: "영화를 검색해보세요.")
+            .onSubmit(of: .search) {
+                list = filterUser
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
