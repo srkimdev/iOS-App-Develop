@@ -70,10 +70,9 @@ struct MediaView: View {
         return AsyncImage(url: url) { data in
             switch data {
             case .empty:
-                ProgressView() // loading indicator
+                ProgressView()
                     .frame(width: 200, height: 300)
                 
-                // 이미지를 가져오는 중이거나 아직 시작하지 않은 상태
             case .success(let image):
                 
                 NavigationLink {
