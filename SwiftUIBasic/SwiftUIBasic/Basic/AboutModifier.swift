@@ -15,8 +15,9 @@ struct AboutModifier: View {
         
         Button("click here") {
             let value = type(of: self.body)
-            print(value)
+//            print(value)
         }
+        .padding()
         .foregroundStyle(.yellow)
         .background(.green)
     }

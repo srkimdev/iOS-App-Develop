@@ -23,8 +23,8 @@ struct PointBorderText: ViewModifier {
 struct CustomViewModifier: View {
     var body: some View {
         Text("Hi There")
-//            .modifier(PointBorderText())
-            .asPointBorderText()
+            .modifier(PointBorderText())
+//            .asPointBorderText()
     }
 }
 

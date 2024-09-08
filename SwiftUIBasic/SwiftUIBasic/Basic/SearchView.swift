@@ -62,6 +62,6 @@ struct SearchDetailView: View {
     
     init(data: String) {
         self.data = data
-        print("SearchDetailView init")
+//        print("SearchDetailView init")
     }
 }
