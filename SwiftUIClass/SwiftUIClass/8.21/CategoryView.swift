@@ -9,6 +9,10 @@ import SwiftUI
 
 struct CategoryView: View {
     
+    init() {
+        print("CategoryView init")
+    }
+    
     @State private var genre = "hola"
     @State private var isOn = false
     
@@ -36,6 +40,11 @@ struct CategoryView: View {
 
 struct CategoryPresentView: View {
     
+    init(text: String) {
+        self.text = text
+        print("CategoryPresentView init")
+    }
+    
     let text: String
     
     var body: some View {
@@ -48,6 +57,12 @@ struct CategoryPresentView: View {
 struct CategoryButtonView: View {
     
     @Binding var genre: String
+    
+    init(genre: Binding<String>) {
+//        self.genre = genre
+        print("CategoryButtonView init")
+        self._genre = genre
+    }
     
     var body: some View {
         HStack {
