@@ -12,6 +12,10 @@ struct CoinSearchView: View {
     @State private var searchText = ""
     @State private var coins: [Coin] = []
     
+    var filterText: [Coin] {
+        return searchText.isEmpty ? coins : coins.filter { $0.name.contains(searchText) }
+    }
+    
     var body: some View {
         
         NavigationView {
@@ -24,6 +28,9 @@ struct CoinSearchView: View {
             }
             .navigationTitle("Search")
             .searchable(text: $searchText)
+            .onSubmit(of: .search) {
+                coins = filterText
+            }
         }
         .task {
             let result = await NetworkManager.shared.requestAPI(req: Router.search, type: CoinSearchModel.self)
@@ -62,11 +69,11 @@ struct CoinSearchView: View {
             VStack {
                 Text(coin.name)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    
+                    .lineLimit(1)
                     
                 Text(coin.id)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                
+                    .lineLimit(1)
             }
             
             Spacer()

@@ -17,6 +17,10 @@
 		DCC7E7E62C8DBE9C00CDFB6A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DCC7E7E52C8DBE9C00CDFB6A /* Kingfisher */; };
 		DCC7E7E92C8DBEAB00CDFB6A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DCC7E7E82C8DBEAB00CDFB6A /* Alamofire */; };
 		DCC7E7EB2C8DBF0E00CDFB6A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7E7EA2C8DBF0E00CDFB6A /* Router.swift */; };
+		DCC7E7EE2C8DDCF800CDFB6A /* CoinTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7E7ED2C8DDCF800CDFB6A /* CoinTabView.swift */; };
+		DCC7E7F32C8DDD7F00CDFB6A /* CoinTrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7E7F22C8DDD7F00CDFB6A /* CoinTrendingView.swift */; };
+		DCC7E7F52C8DDD8D00CDFB6A /* CoinStarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7E7F42C8DDD8D00CDFB6A /* CoinStarView.swift */; };
+		DCC7E7F72C8DDD9500CDFB6A /* CoinChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7E7F62C8DDD9500CDFB6A /* CoinChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		DCC7E7DF2C8DBDA500CDFB6A /* CoinSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinSearchModel.swift; sourceTree = "<group>"; };
 		DCC7E7E22C8DBE4200CDFB6A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DCC7E7EA2C8DBF0E00CDFB6A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		DCC7E7ED2C8DDCF800CDFB6A /* CoinTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTabView.swift; sourceTree = "<group>"; };
+		DCC7E7F22C8DDD7F00CDFB6A /* CoinTrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTrendingView.swift; sourceTree = "<group>"; };
+		DCC7E7F42C8DDD8D00CDFB6A /* CoinStarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinStarView.swift; sourceTree = "<group>"; };
+		DCC7E7F62C8DDD9500CDFB6A /* CoinChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +75,13 @@
 				DCC7E7CD2C8DB8C000CDFB6A /* ContentView.swift */,
 				DCC7E7CF2C8DB8C100CDFB6A /* Assets.xcassets */,
 				DCC7E7D12C8DB8C100CDFB6A /* Preview Content */,
-				DCC7E7D92C8DB8DE00CDFB6A /* Search */,
 				DCC7E7DE2C8DBD9300CDFB6A /* Response */,
 				DCC7E7E12C8DBE1700CDFB6A /* Network */,
+				DCC7E7EC2C8DDCD600CDFB6A /* Tab */,
+				DCC7E7EF2C8DDD4400CDFB6A /* Trending */,
+				DCC7E7D92C8DB8DE00CDFB6A /* Search */,
+				DCC7E7F02C8DDD5700CDFB6A /* Star */,
+				DCC7E7F12C8DDD6C00CDFB6A /* Chart */,
 			);
 			path = CoinApp;
 			sourceTree = "<group>";
@@ -105,6 +117,38 @@
 				DCC7E7EA2C8DBF0E00CDFB6A /* Router.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		DCC7E7EC2C8DDCD600CDFB6A /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				DCC7E7ED2C8DDCF800CDFB6A /* CoinTabView.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		DCC7E7EF2C8DDD4400CDFB6A /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+				DCC7E7F22C8DDD7F00CDFB6A /* CoinTrendingView.swift */,
+			);
+			path = Trending;
+			sourceTree = "<group>";
+		};
+		DCC7E7F02C8DDD5700CDFB6A /* Star */ = {
+			isa = PBXGroup;
+			children = (
+				DCC7E7F42C8DDD8D00CDFB6A /* CoinStarView.swift */,
+			);
+			path = Star;
+			sourceTree = "<group>";
+		};
+		DCC7E7F12C8DDD6C00CDFB6A /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				DCC7E7F62C8DDD9500CDFB6A /* CoinChartView.swift */,
+			);
+			path = Chart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,11 +229,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCC7E7F32C8DDD7F00CDFB6A /* CoinTrendingView.swift in Sources */,
+				DCC7E7F52C8DDD8D00CDFB6A /* CoinStarView.swift in Sources */,
 				DCC7E7E32C8DBE4200CDFB6A /* NetworkManager.swift in Sources */,
 				DCC7E7E02C8DBDA500CDFB6A /* CoinSearchModel.swift in Sources */,
+				DCC7E7EE2C8DDCF800CDFB6A /* CoinTabView.swift in Sources */,
 				DCC7E7EB2C8DBF0E00CDFB6A /* Router.swift in Sources */,
 				DCC7E7DB2C8DB8EF00CDFB6A /* CoinSearchView.swift in Sources */,
 				DCC7E7CE2C8DB8C000CDFB6A /* ContentView.swift in Sources */,
+				DCC7E7F72C8DDD9500CDFB6A /* CoinChartView.swift in Sources */,
 				DCC7E7CC2C8DB8C000CDFB6A /* CoinAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
