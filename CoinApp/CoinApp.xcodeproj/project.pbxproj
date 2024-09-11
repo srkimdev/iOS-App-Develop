@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC6567562C917B6400075CE3 /* CoinTrendingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6567552C917B6400075CE3 /* CoinTrendingModel.swift */; };
+		DC6567582C917F0200075CE3 /* CoinTrendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6567572C917F0200075CE3 /* CoinTrendingViewModel.swift */; };
 		DCC7E7CC2C8DB8C000CDFB6A /* CoinAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7E7CB2C8DB8C000CDFB6A /* CoinAppApp.swift */; };
 		DCC7E7CE2C8DB8C000CDFB6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7E7CD2C8DB8C000CDFB6A /* ContentView.swift */; };
 		DCC7E7D02C8DB8C100CDFB6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCC7E7CF2C8DB8C100CDFB6A /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC6567552C917B6400075CE3 /* CoinTrendingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTrendingModel.swift; sourceTree = "<group>"; };
+		DC6567572C917F0200075CE3 /* CoinTrendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTrendingViewModel.swift; sourceTree = "<group>"; };
 		DCC7E7C82C8DB8C000CDFB6A /* CoinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC7E7CB2C8DB8C000CDFB6A /* CoinAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinAppApp.swift; sourceTree = "<group>"; };
 		DCC7E7CD2C8DB8C000CDFB6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				DCC7E7DF2C8DBDA500CDFB6A /* CoinSearchModel.swift */,
+				DC6567552C917B6400075CE3 /* CoinTrendingModel.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				DCC7E7F22C8DDD7F00CDFB6A /* CoinTrendingView.swift */,
+				DC6567572C917F0200075CE3 /* CoinTrendingViewModel.swift */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -231,9 +237,11 @@
 			files = (
 				DCC7E7F32C8DDD7F00CDFB6A /* CoinTrendingView.swift in Sources */,
 				DCC7E7F52C8DDD8D00CDFB6A /* CoinStarView.swift in Sources */,
+				DC6567582C917F0200075CE3 /* CoinTrendingViewModel.swift in Sources */,
 				DCC7E7E32C8DBE4200CDFB6A /* NetworkManager.swift in Sources */,
 				DCC7E7E02C8DBDA500CDFB6A /* CoinSearchModel.swift in Sources */,
 				DCC7E7EE2C8DDCF800CDFB6A /* CoinTabView.swift in Sources */,
+				DC6567562C917B6400075CE3 /* CoinTrendingModel.swift in Sources */,
 				DCC7E7EB2C8DBF0E00CDFB6A /* Router.swift in Sources */,
 				DCC7E7DB2C8DB8EF00CDFB6A /* CoinSearchView.swift in Sources */,
 				DCC7E7CE2C8DB8C000CDFB6A /* ContentView.swift in Sources */,

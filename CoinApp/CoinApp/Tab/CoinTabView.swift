@@ -13,7 +13,7 @@ struct CoinTabView: View {
             
             CoinTrendingView()
                 .tabItem {
-                    Image(systemName: "chartchart.line.uptrend.xyaxis")
+                    Image(systemName: "chart.line.uptrend.xyaxis")
                 }
             
             CoinSearchView()
@@ -23,7 +23,7 @@ struct CoinTabView: View {
             
             CoinStarView()
                 .tabItem {
-                    Image(systemName: "")
+                    Image(systemName: "menucard")
                 }
             
             CoinChartView()

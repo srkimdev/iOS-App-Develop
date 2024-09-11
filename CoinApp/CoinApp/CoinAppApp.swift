@@ -11,7 +11,7 @@ import SwiftUI
 struct CoinAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CoinTrendingView()
         }
     }
 }
