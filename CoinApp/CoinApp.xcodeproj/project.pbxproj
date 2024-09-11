@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DC6567562C917B6400075CE3 /* CoinTrendingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6567552C917B6400075CE3 /* CoinTrendingModel.swift */; };
 		DC6567582C917F0200075CE3 /* CoinTrendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6567572C917F0200075CE3 /* CoinTrendingViewModel.swift */; };
+		DC65675B2C91978900075CE3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC65675A2C91978900075CE3 /* RealmSwift */; };
+		DC65675D2C91989800075CE3 /* CoinSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65675C2C91989800075CE3 /* CoinSearchViewModel.swift */; };
 		DCC7E7CC2C8DB8C000CDFB6A /* CoinAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7E7CB2C8DB8C000CDFB6A /* CoinAppApp.swift */; };
 		DCC7E7CE2C8DB8C000CDFB6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7E7CD2C8DB8C000CDFB6A /* ContentView.swift */; };
 		DCC7E7D02C8DB8C100CDFB6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCC7E7CF2C8DB8C100CDFB6A /* Assets.xcassets */; };
@@ -28,6 +30,7 @@
 /* Begin PBXFileReference section */
 		DC6567552C917B6400075CE3 /* CoinTrendingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTrendingModel.swift; sourceTree = "<group>"; };
 		DC6567572C917F0200075CE3 /* CoinTrendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTrendingViewModel.swift; sourceTree = "<group>"; };
+		DC65675C2C91989800075CE3 /* CoinSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinSearchViewModel.swift; sourceTree = "<group>"; };
 		DCC7E7C82C8DB8C000CDFB6A /* CoinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC7E7CB2C8DB8C000CDFB6A /* CoinAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinAppApp.swift; sourceTree = "<group>"; };
 		DCC7E7CD2C8DB8C000CDFB6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC65675B2C91978900075CE3 /* RealmSwift in Frameworks */,
 				DCC7E7E62C8DBE9C00CDFB6A /* Kingfisher in Frameworks */,
 				DCC7E7E92C8DBEAB00CDFB6A /* Alamofire in Frameworks */,
 			);
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				DCC7E7DA2C8DB8EF00CDFB6A /* CoinSearchView.swift */,
+				DC65675C2C91989800075CE3 /* CoinSearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			packageProductDependencies = (
 				DCC7E7E52C8DBE9C00CDFB6A /* Kingfisher */,
 				DCC7E7E82C8DBEAB00CDFB6A /* Alamofire */,
+				DC65675A2C91978900075CE3 /* RealmSwift */,
 			);
 			productName = CoinApp;
 			productReference = DCC7E7C82C8DB8C000CDFB6A /* CoinApp.app */;
@@ -208,6 +214,7 @@
 			packageReferences = (
 				DCC7E7E42C8DBE9C00CDFB6A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				DCC7E7E72C8DBEAB00CDFB6A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DC6567592C91978900075CE3 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = DCC7E7C92C8DB8C000CDFB6A /* Products */;
 			projectDirPath = "";
@@ -238,6 +245,7 @@
 				DCC7E7F32C8DDD7F00CDFB6A /* CoinTrendingView.swift in Sources */,
 				DCC7E7F52C8DDD8D00CDFB6A /* CoinStarView.swift in Sources */,
 				DC6567582C917F0200075CE3 /* CoinTrendingViewModel.swift in Sources */,
+				DC65675D2C91989800075CE3 /* CoinSearchViewModel.swift in Sources */,
 				DCC7E7E32C8DBE4200CDFB6A /* NetworkManager.swift in Sources */,
 				DCC7E7E02C8DBDA500CDFB6A /* CoinSearchModel.swift in Sources */,
 				DCC7E7EE2C8DDCF800CDFB6A /* CoinTabView.swift in Sources */,
@@ -454,6 +462,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DC6567592C91978900075CE3 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.52.1;
+			};
+		};
 		DCC7E7E42C8DBE9C00CDFB6A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -473,6 +489,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DC65675A2C91978900075CE3 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6567592C91978900075CE3 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		DCC7E7E52C8DBE9C00CDFB6A /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DCC7E7E42C8DBE9C00CDFB6A /* XCRemoteSwiftPackageReference "Kingfisher" */;

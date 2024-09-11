@@ -10,16 +10,20 @@ import Foundation
 final class CoinTrendingViewModel: ObservableObject {
     
     @Published var top15Coins: [Coins] = []
+    @Published var nft7Coins: [Nft] = []
     
-    func fetchTop15Coin() async {
+    func fetchCoin() async {
         
         let result = await NetworkManager.shared.requestAPI(req: Router.trending, type: CoinTrendingModel.self)
-        print(result)
         
         switch result {
         case .success(let value):
-            top15Coins = value.coins
-            print(value)
+            
+            DispatchQueue.main.async {
+                self.top15Coins = value.coins
+                self.nft7Coins = value.nfts
+            }
+
         case .failure(let error):
             print(error)
         }

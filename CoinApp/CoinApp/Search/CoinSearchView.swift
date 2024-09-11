@@ -10,18 +10,14 @@ import SwiftUI
 struct CoinSearchView: View {
     
     @State private var searchText = ""
-    @State private var coins: [Coin] = []
-    
-    var filterText: [Coin] {
-        return searchText.isEmpty ? coins : coins.filter { $0.name.contains(searchText) }
-    }
+    @StateObject private var viewModel = CoinSearchViewModel()
     
     var body: some View {
         
         NavigationView {
             ScrollView {
                 LazyVStack {
-                    ForEach(coins, id: \.self) { item in
+                    ForEach(viewModel.filteredCoins, id: \.self) { item in
                         coinRowView(item)
                     }
                 }
@@ -29,19 +25,11 @@ struct CoinSearchView: View {
             .navigationTitle("Search")
             .searchable(text: $searchText)
             .onSubmit(of: .search) {
-                coins = filterText
+                viewModel.input.inputText.send(searchText)
             }
         }
         .task {
-            let result = await NetworkManager.shared.requestAPI(req: Router.search, type: CoinSearchModel.self)
-            
-            switch result {
-            case .success(let value):
-                coins = value.coins
-            case .failure(let error):
-                print(error)
-            }
-            
+            await viewModel.fetchSearchCoin()
         }
         
     }
